@@ -1,0 +1,10 @@
+<div class="steps-wrap">
+    <div class="container-1">
+        <div class="steps">
+            <div class="progress"><span style="width: 0%;"></span></div>
+            <div class="piint-div" *ngFor = "let step of steps">
+                <div class="point current" [style.left.%]="step.width"><p class="text-2">{{ step.title }}</p></div>
+            </div>
+        </div>
+    </div>
+</div>

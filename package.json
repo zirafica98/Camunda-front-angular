@@ -18,7 +18,10 @@
     "@angular/platform-browser": "^17.2.0",
     "@angular/platform-browser-dynamic": "^17.2.0",
     "@angular/router": "^17.2.0",
+    "camunda-bpm-sdk-js": "^7.7.4-SNAPSHOT",
+    "keycloak-angular": "^15.1.0",
     "rxjs": "~7.8.0",
+    "rxjs-observable": "^0.0.7",
     "tslib": "^2.3.0",
     "zone.js": "~0.14.3"
   },

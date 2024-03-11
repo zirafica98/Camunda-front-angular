@@ -1,0 +1,31 @@
+[
+    {
+      "title": "Lični podaci",
+      "description": "Opis koraka 1",
+      "width":0
+    },
+    {
+      "title": "Poslovni podaci",
+      "description": "Opis koraka 2",
+      "width":25
+
+    },
+    {
+      "title": "Identifikacija",
+      "description": "Opis koraka 3",
+      "width":50
+
+    },
+    {
+        "title": "Potpisivanje dokumentacije",
+        "description": "Opis koraka 3",
+        "width":75
+
+    },
+    {
+        "title": "Pristup računu",
+        "description": "Opis koraka 3",
+        "width":100
+
+    }
+  ]

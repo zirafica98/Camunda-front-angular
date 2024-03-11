@@ -1,0 +1,56 @@
+.steps-wrap {
+    position: relative;
+    background-color: #34393c;
+    background-image: url("../../../assets/pattern-2.png");
+    .container-1{
+        position: relative;
+        z-index: 1;
+        min-height: 100px;
+        width: calc(100% - 40px);
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1170px;
+
+        .steps{
+            position: absolute;
+            top: 60px;
+            left: 90px;
+            width: calc(100% - 180px);
+            .progress {
+                background-color: #999;
+                >span{
+                    transition: width 0.3s ease-out;
+                    display: block;
+                    height: 3px;
+                    background-color: #fff100;
+                    vertical-align: middle;
+                }
+            }
+            .point{
+                position: absolute;
+                transform: translate3d(-50%, 0, 0);
+                top: calc(50% - 10px);
+                width: 18px;
+                height: 18px;
+                border-radius: 50%;
+                background-color: #34393c;
+                border: 1px solid #999;
+
+                >p{
+                    position: absolute;
+                    transform: translate3d(-50%, 0, 0);
+                    top: -30px;
+                    left: calc(50% + 0.2px);
+                    color: #999;
+                    margin: 0;
+                    width: max-content;
+                    
+                }
+            }
+
+            .current {
+                border-color: #fff100;
+            }
+        }
+    }
+}

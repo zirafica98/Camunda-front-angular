@@ -1,0 +1,63 @@
+#page-footer{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    color: #fff;
+    padding: 10px 0;
+    text-align: center;
+    background-color: #34393c;
+    .contact-section{
+        padding: 27px 0;
+        
+        height: max-content;
+        .container-1{
+            width: calc(100% - 40px);
+            margin-left: auto;
+            margin-right: auto;
+            max-width: 1170px;
+            .row-grid{
+                zoom: 1;
+                margin-left: -18px;
+                .col {
+                    float: left;
+                    min-height: 1px;
+                }
+                .col-ls-4{
+                    width: 33.33332%;
+                    .page-logo-2{
+                        margin-top: 15px;
+                        display: block;
+                        width: 200px;
+                        height: 50px;
+                        background: url("../../../assets/logo/page-logo-7.png") 50% no-repeat;
+                        background-size: cover;
+                    }
+                    .tag-wrap{
+                        padding-top: 5px;
+                        padding-bottom: 5px;
+                        .tag{
+                            position: absolute;
+                            top: calc(50% - 24px);
+                            right: 30px;
+                            display: block;
+                            width: 48px;
+                            height: 48px;
+                            background-color: #ffec00;
+                            background-position: 50%;
+                            background-repeat: no-repeat;
+                        }
+                        .icon-phone-1 {
+                            background-image: url("../../../assets/icon/icon-phone-1.png");
+                            background-size: 18px;
+                        }
+                        .icon-bubble-1 {
+                            background-image: url("../../../assets/icon/icon-bubble-1.png");
+                            background-size: 18px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
