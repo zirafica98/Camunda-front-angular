@@ -1,0 +1,52 @@
+.container{
+    width: 80%;
+    margin:2% auto;
+    position: relative;
+    background: white;
+    border-radius: 15px;
+    padding: 2%;
+    .top{
+        border-bottom: 4px solid #c0c4c7;
+        display: inline-flex;
+        width: 100%;
+        align-items: center;
+        margin-top: 2%;
+        .title{
+            float: left;
+        }
+        .button{
+            float: right;
+            right: 0;
+            position: absolute;
+            >button{
+                border: none;
+                background: none;
+                color: #318fa4;
+                font-size: 20px;
+                cursor: pointer;
+            }
+        }
+    }
+    .content{
+        margin-top: 2%;
+        display: block;
+        width: 60%;
+        margin: 5% auto;
+        .text-content{
+            font-size: 20px;
+            width: 100%;
+            display: block;
+        }
+        .custom-input{
+            margin-top: 5%;
+        }
+    }
+    .bottom{
+        margin-top: 2%;
+        border-top: 4px solid #c0c4c7;
+        padding-top: 3%;
+        >button{
+            float: right;
+        }
+    }
+}

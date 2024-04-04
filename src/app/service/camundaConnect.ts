@@ -9,37 +9,45 @@ import { GlobalService } from '../global.service';
 
 export class CamundaService {
 
-  private baseUrl: string = 'http://localhost:8080/engine-rest'; 
+  private baseUrl: string = 'http://localhost:7262'; 
+  private processName: string = 'demoDiagram'
 
-  constructor(private http: HttpClient){}
+  constructor(private http: HttpClient,private globalService:GlobalService){}
 
-  startProcess(procesDefinitionKey:string,variables:any):Observable<any>{
-    const url = `${this.baseUrl}/process-definition/key/${procesDefinitionKey}/start`;
+  startProcess():Observable<any>{
+    var variables = {
+      processName:this.processName
+    }
+    const url = `${this.baseUrl}/api/Camunda/startProcessInstance/${this.processName}`;
     return this.http.post(url,{variables})
   }
 
-  getTasks(processInstanceId:string):Observable<any>{
-    const url=`${this.baseUrl}/task?processInstanceId=${processInstanceId}`
+  getProcessDefinition(): Observable<any> {
+    const url = `${this.baseUrl}/api/Camunda/getProcessDefinition/${this.processName}`;
     return this.http.get(url);
   }
 
-  completeTask(taskId:string,variables:any):Observable<any>{
-    const url = `${this.baseUrl}/task/${taskId}/complete`;
+  getProcessDefinitionXML(): Observable<any> {
+    const url = `${this.baseUrl}/api/Camunda/getProcessDefinitionXML/${this.processName}`;
+    return this.http.get(url);
+  }
+
+  getProcessInstance(): Observable<any>{
+    const url = `${this.baseUrl}/api/Camunda/getProcessInstance/${this.globalService.getGlobalVariable()}`;
+    return this.http.get(url);
+  }
+
+  getActiveTask(): Observable<any>{
+    const url = `${this.baseUrl}/api/Camunda/getActiveTask/${this.globalService.getGlobalVariable()}`;
+    return this.http.get(url);
+  }
+  
+  completeTask():Observable<any>{
+    var variables = {
+      taskId:this.globalService.getGlobalTaskId()
+    }
+    const url = `${this.baseUrl}/api/Camunda/completeActiveTask/${this.globalService.getGlobalTaskId()}`;
     return this.http.post(url,{variables})
-  }
-
-  executeServiceTask(taskId: string): Observable<any> {
-    const url = `http://localhost:8080/engine-rest/task/${taskId}/complete`;
-    const headers = new HttpHeaders({
-      'Content-Type': 'application/json'
-    });
-
-    return this.http.post(url, {}, { headers });
-  }
-
-  getVariableAfterTask(processInstanceId:string):Observable<any>{
-    const url=`${this.baseUrl}/history/variable-instance?processInstanceId=${processInstanceId}`
-    return this.http.get(url);
   }
 
 }

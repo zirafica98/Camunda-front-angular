@@ -1,0 +1,66 @@
+.container {
+  width: 80%;
+  margin: 2% auto;
+  position: relative;
+  background: white;
+  border-radius: 15px;
+  padding: 2%;
+}
+
+.container .top {
+  border-bottom: 4px solid #c0c4c7;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-top: 2%;
+}
+
+.container .top .title {
+  float: left;
+}
+
+.container .top .button {
+  float: right;
+  right: 0;
+  position: absolute;
+}
+
+.container .top .button > button {
+  border: none;
+  background: none;
+  color: #318fa4;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.container .content {
+  margin-top: 2%;
+  display: block;
+  width: 60%;
+  margin: 5% auto;
+}
+
+.container .content .text-content {
+  font-size: 20px;
+  width: 100%;
+  display: block;
+}
+
+.container .content .custom-input {
+  margin-top: 5%;
+}
+
+.container .bottom {
+  margin-top: 2%;
+  border-top: 4px solid #c0c4c7;
+  padding-top: 3%;
+}
+
+.container .bottom > button {
+  float: right;
+}
+/*# sourceMappingURL=jmbgForms.css.map */

@@ -4,18 +4,20 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class GlobalService {
-  globalVariable: any;
+  globalProcessId: any;
   globalTaskId: any;
   globalUserName:any;
+  globalTaskKey:any;
+  globalCodeBook:any;
 
   constructor() { }
 
   setGlobalVariable(value: any): void {
-    this.globalVariable = value;
+    this.globalProcessId = value;
   }
 
   getGlobalVariable(): any {
-    return this.globalVariable;
+    return this.globalProcessId;
   }
 
   setGlobalTaskId(value:any):void{
@@ -30,7 +32,23 @@ export class GlobalService {
     this.globalUserName = value;
   }
 
-  getGlobalUserName(value:any):void{
+  getGlobalUserName():any{
     return this.globalUserName;
+  }
+
+  setGlobalTaskKey(value:any):void{
+    this.globalTaskKey = value;
+  }
+  
+  getGlobalTaskKey():any{
+    return this.globalTaskKey;
+  }
+
+  setGlobalCodeBook(value:any):any{
+    return this.globalCodeBook;
+  }
+
+  getGlobalCodeBook():any{
+    return this.getGlobalCodeBook;
   }
 }

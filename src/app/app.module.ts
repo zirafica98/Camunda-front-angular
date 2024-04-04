@@ -11,7 +11,13 @@ import { StepsWrapComponent } from './shared/stepWrapper/stepWrapper';
 import { CamundaService } from './service/camundaConnect';
 import { StartCamundaComponent } from './Camunda/startCamunda/start-camunda.component';
 import { ButtonComponent } from './components/buttonInput/button-component';
-
+import { FrameComponent } from './forms/Frame/frame.component';
+import { JmbgComponent } from './components/jmbgInput/jmbg.component';
+import { JmbgForms } from './forms/JmbgForms/jmbgForms';
+import { FnameComponent } from './components/firstNameInput/firstName.component';
+import {LnameComponent} from './components/lastNameInput/lastName.component'
+import { LoadService } from './forms/LoadService/loadService.component';
+ 
 @NgModule({
   declarations: [
     AppComponent,
@@ -21,7 +27,12 @@ import { ButtonComponent } from './components/buttonInput/button-component';
     TextInputComponent,
     StepsWrapComponent,
     StartCamundaComponent,
-    ButtonComponent
+    ButtonComponent,
+    FrameComponent,
+    JmbgComponent,
+    JmbgForms,
+    FnameComponent,
+    LnameComponent
   ],
   imports: [
     BrowserModule,

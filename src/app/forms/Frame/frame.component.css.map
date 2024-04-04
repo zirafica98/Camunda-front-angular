@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,gBAAgB,CAAA;EACZ,SAAS,EAAE,MAAM;EACjB,MAAM,EAAE,MAAM;EACd,OAAO,EAAE,KAAK;CACjB",
+    "sources": [
+        "frame.component.scss"
+    ],
+    "names": [],
+    "file": "frame.component.css"
+}

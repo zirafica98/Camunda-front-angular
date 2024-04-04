@@ -14,6 +14,7 @@ export class BasicDataFormsComponent{
     formData = {
         inputData: 'test'
       };
+    showBasicDataForm:boolean = false;
     constructor(private camundaService: CamundaService,private globalSerive:GlobalService) { }
 
     ngOnInit() {
@@ -26,23 +27,7 @@ export class BasicDataFormsComponent{
 
     submitForm() {
       this.idTask = this.globalSerive.getGlobalTaskId()[0].id;
-      this.camundaService.executeServiceTask(this.idTask)
-        .subscribe(
-          response => {
-            this.camundaService.getVariableAfterTask(this.globalSerive.getGlobalVariable())
-              .subscribe(
-                response => {
-                  console.log("Vrednost:",response);
-                },
-                error =>{
-                  console.log("Error",error);
-                }
-              )
-          },
-          error => {
-            console.log("Failed to complete task:",error)
-          }
-        )
+      
     }
 
 }
