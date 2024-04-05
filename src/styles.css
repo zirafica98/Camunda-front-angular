@@ -1,5 +1,33 @@
 /* You can add global styles to this file, and also import other style files */
+/*#region fonts*/
+@font-face {
+  font-family: "futura";
+  src: url("assets/fonts/Futura-Roman.eot");
+  src: url("assets/fonts/Futura-Roman.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Futura-Roman.woff") format("woff"), url("assets/fonts/Futura-Roman.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "futura";
+  src: url("assets/fonts/Futura-Dem.eot");
+  src: url("assets/fonts/Futura-Dem.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Futura-Dem.woff") format("woff"), url("assets/fonts/Futura-Dem.ttf") format("truetype");
+  font-weight: 500;
+}
+@font-face {
+  font-family: "futura";
+  src: url("assets/fonts/Futura-Bold.eot");
+  src: url("assets/fonts/Futura-Bold.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Futura-Bold.woff") format("woff"), url("assets/fonts/Futura-Bold.ttf") format("truetype");
+  font-weight: 700;
+  font-style: normal;
+}
+@font-face {
+  font-family: "futura";
+  src: url("assets/fonts/Futura-ExtraBold.eot");
+  src: url("assets/fonts/Futura-ExtraBold.eot?#iefix") format("embedded-opentype"), url("assets/fonts/Futura-ExtraBold.woff") format("woff"), url("assets/fonts/Futura-ExtraBold.ttf") format("truetype");
+  font-weight: 900;
+  font-style: normal;
+}
 body {
   background-color: #f7f7f8;
-}
-/*# sourceMappingURL=styles.css.map */
+  margin: 0;
+}/*# sourceMappingURL=styles.css.map */

@@ -2,8 +2,8 @@
     <div class="container-1">
         <div class="steps">
             <div class="progress"><span style="width: 0%;"></span></div>
-            <div class="piint-div" *ngFor = "let step of steps">
-                <div class="point current" [style.left.%]="step.width"><p class="text-2">{{ step.title }}</p></div>
+            <div class="piint-div" *ngFor = "let step of steps; let i = index">
+                <div class="point" [class.current]="i==0" [style.left.%]="step.width">{{i+1}}<p class="text-2" [class.currentp]="i==0">{{ step.title }}</p></div>
             </div>
         </div>
     </div>

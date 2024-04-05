@@ -17,6 +17,10 @@ import { JmbgForms } from './forms/JmbgForms/jmbgForms';
 import { FnameComponent } from './components/firstNameInput/firstName.component';
 import {LnameComponent} from './components/lastNameInput/lastName.component'
 import { LoadService } from './forms/LoadService/loadService.component';
+import { BasicDataForms2Component } from './forms/basic-data-forms2/basic-data-forms2.component';
+import { EmailInputComponent } from './components/email-input/email-input.component';
+import { PhoneInputComponent } from './components/phone-input/phone-input.component';
+import { CheckboxInputComponent } from './components/checkbox-input/checkbox-input.component';
  
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import { LoadService } from './forms/LoadService/loadService.component';
     JmbgComponent,
     JmbgForms,
     FnameComponent,
-    LnameComponent
+    LnameComponent,
+    BasicDataForms2Component,
+    EmailInputComponent,
+    PhoneInputComponent,
+    CheckboxInputComponent
   ],
   imports: [
     BrowserModule,

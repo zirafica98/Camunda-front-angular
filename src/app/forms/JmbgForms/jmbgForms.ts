@@ -17,7 +17,8 @@ export class JmbgForms{
     formData = {
         inputData: 'test'
       };
-    showJmbgForms:boolean = false;
+      
+      isChecked:boolean=false;
     constructor(private camundaService: CamundaService,private globalSerive:GlobalService, private router:Router,private frameComponet:FrameComponent) { }
 
     ngOnInit() {

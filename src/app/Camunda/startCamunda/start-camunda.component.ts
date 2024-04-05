@@ -31,6 +31,7 @@ export class StartCamundaComponent implements OnInit {
 
 
   startProcess():void{
+    if(!this.globalService.isDev()){
     this.camundaService.startProcess()
       .subscribe(
         response => {
@@ -41,7 +42,8 @@ export class StartCamundaComponent implements OnInit {
         error => {
           console.log("Failed to start process:",error)
         }
-      )
+      )}
+      else{this.showFrameComponent = true;}
   }
   
   

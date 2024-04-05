@@ -1,0 +1,9 @@
+<div class="wrapper">
+    <label class="custom-checkbox">
+        <input type="checkbox" [checked]="isChecked" (change)="toggleCheckbox()">
+        <span class="checkmark"></span>
+        <ng-content></ng-content>
+    </label>
+    <span>{{customText}}</span>
+
+</div>

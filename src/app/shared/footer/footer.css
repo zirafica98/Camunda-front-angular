@@ -1,74 +1,24 @@
 #page-footer {
   left: 0;
   bottom: 0;
-  width: 100%;
-  color: #fff;
-  padding: 10px 0;
-  text-align: center;
-  background-color: #34393c;
+  width: 80%;
+  margin: 0 10%;
+  padding: 50px 0;
+  display: flex;
+  justify-content: space-around;
+  border-top: solid 2px #dedfe2;
 }
-
-#page-footer .contact-section {
-  padding: 27px 0;
-  height: -webkit-max-content;
-  height: -moz-max-content;
-  height: max-content;
+#page-footer .info {
+  display: flex;
+  align-items: center;
+  font-family: futura;
+  font-size: 14px;
+  color: #8F9199;
 }
-
-#page-footer .contact-section .container-1 {
-  width: calc(100% - 40px);
-  margin-left: auto;
-  margin-right: auto;
-  max-width: 1170px;
+#page-footer .info > svg {
+  margin-right: 10px;
 }
-
-#page-footer .contact-section .container-1 .row-grid {
-  zoom: 1;
-  margin-left: -18px;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col {
-  float: left;
-  min-height: 1px;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col-ls-4 {
-  width: 33.33332%;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col-ls-4 .page-logo-2 {
-  margin-top: 15px;
-  display: block;
-  width: 200px;
-  height: 50px;
-  background: url("../../../assets/logo/page-logo-7.png") 50% no-repeat;
-  background-size: cover;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col-ls-4 .tag-wrap {
-  padding-top: 5px;
-  padding-bottom: 5px;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col-ls-4 .tag-wrap .tag {
-  position: absolute;
-  top: calc(50% - 24px);
-  right: 30px;
-  display: block;
-  width: 48px;
-  height: 48px;
-  background-color: #ffec00;
-  background-position: 50%;
-  background-repeat: no-repeat;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col-ls-4 .tag-wrap .icon-phone-1 {
-  background-image: url("../../../assets/icon/icon-phone-1.png");
-  background-size: 18px;
-}
-
-#page-footer .contact-section .container-1 .row-grid .col-ls-4 .tag-wrap .icon-bubble-1 {
-  background-image: url("../../../assets/icon/icon-bubble-1.png");
-  background-size: 18px;
-}
-/*# sourceMappingURL=footer.css.map */
+#page-footer .info2 {
+  color: #232529;
+  font-weight: 500;
+}/*# sourceMappingURL=footer.css.map */

@@ -1,9 +1,8 @@
 .steps-wrap {
   position: relative;
-  background-color: #34393c;
-  background-image: url("../../../assets/pattern-2.png");
+  font-family: futura;
+  margin-top: 30px;
 }
-
 .steps-wrap .container-1 {
   position: relative;
   z-index: 1;
@@ -13,53 +12,52 @@
   margin-right: auto;
   max-width: 1170px;
 }
-
 .steps-wrap .container-1 .steps {
   position: absolute;
   top: 60px;
   left: 90px;
   width: calc(100% - 180px);
 }
-
 .steps-wrap .container-1 .steps .progress {
-  background-color: #999;
+  background-color: #dedfe2;
 }
-
 .steps-wrap .container-1 .steps .progress > span {
-  -webkit-transition: width 0.3s ease-out;
   transition: width 0.3s ease-out;
   display: block;
-  height: 3px;
+  height: 1px;
   background-color: #fff100;
-  vertical-align: middle;
 }
-
 .steps-wrap .container-1 .steps .point {
   position: absolute;
-  -webkit-transform: translate3d(-50%, 0, 0);
-          transform: translate3d(-50%, 0, 0);
-  top: calc(50% - 10px);
-  width: 18px;
-  height: 18px;
+  transform: translate3d(-50%, 0, 0);
+  top: calc(50% - 15px);
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
-  background-color: #34393c;
-  border: 1px solid #999;
+  background-color: #f7f7f8;
+  border: 1px solid #dedfe2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-weight: 500;
 }
-
 .steps-wrap .container-1 .steps .point > p {
   position: absolute;
-  -webkit-transform: translate3d(-50%, 0, 0);
-          transform: translate3d(-50%, 0, 0);
-  top: -30px;
+  transform: translate3d(-50%, 0, 0);
+  bottom: -30px;
   left: calc(50% + 0.2px);
-  color: #999;
+  color: #656772;
   margin: 0;
-  width: -webkit-max-content;
+  font-size: 18px;
   width: -moz-max-content;
   width: max-content;
+  font-weight: 400;
 }
-
+.steps-wrap .container-1 .steps .point .currentp {
+  font-weight: 500;
+  color: #232529;
+}
 .steps-wrap .container-1 .steps .current {
-  border-color: #fff100;
-}
-/*# sourceMappingURL=stepWrapper.css.map */
+  background-color: #548ca6;
+  color: white;
+}/*# sourceMappingURL=stepWrapper.css.map */

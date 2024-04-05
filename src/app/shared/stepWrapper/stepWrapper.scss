@@ -1,7 +1,7 @@
 .steps-wrap {
     position: relative;
-    background-color: #34393c;
-    background-image: url("../../../assets/pattern-2.png");
+    font-family: futura;
+    margin-top: 30px;
     .container-1{
         position: relative;
         z-index: 1;
@@ -17,39 +17,49 @@
             left: 90px;
             width: calc(100% - 180px);
             .progress {
-                background-color: #999;
+                background-color: #dedfe2;
                 >span{
                     transition: width 0.3s ease-out;
                     display: block;
-                    height: 3px;
+                    height: 1px;
                     background-color: #fff100;
-                    vertical-align: middle;
                 }
             }
             .point{
                 position: absolute;
                 transform: translate3d(-50%, 0, 0);
-                top: calc(50% - 10px);
-                width: 18px;
-                height: 18px;
+                top: calc(50% - 15px);
+                width: 32px;
+                height: 32px;
                 border-radius: 50%;
-                background-color: #34393c;
-                border: 1px solid #999;
+                background-color: #f7f7f8;
+                border: 1px solid #dedfe2;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-weight: 500;
 
                 >p{
                     position: absolute;
                     transform: translate3d(-50%, 0, 0);
-                    top: -30px;
+                    bottom: -30px;
                     left: calc(50% + 0.2px);
-                    color: #999;
+                    color: #656772;
                     margin: 0;
+                    font-size: 18px;
                     width: max-content;
-                    
+                    font-weight: 400;
+                }
+
+                .currentp{
+                    font-weight: 500;
+                    color: #232529;
                 }
             }
 
             .current {
-                border-color: #fff100;
+                background-color: #548ca6;
+                color: white;
             }
         }
     }

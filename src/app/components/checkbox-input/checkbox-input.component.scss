@@ -1,0 +1,69 @@
+.wrapper{
+
+    display: flex;
+    align-items: center;
+    margin: 40px 0;
+    >span{
+        margin-left: 20px;
+        color:#656772;
+    }
+.custom-checkbox {
+    display: inline-block;
+    position: relative;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 6px;
+    height: 24px;
+    width: 24px;
+  }
+  
+  /* Checkbox stil */
+  .custom-checkbox input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+  
+  /* Custom stilizacija za kvadrat */
+  .checkmark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 24px;
+    width: 24px;
+    background-color: white;
+    border: solid 3px #f3f3f4;
+    border-radius: 6px;
+  }
+  
+  /* Boja kada je čekirano */
+  .custom-checkbox input:checked ~ .checkmark {
+    background-color: #008FA8;
+    border: solid 3px #4b7d94;
+  }
+  
+  /* Stilizacija kada je čekirano */
+  .checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+  }
+  
+  /* Prikaz checkmark simbola */
+  .custom-checkbox input:checked ~ .checkmark:after {
+    display: block;
+  }
+  
+  /* Stilizacija checkmark simbola */
+  .custom-checkbox .checkmark:after {
+    left: 8px;
+    top: 4px;
+    width: 6px;
+    height: 10px;
+    border: solid white;
+    border-width: 0 3px 3px 0;
+    transform: rotate(45deg);
+  }
+  
+}
+

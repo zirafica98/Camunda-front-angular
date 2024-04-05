@@ -51,4 +51,8 @@ export class GlobalService {
   getGlobalCodeBook():any{
     return this.getGlobalCodeBook;
   }
+
+  isDev():boolean{
+    return true;
+  }
 }

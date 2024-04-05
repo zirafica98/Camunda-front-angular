@@ -1,0 +1,88 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 80px auto 40px auto;
+  position: relative;
+  background: white;
+  border-radius: 16px;
+  font-family: futura;
+  height: auto;
+  box-shadow: 0px 2px 2px 0px #cfcfcf;
+}
+.container .top {
+  position: relative;
+  border-bottom: 3px solid #f7f7f8;
+  display: inline-flex;
+  width: 100%;
+  align-items: center;
+  margin-top: 5px;
+}
+.container .top .title {
+  float: left;
+  margin: 20px;
+  color: #232529;
+  font-weight: 500;
+  font-size: 24px;
+}
+.container .top .title svg {
+  display: inline-block;
+  margin-left: 5px;
+  cursor: pointer;
+}
+.container .top .button {
+  float: right;
+  right: 0;
+  position: absolute;
+}
+.container .top .button > button {
+  border: none;
+  background: none;
+  color: #318fa4;
+  font-size: 20px;
+  cursor: pointer;
+}
+.container .content {
+  position: relative;
+  margin-top: 2%;
+  display: block;
+  width: 60%;
+  margin: 40px auto 0 auto;
+}
+.container .content .text-content {
+  font-size: 18px;
+  width: 100%;
+  display: block;
+}
+.container .content .custom-input {
+  margin-top: 5%;
+}
+.container .bottom {
+  position: relative;
+  display: block;
+  border-top: 3px solid #f7f7f8;
+  width: 100%;
+  padding: 20px 0;
+}
+.container .bottom > button {
+  float: right;
+  margin-right: 20px;
+  font-size: 14px;
+  font-family: futura;
+  color: #232529;
+  background-color: #fee600;
+  display: flex;
+  margin-right: 30px;
+  align-items: center;
+  padding: 0 20px;
+  width: auto;
+  height: 40px;
+  font-size: 14px;
+  border-radius: 8px;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+.container .bottom > button:hover {
+  background-color: #f1d900;
+}/*# sourceMappingURL=basic-data-forms2.component.css.map */
