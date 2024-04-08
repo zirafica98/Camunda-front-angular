@@ -31,7 +31,7 @@ export class StartCamundaComponent implements OnInit {
 
 
   startProcess():void{
-    if(!this.globalService.isDev()){
+    if(this.globalService.isDev()){
     this.camundaService.startProcess()
       .subscribe(
         response => {

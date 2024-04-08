@@ -36,7 +36,7 @@ export class LoadService{
         this.dataLoader.getCodeBook()
         .subscribe(
           response => {
-            console.log(response);
+            //console.log(response);
             this.globalService.setGlobalCodeBook(response);
             this.camundaService.completeTask()
             .subscribe(

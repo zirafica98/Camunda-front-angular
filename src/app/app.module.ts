@@ -3,7 +3,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { BasicDataFormsComponent } from './forms/BasicDataForms/basicDataForms';
 import { TextInputComponent } from './components/textInput/textInput';
 import { HeaderComponent } from './shared/header/header';
 import { FooterComponent } from './shared/footer/footer';
@@ -21,13 +20,20 @@ import { BasicDataForms2Component } from './forms/basic-data-forms2/basic-data-f
 import { EmailInputComponent } from './components/email-input/email-input.component';
 import { PhoneInputComponent } from './components/phone-input/phone-input.component';
 import { CheckboxInputComponent } from './components/checkbox-input/checkbox-input.component';
+import { AddressDataForm } from './forms/address-data-forms/address-data-forms.component';
+import { TownShipComponent } from './components/townshipInput/townShip.component';
+import { StreetComponent } from './components/streetInput/street.component';
+import { PlaceComponent } from './components/placeInput/place.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { HouseNumberComponent } from './components/houseNumberInput/houseNumber.component';
+import { ApartmanNumberComponent } from './components/ApartmanNumberInput/apartmanNumber.component';
+import { ListBoxComponent } from './components/customListBox/customListBox.component';
  
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     FooterComponent,
-    BasicDataFormsComponent,
     TextInputComponent,
     StepsWrapComponent,
     StartCamundaComponent,
@@ -40,12 +46,21 @@ import { CheckboxInputComponent } from './components/checkbox-input/checkbox-inp
     BasicDataForms2Component,
     EmailInputComponent,
     PhoneInputComponent,
-    CheckboxInputComponent
+    CheckboxInputComponent,
+    AddressDataForm,
+    TownShipComponent,
+    StreetComponent,
+    PlaceComponent,
+    HouseNumberComponent,
+    ApartmanNumberComponent,
+    ListBoxComponent
+    
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [CamundaService],
   bootstrap: [AppComponent]

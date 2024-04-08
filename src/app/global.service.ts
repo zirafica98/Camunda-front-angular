@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,6 +10,13 @@ export class GlobalService {
   globalUserName:any;
   globalTaskKey:any;
   globalCodeBook:any;
+  globalSelectTownShipCodeBookCode:any = "";
+  globalSelectPlaceCodeBookCode:any;
+  globalSelectStreetCodeBookCode:any;
+  private townShipValueSubject = new BehaviorSubject<any>('');
+  townShipValue$ = this.townShipValueSubject.asObservable();
+  private placeValueSubject = new BehaviorSubject<any>('');
+  placeValue$ = this.placeValueSubject.asObservable();
 
   constructor() { }
 
@@ -45,12 +53,41 @@ export class GlobalService {
   }
 
   setGlobalCodeBook(value:any):any{
-    return this.globalCodeBook;
+    this.globalCodeBook = value;
   }
 
   getGlobalCodeBook():any{
-    return this.getGlobalCodeBook;
+    return this.globalCodeBook;
   }
+
+  setGlobalTownShipCodeBook(value:any):any{
+    this.globalSelectTownShipCodeBookCode = value;
+  }
+
+  getGlobalTownShipCodeBook():any{
+    return this.globalSelectTownShipCodeBookCode;
+  }
+
+  setTownShipCodeValue(newValue: any) {
+    this.townShipValueSubject.next(newValue);
+  }
+
+  setGlobalPlaceCodeBook(value:any):any{
+    this.globalSelectPlaceCodeBookCode = value;
+  }
+
+  getGlobalPlaceCodeBook():any{
+    return this.globalSelectPlaceCodeBookCode;
+  }
+
+  setPlaceCodeValue(newValue:any){
+    this.placeValueSubject.next(newValue);
+  }
+  
+  setGlobalSelectStreetCodeBookCode(value:any){
+    this.globalSelectStreetCodeBookCode = value;
+  }
+  
 
   isDev():boolean{
     return true;

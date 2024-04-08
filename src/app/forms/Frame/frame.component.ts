@@ -17,11 +17,11 @@ export class FrameComponent {
   }
 
   toggleComponent(){
-    if(!this.globalService.isDev()){
+    if(this.globalService.isDev()){
     this.camundaService.getActiveTask()
       .subscribe(
         response => {
-          console.log(response);
+          //console.log(response);
           this.globalService.setGlobalTaskKey(response[0].formKey);
           this.globalService.setGlobalTaskId(response[0].id);
           this.router.navigate([`/frame/${response[0].formKey}`,response[0].formKey]);
@@ -29,6 +29,6 @@ export class FrameComponent {
       )
     }
     else 
-    this.router.navigate(['/frame/Form2','Form2']);
+      this.router.navigate(['/frame/Form2','Form2']);
   }
 }

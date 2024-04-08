@@ -22,11 +22,6 @@ export class JmbgForms{
     constructor(private camundaService: CamundaService,private globalSerive:GlobalService, private router:Router,private frameComponet:FrameComponent) { }
 
     ngOnInit() {
-        // const form = document.getElementById('myForm') as HTMLFormElement;
-        // form.addEventListener('submit', (event) => {
-        //     event.preventDefault();
-        //     this.submitForm();
-        // });
     }
 
     submitForm() {

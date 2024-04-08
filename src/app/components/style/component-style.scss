@@ -7,7 +7,7 @@
     .components {
         display: block;
         width: 100%;
-
+        >select,
         >input {
             font-family: futura;
             background-color: #f3f3f4;
@@ -40,6 +40,68 @@
             >svg{
                 align-self: flex-start;
             }
+        }
+        >form{
+            >select,
+            >input {
+                font-family: futura;
+                background-color: #f3f3f4;
+                color: #8F9199;
+                display: block;
+                width: 100%;
+                height: 48px;
+                border-radius: 8px;
+                border: none;
+                font-size: 16px;
+                padding-left: 16px;
+            }
+    
+            .wrapper {
+                display: flex;
+                align-items: center;
+                gap: 5px;
+                >label {
+                    color: #656772;
+                    font-size: 12px;
+                    font-weight: 500;
+                    display: inline-block;
+                }
+    
+                >span {
+                    color: #D7424B;
+                    font-size: 16px;
+                }
+    
+                >svg{
+                    align-self: flex-start;
+                }
+            }
+            .dropdown-list {
+                display: none; // Inicijalno sakrijemo padajuću listu
+              
+                // Prikazujemo padajuću listu nakon unosa 3 karaktera
+                &.active {
+                  display: block;
+                }
+              
+                ul {
+                  list-style-type: none;
+                  padding: 0;
+                  margin: 0;
+                  border: 1px solid #ccc;
+                  border-top: none;
+                  max-height: 150px; // Definišemo maksimalnu visinu padajuće liste
+              
+                  // Stilovi za stavke u padajućoj listi
+                  li {
+                    padding: 5px 10px;
+                    cursor: pointer;
+                    &:hover {
+                      background-color: #f0f0f0;
+                    }
+                  }
+                }
+              }
         }
     }
 }

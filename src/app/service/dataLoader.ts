@@ -15,9 +15,19 @@ export class DataLoader {
 
   
   
-  getCodeBook():Observable<any>{
-    
+  getCodeBook():Observable<any>{  
     const url = `${this.baseUrl}/api/Codebook/getCodebookData/JG2TERIT`;
+    return this.http.get(url);
+  }
+
+  getCodeBookPlace(placeId:any):Observable<any>{ 
+    const url = `${this.baseUrl}/api/Codebook/getCodebookPlacesCorporate/${placeId}`;
+    return this.http.get(url);
+  }
+
+  getCodeBookStreet(streetCode:any){
+    const placeId = this.globalService.getGlobalTownShipCodeBook();
+    const url = `${this.baseUrl}/api/Codebook/getCodebookStreetsCorporate/${placeId}/${streetCode}`;
     return this.http.get(url);
   }
 

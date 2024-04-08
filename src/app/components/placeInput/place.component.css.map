@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "",
+    "sources": [
+        "place.component.scss"
+    ],
+    "names": [],
+    "file": "place.component.css"
+}
