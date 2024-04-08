@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "phone-input.component.scss"
-    ],
-    "names": [],
-    "file": "phone-input.component.css"
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"phone-input.component.css"}

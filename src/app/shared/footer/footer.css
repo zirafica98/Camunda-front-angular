@@ -4,32 +4,21 @@
   width: 80%;
   margin: 0 10%;
   padding: 50px 0;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  justify-content: space-around;
   border-top: solid 2px #dedfe2;
 }
-
 #page-footer .info {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   font-family: futura;
   font-size: 14px;
   color: #8F9199;
 }
-
 #page-footer .info > svg {
   margin-right: 10px;
 }
-
 #page-footer .info2 {
   color: #232529;
   font-weight: 500;
-}
-/*# sourceMappingURL=footer.css.map */
+}/*# sourceMappingURL=footer.css.map */

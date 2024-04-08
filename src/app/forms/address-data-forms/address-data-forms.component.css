@@ -1,11 +1,6 @@
 .container {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+  flex-direction: column;
   width: 80%;
   margin: 80px auto 40px auto;
   position: relative;
@@ -13,23 +8,16 @@
   border-radius: 16px;
   font-family: futura;
   height: auto;
-  -webkit-box-shadow: 0px 2px 2px 0px #cfcfcf;
-          box-shadow: 0px 2px 2px 0px #cfcfcf;
+  box-shadow: 0px 2px 2px 0px #cfcfcf;
 }
-
 .container .top {
   position: relative;
   border-bottom: 3px solid #f7f7f8;
-  display: -webkit-inline-box;
-  display: -ms-inline-flexbox;
   display: inline-flex;
   width: 100%;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin-top: 5px;
 }
-
 .container .top .title {
   float: left;
   margin: 20px;
@@ -37,19 +25,16 @@
   font-weight: 500;
   font-size: 24px;
 }
-
 .container .top .title svg {
   display: inline-block;
   margin-left: 5px;
   cursor: pointer;
 }
-
 .container .top .button {
   float: right;
   right: 0;
   position: absolute;
 }
-
 .container .top .button > button {
   border: none;
   background: none;
@@ -57,7 +42,6 @@
   font-size: 20px;
   cursor: pointer;
 }
-
 .container .content {
   position: relative;
   margin-top: 2%;
@@ -65,17 +49,14 @@
   width: 60%;
   margin: 40px auto 0 auto;
 }
-
 .container .content .text-content {
   font-size: 18px;
   width: 100%;
   display: block;
 }
-
 .container .content .custom-input {
   margin-top: 5%;
 }
-
 .container .bottom {
   position: relative;
   display: block;
@@ -83,7 +64,6 @@
   width: 100%;
   padding: 20px 0;
 }
-
 .container .bottom > button {
   float: right;
   margin-right: 20px;
@@ -91,13 +71,9 @@
   font-family: futura;
   color: #232529;
   background-color: #fee600;
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
   margin-right: 30px;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   padding: 0 20px;
   width: auto;
   height: 40px;
@@ -107,8 +83,6 @@
   border: none;
   cursor: pointer;
 }
-
 .container .bottom > button:hover {
   background-color: #f1d900;
-}
-/*# sourceMappingURL=address-data-forms.component.css.map */
+}/*# sourceMappingURL=address-data-forms.component.css.map */

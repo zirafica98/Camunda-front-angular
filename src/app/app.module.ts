@@ -28,6 +28,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HouseNumberComponent } from './components/houseNumberInput/houseNumber.component';
 import { ApartmanNumberComponent } from './components/ApartmanNumberInput/apartmanNumber.component';
 import { ListBoxComponent } from './components/customListBox/customListBox.component';
+import { DefaultComponent } from './forms/default/default.component';
  
 @NgModule({
   declarations: [
@@ -53,7 +54,8 @@ import { ListBoxComponent } from './components/customListBox/customListBox.compo
     PlaceComponent,
     HouseNumberComponent,
     ApartmanNumberComponent,
-    ListBoxComponent
+    ListBoxComponent,
+    DefaultComponent
     
   ],
   imports: [

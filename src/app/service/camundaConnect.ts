@@ -9,7 +9,7 @@ import { GlobalService } from '../global.service';
 
 export class CamundaService {
 
-  private baseUrl: string = 'http://localhost:7262'; 
+  private baseUrl: string = 'https://localhost:44386'; 
   private processName: string = 'demoDiagram'
 
   constructor(private http: HttpClient,private globalService:GlobalService){}

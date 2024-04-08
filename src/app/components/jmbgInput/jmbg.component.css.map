@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "jmbg.component.scss"
-    ],
-    "names": [],
-    "file": "jmbg.component.css"
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"jmbg.component.css"}

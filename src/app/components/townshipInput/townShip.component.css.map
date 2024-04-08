@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "townShip.component.scss"
-    ],
-    "names": [],
-    "file": "townShip.component.css"
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"townShip.component.css"}

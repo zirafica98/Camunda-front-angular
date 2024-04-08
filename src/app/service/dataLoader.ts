@@ -9,7 +9,7 @@ import { GlobalService } from '../global.service';
 
 export class DataLoader {
 
-  private baseUrl: string = 'http://localhost:7262'; 
+  private baseUrl: string = 'https://localhost:44386'; 
 
   constructor(private http: HttpClient,private globalService:GlobalService){}
 

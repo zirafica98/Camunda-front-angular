@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "street.component.scss"
-    ],
-    "names": [],
-    "file": "street.component.css"
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"street.component.css"}

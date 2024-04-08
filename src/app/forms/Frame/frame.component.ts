@@ -22,10 +22,17 @@ export class FrameComponent {
       .subscribe(
         response => {
           //console.log(response);
+          if(response[0]){
           this.globalService.setGlobalTaskKey(response[0].formKey);
           this.globalService.setGlobalTaskId(response[0].id);
-          this.router.navigate([`/frame/${response[0].formKey}`,response[0].formKey]);
+          if(response[0].formKey.includes('Form'))
+          this.router.navigate([`/frame/${response[0].formKey}`]);
+          else 
+          this.router.navigate([`/frame/Service`,response[0].formKey]);
         }
+        else
+          this.router.navigate(['/frame/welcome']);
+      }
       )
     }
     else 

@@ -21,7 +21,7 @@ export class LoadService{
       this.id = this.route.snapshot.paramMap.get("id") || "";
 
       switch (this.id) {
-        case 'Servis1':
+        case 'CodeBookService':
           this.getCodeBook();
           break;
         case 'Servis2':

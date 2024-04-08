@@ -1,11 +1,7 @@
 @charset "UTF-8";
 .wrapper {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
+  align-items: center;
   margin: 40px 0;
   /* Checkbox stil */
   /* Custom stilizacija za kvadrat */
@@ -14,12 +10,10 @@
   /* Prikaz checkmark simbola */
   /* Stilizacija checkmark simbola */
 }
-
 .wrapper > span {
   margin-left: 20px;
   color: #656772;
 }
-
 .wrapper .custom-checkbox {
   display: inline-block;
   position: relative;
@@ -29,13 +23,11 @@
   height: 24px;
   width: 24px;
 }
-
 .wrapper .custom-checkbox input {
   position: absolute;
   opacity: 0;
   cursor: pointer;
 }
-
 .wrapper .checkmark {
   position: absolute;
   top: 0;
@@ -46,22 +38,18 @@
   border: solid 3px #f3f3f4;
   border-radius: 6px;
 }
-
 .wrapper .custom-checkbox input:checked ~ .checkmark {
   background-color: #008FA8;
   border: solid 3px #4b7d94;
 }
-
 .wrapper .checkmark:after {
   content: "";
   position: absolute;
   display: none;
 }
-
 .wrapper .custom-checkbox input:checked ~ .checkmark:after {
   display: block;
 }
-
 .wrapper .custom-checkbox .checkmark:after {
   left: 8px;
   top: 4px;
@@ -69,7 +57,5 @@
   height: 10px;
   border: solid white;
   border-width: 0 3px 3px 0;
-  -webkit-transform: rotate(45deg);
-          transform: rotate(45deg);
-}
-/*# sourceMappingURL=checkbox-input.component.css.map */
+  transform: rotate(45deg);
+}/*# sourceMappingURL=checkbox-input.component.css.map */

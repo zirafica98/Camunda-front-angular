@@ -1,9 +1,1 @@
-{
-    "version": 3,
-    "mappings": "",
-    "sources": [
-        "checkBoxInput.component.scss"
-    ],
-    "names": [],
-    "file": "checkBoxInput.component.css"
-}
+{"version":3,"sources":[],"names":[],"mappings":"","file":"checkBoxInput.component.css"}
