@@ -84,6 +84,23 @@
                     align-self: flex-start;
                 }
             }
+            
+            .error{
+                color: #D7424B;
+                font-size: 13px;
+                margin-top: 10px;
+                display: flex;
+                align-items: center;
+
+                >span{
+                    margin-left: 10px;
+                }
+            }
+
+            .errorInput{
+                    border: solid 2px #D7424B;
+            }
+            
             .dropdown-list {
                 display: none; // Inicijalno sakrijemo padajuću listu
               

@@ -79,6 +79,19 @@
 .container .components > form .wrapper > svg {
   align-self: flex-start;
 }
+.container .components > form .error {
+  color: #D7424B;
+  font-size: 13px;
+  margin-top: 10px;
+  display: flex;
+  align-items: center;
+}
+.container .components > form .error > span {
+  margin-left: 10px;
+}
+.container .components > form .errorInput {
+  border: solid 2px #D7424B;
+}
 .container .components > form .dropdown-list {
   display: none;
 }

@@ -7,32 +7,43 @@ import { FrameComponent } from "../Frame/frame.component";
 
 
 @Component({
-    selector:'jmbg-forms',
-    templateUrl:'./jmbgForms.html',
-    styleUrl:'./jmbgForms.css'
+  selector: 'jmbg-forms',
+  templateUrl: './jmbgForms.html',
+  styleUrl: './jmbgForms.css'
 })
 
-export class JmbgForms{
-    idTask = "";
-    formData = {
-        inputData: 'test'
-      };
-      
-      isChecked:boolean=false;
-    constructor(private camundaService: CamundaService,private globalSerive:GlobalService, private router:Router,private frameComponet:FrameComponent) { }
+export class JmbgForms {
+  idTask = "";
+  formData = {
+    inputData: 'test'
+  };
 
-    ngOnInit() {
-    }
+  isChecked: boolean = false;
+  constructor(private camundaService: CamundaService, private globalSerive: GlobalService, private router: Router, private frameComponet: FrameComponent) { }
 
-    submitForm() {
+
+  ngOnInit() {
+  }
+
+  inputValue: string="";
+  formIsValid: boolean=false;
+
+  handleFormValidity(isValid: boolean) {
+    this.formIsValid = isValid;
+    console.log(this.formIsValid);
+  }
+
+  submitForm() {
+    if (this.isChecked&&this.formIsValid) {
       this.camundaService.completeTask()
-      .subscribe(
-        response => {
-          this.router.navigate(['/frame']).then(()=>{
-            this.frameComponet.toggleComponent();
-          });
-        }
-      )
+        .subscribe(
+          response => {
+            this.router.navigate(['/frame']).then(() => {
+              this.frameComponet.toggleComponent();
+            });
+          }
+        )
     }
+  }
 
 }

@@ -29,6 +29,8 @@ import { HouseNumberComponent } from './components/houseNumberInput/houseNumber.
 import { ApartmanNumberComponent } from './components/ApartmanNumberInput/apartmanNumber.component';
 import { ListBoxComponent } from './components/customListBox/customListBox.component';
 import { DefaultComponent } from './forms/default/default.component';
+import { CustomInputComponent } from './components/custom-input/custom-input.component';
+import { FormsModule } from '@angular/forms';
  
 @NgModule({
   declarations: [
@@ -55,14 +57,16 @@ import { DefaultComponent } from './forms/default/default.component';
     HouseNumberComponent,
     ApartmanNumberComponent,
     ListBoxComponent,
-    DefaultComponent
+    DefaultComponent,
+    CustomInputComponent
     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [CamundaService],
   bootstrap: [AppComponent]
