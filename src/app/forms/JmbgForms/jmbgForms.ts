@@ -9,7 +9,7 @@ import { FrameComponent } from "../Frame/frame.component";
 @Component({
   selector: 'jmbg-forms',
   templateUrl: './jmbgForms.html',
-  styleUrl: './jmbgForms.css'
+  styleUrl:'../style/forms-style.css'
 })
 
 export class JmbgForms {

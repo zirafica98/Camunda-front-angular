@@ -2,6 +2,7 @@
     display: flex;
     flex-direction: column;
     width: 80%;
+    min-height: 100px;
     margin: 80px auto 40px auto;
     position: relative;
     background: white;
@@ -9,7 +10,7 @@
     font-family: futura;
     height: auto;
     box-shadow: 0px 2px 2px 0px #cfcfcf;
-    
+    transition: height 0.2s ease;
 
     .top {
         position: relative;
@@ -37,13 +38,17 @@
             float: right;
             right: 0;
             position: absolute;
-
+            font-family: futura;
+            margin-right: 20px;
             >button {
                 border: none;
                 background: none;
-                color: #318fa4;
-                font-size: 20px;
+                color: #00758F;
+                font-size: 16px;
                 cursor: pointer;
+            }
+            >button:hover{
+                color: #003e4d;
             }
         }
     }
@@ -53,7 +58,7 @@
         margin-top: 2%;
         display: block;
         width: 60%;
-        margin: 40px auto 0 auto;
+        margin: 5% auto;
 
         .text-content {
             font-size: 18px;
@@ -91,9 +96,19 @@
             font-weight: 500;
             border: none;
             cursor: pointer;
+            box-shadow: 0px 2px 2px 0px #cfcfcf;
         }
         >button:hover{
             background-color: #f1d900;
+        }
+
+        .back{
+            border: 1px solid #f7f7f8;
+            background-color: white;
+        }
+
+        .back:hover{
+            background-color: #f7f7f8;
         }
     }
 }

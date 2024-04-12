@@ -2,6 +2,7 @@
   display: flex;
   flex-direction: column;
   width: 80%;
+  min-height: 100px;
   margin: 80px auto 40px auto;
   position: relative;
   background: white;
@@ -9,6 +10,7 @@
   font-family: futura;
   height: auto;
   box-shadow: 0px 2px 2px 0px #cfcfcf;
+  transition: height 0.2s ease;
 }
 .container .top {
   position: relative;
@@ -34,20 +36,25 @@
   float: right;
   right: 0;
   position: absolute;
+  font-family: futura;
+  margin-right: 20px;
 }
 .container .top .button > button {
   border: none;
   background: none;
-  color: #318fa4;
-  font-size: 20px;
+  color: #00758F;
+  font-size: 16px;
   cursor: pointer;
+}
+.container .top .button > button:hover {
+  color: #003e4d;
 }
 .container .content {
   position: relative;
   margin-top: 2%;
   display: block;
   width: 60%;
-  margin: 40px auto 0 auto;
+  margin: 5% auto;
 }
 .container .content .text-content {
   font-size: 18px;
@@ -82,7 +89,15 @@
   font-weight: 500;
   border: none;
   cursor: pointer;
+  box-shadow: 0px 2px 2px 0px #cfcfcf;
 }
 .container .bottom > button:hover {
   background-color: #f1d900;
-}/*# sourceMappingURL=basic-data-forms2.component.css.map */
+}
+.container .bottom .back {
+  border: 1px solid #f7f7f8;
+  background-color: white;
+}
+.container .bottom .back:hover {
+  background-color: #f7f7f8;
+}/*# sourceMappingURL=forms-style.css.map */

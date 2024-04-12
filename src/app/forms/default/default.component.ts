@@ -7,7 +7,7 @@ import { FrameComponent } from '../Frame/frame.component';
 @Component({
   selector: 'app-default',
   templateUrl: './default.component.html',
-  styleUrl: './default.component.scss'
+  styleUrl:'../style/forms-style.css'
 })
 export class DefaultComponent {
 

@@ -8,7 +8,7 @@ import { FormBuilder,FormGroup } from '@angular/forms';
 @Component({
     selector: 'app-address-data-forms',
     templateUrl: './address-data-forms.component.html',
-    styleUrl: './address-data-forms.component.css'
+    styleUrl:'../style/forms-style.css'
 })
 export class AddressDataForm {
     codeBook: any = [];

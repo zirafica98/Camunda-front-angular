@@ -10,7 +10,7 @@ import { FrameComponent } from "../Frame/frame.component";
 @Component({
     selector:'load-service',
     templateUrl:'./loadService.component.html',
-    //styleUrl:'./jmbgForms.css'
+    styleUrl:'../style/forms-style.css',
 })
 
 export class LoadService{
