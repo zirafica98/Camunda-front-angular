@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormControl, FormGroup, Validators,AbstractControl, ValidatorFn, ValidationErrors } from "@angular/forms";
+import { inputResource } from '../../resources';
 
 @Component({
   selector: 'app-custom-input',
@@ -10,11 +11,10 @@ import { FormControl, FormGroup, Validators,AbstractControl, ValidatorFn, Valida
 export class CustomInputComponent {
   
   @Input() customType: string = "";
-  @Input() customText: string = "";
-  @Input() customPlaceholder: string = "";
-  @Input() customError: string = "";
 
   @Output() formValidityChange = new EventEmitter<boolean>();
+
+  inputResource=inputResource;
 
   form=new FormGroup({
   input : new FormControl('', [Validators.required])

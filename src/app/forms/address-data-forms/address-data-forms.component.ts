@@ -4,6 +4,7 @@ import { GlobalService } from '../../global.service';
 import { Router } from '@angular/router';
 import { FrameComponent } from '../Frame/frame.component';
 import { FormBuilder,FormGroup } from '@angular/forms';
+import { formResources } from "../../resources";
 
 @Component({
     selector: 'app-address-data-forms',
@@ -12,13 +13,13 @@ import { FormBuilder,FormGroup } from '@angular/forms';
 })
 export class AddressDataForm {
     codeBook: any = [];
-    constructor(private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private frameComponet: FrameComponent) { 
-
-    }
-
+    constructor(private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private frameComponet: FrameComponent) { }
+    
+    formsResources=formResources;
     ngOnInit() {
         this.codeBook = this.globalService.getGlobalCodeBook();
         //console.log(this.codeBook);
+        (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML=this.formsResources["AddressForm"].text;
     }
 
 

@@ -3,6 +3,7 @@ import { CamundaService } from '../../service/camundaConnect';
 import { GlobalService } from '../../global.service';
 import { Router } from '@angular/router';
 import { FrameComponent } from '../Frame/frame.component';
+import { formResources } from "../../resources";
 
 @Component({
   selector: 'app-basic-data-forms2',
@@ -11,9 +12,13 @@ import { FrameComponent } from '../Frame/frame.component';
 })
 export class BasicDataForms2Component {
 
+  ngOnInit(){
+    (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML=this.formsResources["BasicDataForm"].text;
+  }
 
   constructor(private camundaService: CamundaService, private globalSerive: GlobalService, private router: Router, private frameComponet: FrameComponent) { }
 
+  formsResources=formResources;
   isChecked: boolean = false;
   isChecked2: boolean = false;
 

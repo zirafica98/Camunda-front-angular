@@ -4,7 +4,7 @@ import { CamundaService } from "../../service/camundaConnect";
 import { GlobalService } from "../../global.service";
 import { Router } from "@angular/router";
 import { FrameComponent } from "../Frame/frame.component";
-
+import { formResources } from "../../resources";
 
 @Component({
   selector: 'jmbg-forms',
@@ -21,16 +21,15 @@ export class JmbgForms {
   isChecked: boolean = false;
   constructor(private camundaService: CamundaService, private globalSerive: GlobalService, private router: Router, private frameComponet: FrameComponent) { }
 
-
-  ngOnInit() {
+  ngOnInit(){
+    (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML=this.formsResources["SSNForm"].text;
   }
-
+  formsResources=formResources;
   inputValue: string="";
   formIsValid: boolean=false;
 
   handleFormValidity(isValid: boolean) {
     this.formIsValid = isValid;
-    console.log(this.formIsValid);
   }
 
   submitForm() {
