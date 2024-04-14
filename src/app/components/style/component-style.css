@@ -47,6 +47,7 @@
 }
 .container .components > form > select,
 .container .components > form > input {
+  position: relative;
   font-family: futura;
   background-color: #f3f3f4;
   color: #232529;
@@ -57,6 +58,12 @@
   border: none;
   font-size: 16px;
   padding-left: 16px;
+  padding-top: 4px;
+}
+.container .components > form > select,
+.container .components > form > input:focus {
+  outline: none;
+  border: solid 2px #EFD006;
 }
 .container .components > form > select option[value=""][disabled] {
   color: #8F9199;
@@ -88,6 +95,13 @@
 }
 .container .components > form .error > span {
   margin-left: 10px;
+}
+.container .components > form .phone {
+  width: calc(100% - 96px);
+  padding-left: 112px;
+  background: url("../../../assets/icon/phoneFlag.png") no-repeat 16px center;
+  background-size: auto 24px;
+  background-color: #f3f3f4;
 }
 .container .components > form .errorInput {
   border: solid 2px #D7424B;

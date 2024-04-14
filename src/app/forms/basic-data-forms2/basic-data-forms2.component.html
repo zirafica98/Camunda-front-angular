@@ -16,10 +16,10 @@
             Apliciranje za Online kreditnu karticu je jednostavno i može da se završi u nekoliko koraka. Kao prvo, moramo da se upoznamo: unesite svoje lične podatke i nakon klika na dugme <b>Nastavi</b> poslaćemo Vam SMS poruku sa verifikacionim kodom.
         </div>
         <div class="custom-input">
-            <app-custom-input [customText]="'Vaše ime'" [customPlaceholder]="'Unesite svoje ime'" [customError]="'Obavezno polje'" (formValidityChange)="handleFormValidity($event,0)"></app-custom-input>
-            <app-custom-input [customText]="'Unesite Vaše prezime'" [customPlaceholder]="'Unesite prezime'" [customError]="'Obavezno polje'" (formValidityChange)="handleFormValidity($event,1)"></app-custom-input>
-            <app-custom-input [customText]="'Broj mobilnog telefona'" [customPlaceholder]="'Unesite svoj broj mobilnog telefona'" [customError]="'Obavezno polje'" (formValidityChange)="handleFormValidity($event,2)"></app-custom-input>
-            <app-custom-input [customText]="'E-mail adresa'" [customPlaceholder]="'Unesite svoju e-mail adresu'" [customError]="'Neispravna e-mail adresa'" (formValidityChange)="handleFormValidity($event,3)"></app-custom-input>
+            <app-custom-input [customType]="'name'" [customText]="'Vaše ime'" [customPlaceholder]="'Unesite svoje ime'" [customError]="'Neispravno ime'" (formValidityChange)="handleFormValidity($event,0)"></app-custom-input>
+            <app-custom-input [customType]="'lastname'" [customText]="'Unesite Vaše prezime'" [customPlaceholder]="'Unesite prezime'" [customError]="'Neispravno prezime'" (formValidityChange)="handleFormValidity($event,1)"></app-custom-input>
+            <app-custom-input [customType]="'phone'" [customText]="'Broj mobilnog telefona'" [customPlaceholder]="'Unesite svoj broj mobilnog telefona'" [customError]="'Neispravan broj telefona'" (formValidityChange)="handleFormValidity($event,2)"></app-custom-input>
+            <app-custom-input [customType]="'email'" [customText]="'E-mail adresa'" [customPlaceholder]="'Unesite svoju e-mail adresu'" [customError]="'Neispravna e-mail adresa'" (formValidityChange)="handleFormValidity($event,3)"></app-custom-input>
             <app-checkbox-input [customText]="'Slažem se da moji podaci budu obrađeni. Saznajte više'" [(isChecked)]="isChecked"></app-checkbox-input>
             <app-checkbox-input [customText]="'Slažem se da komunikaciju sa mnom banka vrši elektronskim putem. Saznajte više'" [(isChecked)]="isChecked2"></app-checkbox-input>
         </div>

@@ -36,6 +36,6 @@ export class FrameComponent {
       )
     }
     else 
-      this.router.navigate(['/frame/Form2','Form2']);
+      this.router.navigate(['/frame/BasicDataForm']);
   }
 }

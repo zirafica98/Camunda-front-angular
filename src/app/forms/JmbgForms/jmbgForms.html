@@ -16,7 +16,7 @@
             U narednim koracima, dok popunjavate potrebne informacije, mi ćemo uraditi brzu proveru kroz Kreditni biro. Za tu svrhu biće nam potreban Vaš JMBG. U samo nekoliko minuta ćemo Vam reći da li zadovoljavate uslove za kreditnu karticu.
         </div>
         <div class="custom-input">
-            <app-custom-input [customText]="'Unesite Vaš JMBG'" [customPlaceholder]="'Unesite JMBG'" [customError]="'JMBG mora biti validan'" (formValidityChange)="handleFormValidity($event)"></app-custom-input>
+            <app-custom-input [customType]="'ssn'" [customText]="'Unesite Vaš JMBG'" [customPlaceholder]="'Unesite JMBG'" [customError]="'JMBG mora biti validan'" (formValidityChange)="handleFormValidity($event)"></app-custom-input>
             <app-checkbox-input [customText]="'Slažem se da moji podaci budu obrađeni od strane Kreditnog biroa. Saznajte više'" [(isChecked)]="isChecked"></app-checkbox-input>
         </div>
     </div>
