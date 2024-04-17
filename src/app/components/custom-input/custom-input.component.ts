@@ -52,9 +52,11 @@ function customValidator(customType: string): ValidatorFn {
       case 'phone':
          isValid = /^[0-9]{7,8}$/.test(value);break;
       case 'name': case 'lastname':
-         isValid = /^[a-zA-ZčćžđšČĆŽĐŠ]{2,}$/.test(value);break;
+         isValid = /^[a-zA-ZčćžđšČĆŽĐŠ\s]{2,}$/.test(value);break;
       case 'email':
         isValid = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(value);break;
+      case 'verification':
+        isValid = /^[0-9]{6,6}$/.test(value);break;
     }
     return isValid ? null : { customError: true };
   };

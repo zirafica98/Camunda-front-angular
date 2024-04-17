@@ -4,84 +4,106 @@
     <bpmn:startEvent id="StartEvent_1" name="Start">
       <bpmn:outgoing>Flow_12jjst4</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_12jjst4" sourceRef="StartEvent_1" targetRef="Activity_0h3slk9" />
-    <bpmn:userTask id="Activity_0h3slk9" name="SSNForm" camunda:formKey="SSNForm">
+    <bpmn:sequenceFlow id="Flow_12jjst4" sourceRef="StartEvent_1" targetRef="BasicDataForm" />
+    <bpmn:userTask id="SSNForm" name="SSNForm" camunda:formKey="SSNForm">
+      <bpmn:documentation>{ "components": [ { "key": "ssn", "type": "input" } ] }</bpmn:documentation>
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codeBookName" />
           <camunda:outputParameter name="codeBookName">${codeBookName}</camunda:outputParameter>
         </camunda:inputOutput>
       </bpmn:extensionElements>
-      <bpmn:incoming>Flow_12jjst4</bpmn:incoming>
+      <bpmn:incoming>Flow_1acu3va</bpmn:incoming>
       <bpmn:outgoing>Flow_15trvxm</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_15trvxm" sourceRef="Activity_0h3slk9" targetRef="Activity_137r9lh" />
-    <bpmn:sequenceFlow id="Flow_11fec29" sourceRef="Activity_137r9lh" targetRef="form2" />
-    <bpmn:userTask id="form2" name="AddressForm" camunda:formKey="AddressForm">
+    <bpmn:sequenceFlow id="Flow_15trvxm" sourceRef="SSNForm" targetRef="Activity_137r9lh" />
+    <bpmn:userTask id="AddressForm" name="AddressForm" camunda:formKey="AddressForm">
       <bpmn:extensionElements />
-      <bpmn:incoming>Flow_11fec29</bpmn:incoming>
-      <bpmn:outgoing>Flow_09mr61o</bpmn:outgoing>
+      <bpmn:incoming>Flow_171ko6s</bpmn:incoming>
+      <bpmn:outgoing>Flow_1c329v2</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:endEvent id="Event_0ye2nuy">
-      <bpmn:incoming>Flow_04rdfwk</bpmn:incoming>
+      <bpmn:incoming>Flow_1c329v2</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:sequenceFlow id="Flow_09mr61o" sourceRef="form2" targetRef="Activity_1gbn4pq" />
     <bpmn:userTask id="Activity_137r9lh" name="CodeBookService" camunda:formKey="CodeBookService">
       <bpmn:incoming>Flow_15trvxm</bpmn:incoming>
-      <bpmn:outgoing>Flow_11fec29</bpmn:outgoing>
+      <bpmn:outgoing>Flow_171ko6s</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:userTask id="Activity_1gbn4pq" name="BasicDataForm" camunda:formKey="BasicDataForm">
-      <bpmn:incoming>Flow_09mr61o</bpmn:incoming>
-      <bpmn:outgoing>Flow_04rdfwk</bpmn:outgoing>
+    <bpmn:userTask id="BasicDataForm" name="BasicDataForm" camunda:formKey="BasicDataForm">
+      <bpmn:documentation>{ "components": [ { "key": "name", "type": "input" }, { "key": "lastname", "type": "input" }, { "key": "phone", "type": "input" }, { "key": "email", "type": "input" }, { "key": "checkbox1", "type": "checkbox", "text": "Primer obaveznog checkbox-a", "link": "https://raiffeisenbank.rs/", "mandatory": true }, { "key": "checkbox2", "type": "checkbox", "text": "Primer neobaveznog checkbox-a", "link": "https://raiffeisenbank.rs/", "mandatory": false } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_12jjst4</bpmn:incoming>
+      <bpmn:outgoing>Flow_0ive0pr</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_04rdfwk" sourceRef="Activity_1gbn4pq" targetRef="Event_0ye2nuy" />
+    <bpmn:sequenceFlow id="Flow_1c329v2" sourceRef="AddressForm" targetRef="Event_0ye2nuy" />
+    <bpmn:userTask id="PhoneVerificationForm" name="PhoneVerificationForm" camunda:formKey="PhoneVerificationForm">
+      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.png" }, { "key": "text1", "type": "text", "text":"Verifikacija broja telefona omogućava nastavak zahteva u slučaju prekida i elektronski potpis ugovora na kraju, na sličan način. Molimo Vas da upišete verifikacioni kod koji dobijete u SMS poruci." }, { "key": "verification", "type": "input" }, { "key": "verification", "type": "action", "text": "Još uvek niste dobili ništa?", "actionText": "Ponovo pošalji verifikacioni kod" } ] }</bpmn:documentation>
+      <bpmn:extensionElements>
+        <camunda:inputOutput>
+          <camunda:inputParameter name="codeBookName" />
+          <camunda:outputParameter name="codeBookName">${codeBookName}</camunda:outputParameter>
+        </camunda:inputOutput>
+      </bpmn:extensionElements>
+      <bpmn:incoming>Flow_0ive0pr</bpmn:incoming>
+      <bpmn:outgoing>Flow_1acu3va</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1acu3va" sourceRef="PhoneVerificationForm" targetRef="SSNForm" />
+    <bpmn:sequenceFlow id="Flow_0ive0pr" sourceRef="BasicDataForm" targetRef="PhoneVerificationForm" />
+    <bpmn:sequenceFlow id="Flow_171ko6s" sourceRef="Activity_137r9lh" targetRef="AddressForm" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="demoDiagram">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="179" y="99" width="36" height="36" />
+        <dc:Bounds x="152" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="185" y="142" width="25" height="14" />
+          <dc:Bounds x="158" y="142" width="25" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1523gbf_di" bpmnElement="Activity_0h3slk9">
-        <dc:Bounds x="270" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="BPMNShape_1xg4npx" bpmnElement="BasicDataForm">
+        <dc:Bounds x="220" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="Activity_137r9lh">
-        <dc:Bounds x="420" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0l3425y_di" bpmnElement="form2">
-        <dc:Bounds x="560" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1xg4npx" bpmnElement="Activity_1gbn4pq">
-        <dc:Bounds x="690" y="77" width="100" height="80" />
+      <bpmndi:BPMNShape id="Activity_0l3425y_di" bpmnElement="AddressForm">
+        <dc:Bounds x="870" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
-        <dc:Bounds x="852" y="99" width="36" height="36" />
+        <dc:Bounds x="1072" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="Activity_137r9lh">
+        <dc:Bounds x="710" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Activity_1523gbf_di" bpmnElement="SSNForm">
+        <dc:Bounds x="550" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_02d412x" bpmnElement="PhoneVerificationForm">
+        <dc:Bounds x="390" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_12jjst4_di" bpmnElement="Flow_12jjst4">
-        <di:waypoint x="215" y="117" />
-        <di:waypoint x="270" y="117" />
+        <di:waypoint x="188" y="117" />
+        <di:waypoint x="220" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0ive0pr_di" bpmnElement="Flow_0ive0pr">
+        <di:waypoint x="320" y="117" />
+        <di:waypoint x="390" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_171ko6s_di" bpmnElement="Flow_171ko6s">
+        <di:waypoint x="810" y="117" />
+        <di:waypoint x="870" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1c329v2_di" bpmnElement="Flow_1c329v2">
+        <di:waypoint x="970" y="117" />
+        <di:waypoint x="1072" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_15trvxm_di" bpmnElement="Flow_15trvxm">
-        <di:waypoint x="370" y="117" />
-        <di:waypoint x="420" y="117" />
+        <di:waypoint x="650" y="117" />
+        <di:waypoint x="710" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_11fec29_di" bpmnElement="Flow_11fec29">
-        <di:waypoint x="520" y="117" />
-        <di:waypoint x="560" y="117" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_09mr61o_di" bpmnElement="Flow_09mr61o">
-        <di:waypoint x="660" y="117" />
-        <di:waypoint x="690" y="117" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_04rdfwk_di" bpmnElement="Flow_04rdfwk">
-        <di:waypoint x="790" y="117" />
-        <di:waypoint x="852" y="117" />
+      <bpmndi:BPMNEdge id="Flow_1acu3va_di" bpmnElement="Flow_1acu3va">
+        <di:waypoint x="490" y="117" />
+        <di:waypoint x="550" y="117" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

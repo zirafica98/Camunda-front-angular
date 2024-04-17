@@ -1,4 +1,5 @@
 .container {
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -110,7 +111,7 @@
             .phone{
                 width: calc(100% - 96px);
                 padding-left: 112px;
-                background: url("../../../assets/icon/phoneFlag.png") no-repeat 16px center;
+                background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
                 background-size:auto 24px;
                 background-color: #f3f3f4;
             }
@@ -146,5 +147,21 @@
                 }
               }
         }
+    }
+    
+    >span {
+        font-size: 16px;
+    }
+
+    .action {
+        font-size: 16px;
+        color: #00758F;
+        text-decoration: underline;
+        cursor: pointer;
+        margin-left: 10px;
+    }
+
+    .action:hover{
+        color:#00333f;
     }
 }

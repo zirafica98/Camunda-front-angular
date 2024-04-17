@@ -7,6 +7,8 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 })
 export class CheckboxInputComponent {  
 @Input() isChecked: boolean = false; 
+@Input() mandatory: boolean = false; 
+@Input() link: string = ""; 
 @Input() customText:string="";
 @Output() isCheckedChange = new EventEmitter<boolean>(); // Event emitter za promenu stanja checkboxa
 

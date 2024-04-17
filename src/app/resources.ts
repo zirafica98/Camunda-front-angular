@@ -30,6 +30,11 @@ export const inputResource:inputResources={
         text:"Vaš JMBG",
         placeholder:"Unesite Vaš JMBG",
         error:"JMBG mora biti validan"
+    },
+    verification:{
+        text:"Verifikacioni kod",
+        placeholder:"Unesite verifikacioni kod",
+        error:"Verifikacioni kod nije validan"
     }
 }
 
@@ -51,5 +56,9 @@ export const formResources:formResources={
     AddressForm:{
         title:"Adresa stanovanja",
         text:"Molim, unesite podatke o adresi stanovanja. Nakon unosa prvih nekoliko karaktera, odaberite svoju opštinu, mesto i ulicu iz liste. Na ovu adresu će Vam biti poslata kreditna kartica.",
+    },
+    PhoneVerificationForm:{
+        title:"Verifikacija broja telefona",
+        text:"",
     }
 }

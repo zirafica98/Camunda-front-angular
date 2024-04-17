@@ -8,6 +8,25 @@
         color:#656772;
         cursor: pointer;
         user-select: none;
+        >span{
+          margin-left: 10px;
+          color:#D7424B;
+        }
+
+        >a{
+          color:#00758F;
+          text-decoration: underline;
+          cursor: pointer;
+        }
+        
+        >a:visited{
+          color:#00758F;
+        }
+
+        >a:hover{
+          color:#00333f;
+        }
+
     }
 .custom-checkbox {
     display: inline-block;

@@ -22,13 +22,15 @@ export class LoadService{
 
       switch (this.id) {
         case 'CodeBookService':
-          this.getCodeBook();
+          setTimeout(() => {
+            this.getCodeBook();
+          }, 0); //staviti na 100000 za uredjivanje loadComponente
           break;
         case 'Servis2':
           this.servis2();
           break;
       }
-    
+    //
 
     }
 

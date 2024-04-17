@@ -31,6 +31,8 @@ import { ListBoxComponent } from './components/customListBox/customListBox.compo
 import { DefaultComponent } from './forms/default/default.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
+import { DynamicFormComponent } from './forms/dynamic-form/dynamic-form.component';
+import { ActionComponent } from './components/action/action.component';
  
 @NgModule({
   declarations: [
@@ -58,7 +60,9 @@ import { FormsModule } from '@angular/forms';
     ApartmanNumberComponent,
     ListBoxComponent,
     DefaultComponent,
-    CustomInputComponent
+    CustomInputComponent,
+    DynamicFormComponent,
+    ActionComponent
     
   ],
   imports: [

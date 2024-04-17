@@ -1,4 +1,5 @@
 .container {
+  position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -101,7 +102,7 @@
 .container .components > form .phone {
   width: calc(100% - 96px);
   padding-left: 112px;
-  background: url("../../../assets/icon/phoneFlag.png") no-repeat 16px center;
+  background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
   background-size: auto 24px;
   background-color: #f3f3f4;
 }
@@ -128,4 +129,17 @@
 }
 .container .components > form .dropdown-list ul li:hover {
   background-color: #f0f0f0;
+}
+.container > span {
+  font-size: 16px;
+}
+.container .action {
+  font-size: 16px;
+  color: #00758F;
+  text-decoration: underline;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.container .action:hover {
+  color: #00333f;
 }/*# sourceMappingURL=component-style.css.map */

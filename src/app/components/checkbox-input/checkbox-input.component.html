@@ -4,6 +4,6 @@
         <span class="checkmark"></span>
         <ng-content></ng-content>
     </label>
-    <span (click)="toggleCheckbox()">{{customText}}</span>
+    <span (click)="toggleCheckbox()">{{customText}} <a [href]="link" target="_blank">Saznajte više</a> <span *ngIf="mandatory">*</span> </span>
 
 </div>

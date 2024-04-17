@@ -18,6 +18,21 @@
      -moz-user-select: none;
           user-select: none;
 }
+.wrapper > span > span {
+  margin-left: 10px;
+  color: #D7424B;
+}
+.wrapper > span > a {
+  color: #00758F;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.wrapper > span > a:visited {
+  color: #00758F;
+}
+.wrapper > span > a:hover {
+  color: #00333f;
+}
 .wrapper .custom-checkbox {
   display: inline-block;
   position: relative;

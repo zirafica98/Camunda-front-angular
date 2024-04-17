@@ -9,6 +9,7 @@ export class GlobalService {
   globalTaskId: any;
   globalUserName:any;
   globalTaskKey:any;
+  globalTaskJSON:string="";
   globalCodeBook:any;
   globalSelectTownShipCodeBookCode:any = "";
   globalSelectPlaceCodeBookCode:any;
@@ -52,6 +53,13 @@ export class GlobalService {
     return this.globalTaskKey;
   }
 
+  setGlobalTaskJSON(value:any):void{
+    this.globalTaskJSON = value;
+  }
+  
+  getGlobalTaskJSON():any{
+    return this.globalTaskJSON;
+  }
   setGlobalCodeBook(value:any):any{
     this.globalCodeBook = value;
   }
