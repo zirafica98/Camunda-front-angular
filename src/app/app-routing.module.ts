@@ -8,11 +8,11 @@ import { BasicDataForms2Component } from './forms/basic-data-forms2/basic-data-f
 import { AddressDataForm } from './forms/address-data-forms/address-data-forms.component';
 import { DefaultComponent } from './forms/default/default.component';
 import { DynamicFormComponent } from './forms/dynamic-form/dynamic-form.component';
+import { AppComponent } from './app.component';
 
 
 
 const routes: Routes = [
-  { path: '', component: StartCamundaComponent },
   { path: 'frame', component: FrameComponent},
   {
     path:'dynamicForm/:id',

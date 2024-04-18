@@ -41,4 +41,8 @@
   border-radius: 8px;
   font-weight: 500;
   flex-grow: 0;
+  cursor: pointer;
+}
+#page-header .container-1 .button-site:hover {
+  background-color: #f1d900;
 }/*# sourceMappingURL=header.css.map */

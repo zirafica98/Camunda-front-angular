@@ -6,4 +6,8 @@ import { Component } from "@angular/core";
     styleUrl:'./header.css'
   })
   export class HeaderComponent {
+
+      openLink() {
+        window.open('https://www.raiffeisenbank.rs/', '_blank');
+      }
   }

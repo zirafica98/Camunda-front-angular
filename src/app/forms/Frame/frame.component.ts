@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../global.service';
 import { CamundaService } from '../../service/camundaConnect';
-import { NavigationExtras, Router } from '@angular/router';
+import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 @Component({
   selector: 'frame-component',
   templateUrl: './frame.component.html',
@@ -10,10 +10,17 @@ import { NavigationExtras, Router } from '@angular/router';
 export class FrameComponent {
   showJmbgForms: boolean = false;
   showCodeBookForm: boolean = false;
-  constructor(private globalService: GlobalService, private camundaService: CamundaService, private router: Router) { }
+  constructor(private globalService: GlobalService, private camundaService: CamundaService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.toggleComponent();
+    this.route.queryParams.subscribe(params => {
+      const param1 = parseInt(params['PrincipalID']);
+      const param2 = parseInt(params['SessionID']);
+      const param3 = parseInt(params['ChannelID']);
+      console.log(param1,param2,param3);
+      if(!isNaN(param1)&&!isNaN(param2)&&!isNaN(param3))
+      this.toggleComponent();
+    });
   }
 
   toggleComponent() {

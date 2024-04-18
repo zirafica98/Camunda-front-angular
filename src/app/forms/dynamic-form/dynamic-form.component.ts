@@ -15,7 +15,7 @@ interface ComponentData {
   link: string;
   text: string;
   actionText: string;
-  mandatory:boolean;
+  mandatory: boolean;
   name: string;
 }
 
@@ -35,24 +35,27 @@ export class DynamicFormComponent {
   customCheckboxComponentRefs: ComponentRef<CheckBoxComponent>[] = [];
   customActionComponentRefs: ComponentRef<ActionComponent>[] = [];
 
-  id:string="";
-  myJSON:MyJSON={components: []};
-  text:string="";
-  title:string="";
-  formIsValid: boolean[]=[];
+  id: string = "";
+  myJSON: MyJSON = { components: [] };
+  text: string = "";
+  title: string = "";
+  formIsValid: boolean[] = [];
   isChecked: boolean[] = [];
-  myInputComponents:ComponentData[]=[];
-  myCheckboxComponents:ComponentData[]=[];
-  areMandatorySelected:boolean=true;
+  myInputComponents: ComponentData[] = [];
+  myCheckboxComponents: ComponentData[] = [];
+  areMandatorySelected: boolean = true;
 
-  constructor( private renderer: Renderer2,private cdr: ChangeDetectorRef,private resolver: ComponentFactoryResolver,private camundaService: CamundaService, private globalSerice: GlobalService, private router: Router,private route:ActivatedRoute, private frameComponet: FrameComponent) { }
+  constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
-  ngOnInit(){
+  ngOnInit() {
     this.id = this.route.snapshot.paramMap.get("id") || "";
-    this.myJSON=JSON.parse(this.globalSerice.getGlobalTaskJSON());
-    this.title=this.formsResources[this.globalSerice.getGlobalTaskKey()].title;
-    this.text=this.formsResources[this.globalSerice.getGlobalTaskKey()].text;
-    (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML=this.text;
+    if (this.globalService.getGlobalTaskKey() == this.id) {
+      this.myJSON = JSON.parse(this.globalService.getGlobalTaskJSON());
+      this.title = this.formsResources[this.globalService.getGlobalTaskKey()].title;
+      this.text = this.formsResources[this.globalService.getGlobalTaskKey()].text;
+      (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML = this.text;
+    }
+    else alert("nedozvoljen pristup");
   }
 
   ngAfterViewInit(): void {
@@ -61,16 +64,16 @@ export class DynamicFormComponent {
   }
 
   loadCustomInputs() {
-    let inputIndex = 0; 
-    let checkboxIndex = 0; 
+    let inputIndex = 0;
+    let checkboxIndex = 0;
     for (let [index, component] of this.myJSON.components.entries()) {
 
-      switch(component.type){
-        case 'input':this.loadInput(component,inputIndex);inputIndex++;break;
-        case 'checkbox':this.loadCheckBox(component,checkboxIndex);checkboxIndex++;break;
+      switch (component.type) {
+        case 'input': this.loadInput(component, inputIndex); inputIndex++; break;
+        case 'checkbox': this.loadCheckBox(component, checkboxIndex); checkboxIndex++; break;
         case 'image': this.loadImage(component.name); break;
         case 'text': this.loadDiv(component.text); break;
-        case 'action': this.loadAction(component);break;
+        case 'action': this.loadAction(component); break;
       }
     }
   }
@@ -81,7 +84,7 @@ export class DynamicFormComponent {
     });
   }
 
-  formsResources=formResources;
+  formsResources = formResources;
 
 
   handleFormValidity(isValid: boolean, index: number) {
@@ -93,7 +96,7 @@ export class DynamicFormComponent {
   }
 
   submitForm() {
-    if (this.areAllInputElementsValid()&&this.areAllCheckboxElementsValid()) {
+    if (this.areAllInputElementsValid() && this.areAllCheckboxElementsValid()) {
       this.camundaService.completeTask()
         .subscribe(
           response => {
@@ -121,19 +124,19 @@ export class DynamicFormComponent {
     return true;
   }
 
-  
+
   areAllCheckboxElementsValid(): boolean {
     for (let i = 0; i < this.myCheckboxComponents.length; i++) {
-      if (this.myCheckboxComponents[i].type === 'checkbox' && !this.isChecked[i] && this.myCheckboxComponents[i].mandatory==true) {
-        this.areMandatorySelected=false;
+      if (this.myCheckboxComponents[i].type === 'checkbox' && !this.isChecked[i] && this.myCheckboxComponents[i].mandatory == true) {
+        this.areMandatorySelected = false;
         return false;
       }
     }
-    this.areMandatorySelected=true;
+    this.areMandatorySelected = true;
     return true;
   }
 
-  loadInput(component:ComponentData,checkboxIndex:number){
+  loadInput(component: ComponentData, checkboxIndex: number) {
     const factory = this.resolver.resolveComponentFactory(CustomInputComponent);
     const componentRef = this.container.createComponent(factory);
     const currentIndex = checkboxIndex;
@@ -144,16 +147,16 @@ export class DynamicFormComponent {
     this.myInputComponents.push(component);
   }
 
-  loadCheckBox(component:ComponentData,checkboxIndex:number){
+  loadCheckBox(component: ComponentData, checkboxIndex: number) {
     {
       const factory = this.resolver.resolveComponentFactory(CheckboxInputComponent);
       const componentRef = this.container.createComponent(factory);
       const currentIndex = checkboxIndex;
       this.isChecked.push(false);
-      componentRef.instance.customText= component.text;
-      componentRef.instance.mandatory= component.mandatory;
-      componentRef.instance.link= component.link;
-      componentRef.instance.isChecked= this.isChecked[checkboxIndex];
+      componentRef.instance.customText = component.text;
+      componentRef.instance.mandatory = component.mandatory;
+      componentRef.instance.link = component.link;
+      componentRef.instance.isChecked = this.isChecked[checkboxIndex];
       componentRef.instance.isCheckedChange.subscribe((isChecked: boolean) => {
         this.isChecked[currentIndex] = isChecked;
       });
@@ -162,20 +165,20 @@ export class DynamicFormComponent {
     }
   }
 
-  loadImage(src:string) {
+  loadImage(src: string) {
     const img = this.renderer.createElement('img');
-    this.renderer.setAttribute(img, 'src', 'assets/images/'+src);
+    this.renderer.setAttribute(img, 'src', 'assets/images/' + src);
     this.renderer.appendChild(this.container.element.nativeElement, img);
   }
 
-  loadDiv(textToShow:string) {
+  loadDiv(textToShow: string) {
     const div = this.renderer.createElement('div');
     const text = this.renderer.createText(textToShow);
     this.renderer.appendChild(div, text);
     this.renderer.appendChild(this.container.element.nativeElement, div);
   }
 
-  loadAction(component:ComponentData){
+  loadAction(component: ComponentData) {
     const factory = this.resolver.resolveComponentFactory(ActionComponent);
     const componentRef = this.container.createComponent(factory);
     componentRef.instance.text = component.text;
@@ -184,7 +187,7 @@ export class DynamicFormComponent {
     this.customActionComponentRefs.push(componentRef);
   }
 
-  onClickMethod(){
+  onClickMethod() {
     console.log("click");
   }
 }

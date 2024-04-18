@@ -41,6 +41,12 @@
             border-radius: 8px;
             font-weight: 500;
             flex-grow: 0;
+            cursor: pointer;
         }
+
+        .button-site:hover{
+            background-color: #f1d900;
+        }
+
     }
 }
