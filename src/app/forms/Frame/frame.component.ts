@@ -13,14 +13,15 @@ export class FrameComponent {
   constructor(private globalService: GlobalService, private camundaService: CamundaService, private router: Router,private route: ActivatedRoute) { }
 
   ngOnInit() {
-    this.route.queryParams.subscribe(params => {
-      const param1 = parseInt(params['PrincipalID']);
-      const param2 = parseInt(params['SessionID']);
-      const param3 = parseInt(params['ChannelID']);
-      console.log(param1,param2,param3);
-      if(!isNaN(param1)&&!isNaN(param2)&&!isNaN(param3))
-      this.toggleComponent();
-    });
+    // this.route.queryParams.subscribe(params => {
+    //   const param1 = parseInt(params['PrincipalID']);
+    //   const param2 = parseInt(params['SessionID']);
+    //   const param3 = parseInt(params['ChannelID']);
+    //   console.log(param1,param2,param3);
+    //   if(!isNaN(param1)&&!isNaN(param2)&&!isNaN(param3))
+    //   this.toggleComponent();
+    // });
+    this.toggleComponent();
   }
 
   toggleComponent() {

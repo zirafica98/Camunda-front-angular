@@ -6,10 +6,18 @@ import { StartCamundaComponent } from './Camunda/startCamunda/start-camunda.comp
   templateUrl: './app.component.html',
   styleUrl: './app.component.scss'
 })
-export class AppComponent implements AfterViewInit{
+export class AppComponent implements OnInit,AfterViewInit{
   @ViewChild(StartCamundaComponent) startCamundaComponent!: StartCamundaComponent;
   title = 'camunda-front';
   constructor() { }
+
+  ok:boolean=false;
+  ngOnInit(): void {
+    if (window.location.pathname !== '/') {
+      window.location.href = '/';
+    }
+    else this.ok=true;
+  }
   ngAfterViewInit(): void {
     this.startCamundaComponent.startProcess();
   }
