@@ -3,36 +3,38 @@ import { BrowserModule } from '@angular/platform-browser';
 import { HttpClientModule } from '@angular/common/http';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { TextInputComponent } from './components/textInput/textInput';
+import { TextInputComponent } from './archive/textInput/textInput';
 import { HeaderComponent } from './shared/header/header';
 import { FooterComponent } from './shared/footer/footer';
 import { StepsWrapComponent } from './shared/stepWrapper/stepWrapper';
 import { CamundaService } from './service/camundaConnect';
 import { StartCamundaComponent } from './Camunda/startCamunda/start-camunda.component';
-import { ButtonComponent } from './components/buttonInput/button-component';
+import { ButtonComponent } from './archive/buttonInput/button-component';
 import { FrameComponent } from './forms/Frame/frame.component';
-import { JmbgComponent } from './components/jmbgInput/jmbg.component';
-import { JmbgForms } from './forms/JmbgForms/jmbgForms';
-import { FnameComponent } from './components/firstNameInput/firstName.component';
-import {LnameComponent} from './components/lastNameInput/lastName.component'
+import { JmbgComponent } from './archive/jmbgInput/jmbg.component';
+import { JmbgForms } from './archive/JmbgForms/jmbgForms';
+import { FnameComponent } from './archive/firstNameInput/firstName.component';
+import {LnameComponent} from './archive/lastNameInput/lastName.component'
 import { LoadService } from './forms/LoadService/loadService.component';
-import { BasicDataForms2Component } from './forms/basic-data-forms2/basic-data-forms2.component';
-import { EmailInputComponent } from './components/email-input/email-input.component';
-import { PhoneInputComponent } from './components/phone-input/phone-input.component';
+import { BasicDataForms2Component } from './archive/basic-data-forms2/basic-data-forms2.component';
+import { EmailInputComponent } from './archive/email-input/email-input.component';
+import { PhoneInputComponent } from './archive/phone-input/phone-input.component';
 import { CheckboxInputComponent } from './components/checkbox-input/checkbox-input.component';
-import { AddressDataForm } from './forms/address-data-forms/address-data-forms.component';
-import { TownShipComponent } from './components/townshipInput/townShip.component';
-import { StreetComponent } from './components/streetInput/street.component';
-import { PlaceComponent } from './components/placeInput/place.component';
+import { AddressDataForm } from './archive/address-data-forms/address-data-forms.component';
+import { TownShipComponent } from './archive/townshipInput/townShip.component';
+import { StreetComponent } from './archive/streetInput/street.component';
+import { PlaceComponent } from './archive/placeInput/place.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { HouseNumberComponent } from './components/houseNumberInput/houseNumber.component';
-import { ApartmanNumberComponent } from './components/ApartmanNumberInput/apartmanNumber.component';
-import { ListBoxComponent } from './components/customListBox/customListBox.component';
+import { HouseNumberComponent } from './archive/houseNumberInput/houseNumber.component';
+import { ApartmanNumberComponent } from './archive/ApartmanNumberInput/apartmanNumber.component';
+import { ListBoxComponent } from './archive/customListBox/customListBox.component';
 import { DefaultComponent } from './forms/default/default.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './forms/dynamic-form/dynamic-form.component';
 import { ActionComponent } from './components/action/action.component';
+import { CustomListBoxComponent } from './components/custom-list-box/custom-list-box.component';
+import { CustomSelectComponent } from './components/custom-select/custom-select.component';
  
 @NgModule({
   declarations: [
@@ -62,7 +64,9 @@ import { ActionComponent } from './components/action/action.component';
     DefaultComponent,
     CustomInputComponent,
     DynamicFormComponent,
-    ActionComponent
+    ActionComponent,
+    CustomListBoxComponent,
+    CustomSelectComponent
     
   ],
   imports: [

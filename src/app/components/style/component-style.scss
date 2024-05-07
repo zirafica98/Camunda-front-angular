@@ -24,13 +24,15 @@
         }
 
         >input::placeholder {
-            color:#8F9199;
+            color: #8F9199;
         }
+
         .wrapper {
             display: flex;
             align-items: center;
             gap: 5px;
             margin-bottom: 5px;
+
             >label {
                 color: #656772;
                 font-size: 14px;
@@ -44,11 +46,14 @@
                 transform: translateY(25%);
             }
 
-            >svg{
+            >svg {
                 align-self: flex-start;
             }
         }
-        >form{
+
+        >form {
+            position: relative;
+
             >select,
             >input {
                 position: relative;
@@ -65,90 +70,96 @@
                 padding-top: 4px;
             }
 
-            >select,
-            >input:focus{
+            >select:focus,
+            >input:focus {
                 outline: none;
                 border: solid 2px #EFD006;
             }
 
-            >select option[value=""][disabled] {
-                color: #8F9199;
+            .placeholder {
+                color: #757575;
             }
-    
+
             .wrapper {
                 display: flex;
                 align-items: center;
                 gap: 5px;
+
                 >label {
                     color: #656772;
                     font-size: 12px;
                     font-weight: 500;
                     display: inline-block;
                 }
-    
+
                 >span {
                     color: #D7424B;
                     font-size: 16px;
                 }
-    
-                >svg{
+
+                >svg {
                     align-self: flex-start;
                 }
             }
-            
-            .error{
+
+            .error {
                 color: #D7424B;
                 font-size: 13px;
                 margin-top: 10px;
                 display: flex;
                 align-items: center;
 
-                >span{
+                >span {
                     margin-left: 10px;
                 }
             }
 
-            .phone{
+            .phone {
                 width: calc(100% - 96px);
                 padding-left: 112px;
                 background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
-                background-size:auto 24px;
+                background-size: auto 24px;
                 background-color: #f3f3f4;
             }
 
-            .errorInput{
-                    border: solid 2px #D7424B;
+            .errorInput {
+                border: solid 2px #D7424B;
             }
-            
+
             .dropdown-list {
-                display: none; // Inicijalno sakrijemo padajuću listu
-              
-                // Prikazujemo padajuću listu nakon unosa 3 karaktera
+                display: none;
+
                 &.active {
-                  display: block;
+                    display: block;
+                    position: absolute;
+                    width: calc(100% + 16px);
+                    z-index: 100;
+                    background-color: white;
                 }
-              
+
                 ul {
-                  list-style-type: none;
-                  padding: 0;
-                  margin: 0;
-                  border: 1px solid #ccc;
-                  border-top: none;
-                  max-height: 150px; // Definišemo maksimalnu visinu padajuće liste
-              
-                  // Stilovi za stavke u padajućoj listi
-                  li {
-                    padding: 5px 10px;
-                    cursor: pointer;
-                    &:hover {
-                      background-color: #f0f0f0;
+                    list-style-type: none;
+                    padding: 0;
+                    margin: 0;
+                    border: 1px solid #ccc;
+                    border-top: none;
+                    max-height: 150px;
+                    overflow-y: scroll;
+                    width: 100%;
+
+                    li {
+                        padding: 5px 10px;
+                        cursor: pointer;
+
+                        &:hover {
+                            background-color: #f0f0f0;
+                        }
                     }
-                  }
                 }
-              }
+            }
         }
     }
-    
+
     >span {
         font-size: 16px;
     }
@@ -161,7 +172,7 @@
         margin-left: 10px;
     }
 
-    .action:hover{
-        color:#00333f;
+    .action:hover {
+        color: #00333f;
     }
 }

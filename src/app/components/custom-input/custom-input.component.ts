@@ -11,13 +11,14 @@ import { inputResource } from '../../resources';
 export class CustomInputComponent {
   
   @Input() customType: string = "";
+  @Input() mandatory: boolean = true;
 
   @Output() formValidityChange = new EventEmitter<boolean>();
 
   inputResource=inputResource;
 
   form=new FormGroup({
-  input : new FormControl('', [Validators.required])
+  input : new FormControl('', [])
   })
 
   get input(){return this.form.get('input')}
@@ -31,7 +32,7 @@ export class CustomInputComponent {
 
   ngOnInit() {
     this.form.get('input')?.setValidators(customValidator(this.customType));
-    this.form.get('input')?.addValidators(Validators.required);
+    if(this.mandatory) this.form.get('input')?.addValidators(Validators.required);
     this.form.get('input')?.updateValueAndValidity();
   }
 

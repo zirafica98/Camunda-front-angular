@@ -6,8 +6,10 @@ import { FrameComponent } from '../Frame/frame.component';
 import { formResources } from '../../resources';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { CheckboxInputComponent } from '../../components/checkbox-input/checkbox-input.component';
-import { CheckBoxComponent } from '../../components/checkBoxInput/checkBoxInput.component';
+import { CheckBoxComponent } from '../../archive/checkBoxInput/checkBoxInput.component';
 import { ActionComponent } from '../../components/action/action.component';
+import { CustomListBoxComponent } from '../../components/custom-list-box/custom-list-box.component';
+import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
 
 interface ComponentData {
   type: string;
@@ -17,6 +19,8 @@ interface ComponentData {
   actionText: string;
   mandatory: boolean;
   name: string;
+  options:string[];
+  placeholder:string;
 }
 
 interface MyJSON {
@@ -32,6 +36,8 @@ export class DynamicFormComponent {
 
   @ViewChild('inputContainer', { read: ViewContainerRef }) container!: ViewContainerRef;
   customInputComponentRefs: ComponentRef<CustomInputComponent>[] = [];
+  customSelectComponentRefs: ComponentRef<CustomSelectComponent>[] = [];
+  customListBoxComponentRefs: ComponentRef<CustomListBoxComponent>[] = [];
   customCheckboxComponentRefs: ComponentRef<CheckBoxComponent>[] = [];
   customActionComponentRefs: ComponentRef<ActionComponent>[] = [];
 
@@ -44,6 +50,7 @@ export class DynamicFormComponent {
   myInputComponents: ComponentData[] = [];
   myCheckboxComponents: ComponentData[] = [];
   areMandatorySelected: boolean = true;
+  codeBook:any=[];
 
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
@@ -54,6 +61,9 @@ export class DynamicFormComponent {
       this.title = this.formsResources[this.globalService.getGlobalTaskKey()].title;
       this.text = this.formsResources[this.globalService.getGlobalTaskKey()].text;
       (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML = this.text;
+      switch(this.id){
+        case "AddressForm":this.codeBook = this.globalService.getGlobalCodeBook();
+      }
     }
     else alert("nedozvoljen pristup");
   }
@@ -71,6 +81,8 @@ export class DynamicFormComponent {
       switch (component.type) {
         case 'input': this.loadInput(component, inputIndex); inputIndex++; break;
         case 'checkbox': this.loadCheckBox(component, checkboxIndex); checkboxIndex++; break;
+        case 'select': this.loadSelect(component, inputIndex); inputIndex++; break;
+        case 'listBox': this.loadListBox(component, inputIndex); inputIndex++; break;
         case 'image': this.loadImage(component.name); break;
         case 'text': this.loadDiv(component.text); break;
         case 'action': this.loadAction(component); break;
@@ -112,12 +124,22 @@ export class DynamicFormComponent {
           ref.instance.input?.markAsTouched();
         }
       });
+      this.customSelectComponentRefs.forEach(ref => {
+        if (!ref.instance.isValid()) {
+          ref.instance.input?.markAsTouched();
+        }
+      });
+      this.customListBoxComponentRefs.forEach(ref => {
+        if (!ref.instance.isValid()) {
+          ref.instance.input?.markAsTouched();
+        }
+      });
     }
   }
 
   areAllInputElementsValid(): boolean {
     for (let i = 0; i < this.myInputComponents.length; i++) {
-      if (this.myInputComponents[i].type === 'input' && !this.formIsValid[i]) {
+      if ((this.myInputComponents[i].type === 'input'||this.myInputComponents[i].type === 'listBox'||this.myInputComponents[i].type === 'select') && !this.formIsValid[i]) {
         return false;
       }
     }
@@ -141,6 +163,7 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
     const currentIndex = checkboxIndex;
     componentRef.instance.customType = component.key;
+    componentRef.instance.mandatory = component.mandatory;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customInputComponentRefs.push(componentRef);
     this.formIsValid.push(false);
@@ -163,6 +186,30 @@ export class DynamicFormComponent {
       this.customCheckboxComponentRefs.push(componentRef);
       this.myCheckboxComponents.push(component);
     }
+  }
+
+  loadListBox(component: ComponentData, listBoxIndex: number) {
+    const factory = this.resolver.resolveComponentFactory(CustomListBoxComponent);
+    const componentRef = this.container.createComponent(factory);
+    const currentIndex = listBoxIndex;
+    componentRef.instance.customType = component.key;
+    componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
+    this.customListBoxComponentRefs.push(componentRef);
+    this.formIsValid.push(false);
+    this.myInputComponents.push(component);
+  }
+  
+  loadSelect(component: ComponentData, selectIndex: number) {
+    const factory = this.resolver.resolveComponentFactory(CustomSelectComponent);
+    const componentRef = this.container.createComponent(factory);
+    const currentIndex = selectIndex;
+    componentRef.instance.customType = component.key;
+    componentRef.instance.options = component.options;
+    componentRef.instance.placeholder = component.placeholder;
+    componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
+    this.customSelectComponentRefs.push(componentRef);
+    this.formIsValid.push(false);
+    this.myInputComponents.push(component);
   }
 
   loadImage(src: string) {

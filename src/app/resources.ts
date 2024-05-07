@@ -35,6 +35,46 @@ export const inputResource:inputResources={
         text:"Verifikacioni kod",
         placeholder:"Unesite verifikacioni kod",
         error:"Verifikacioni kod nije validan"
+    },
+    municipality:{
+        text:"Opština",
+        placeholder:"Unesite opštinu",
+        error:"Obavezno polje"
+    },
+    place:{
+        text:"Mesto",
+        placeholder:"Unesite mesto",
+        error:"Obavezno polje"
+    },
+    street:{
+        text:"Ulica",
+        placeholder:"Unesite ulicu",
+        error:"Obavezno polje"
+    },
+    houseNumber:{
+        text:"Kućni broj",
+        placeholder:"Unesite kućni broj",
+        error:"Obavezno polje"
+    },
+    apartmentNumber:{
+        text:"Broj stana",
+        placeholder:"Unesite broj stana",
+        error:""
+    },
+    onThisAddress:{
+        text:"Živim na ovoj adresi u poslednjih",
+        placeholder:"",
+        error:"Obavezno polje"
+    },
+    status:{
+        text:"Status",
+        placeholder:"",
+        error:"Obavezno polje"
+    },
+    addressDiff:{
+        text:"Adresa u ličnoj karti se razlikuje od adrese stanovanja",
+        placeholder:"",
+        error:"Obavezno polje"
     }
 }
 

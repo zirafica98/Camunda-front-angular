@@ -11,11 +11,11 @@ export class GlobalService {
   globalTaskKey:any;
   globalTaskJSON:string="";
   globalCodeBook:any;
-  globalSelectTownShipCodeBookCode:any = "";
+  globalSelectMunicipalityCodeBookCode:any = "";
   globalSelectPlaceCodeBookCode:any;
   globalSelectStreetCodeBookCode:any;
-  private townShipValueSubject = new BehaviorSubject<any>('');
-  townShipValue$ = this.townShipValueSubject.asObservable();
+  private municipalityValueSubject = new BehaviorSubject<any>('');
+  municipalityValue$ = this.municipalityValueSubject.asObservable();
   private placeValueSubject = new BehaviorSubject<any>('');
   placeValue$ = this.placeValueSubject.asObservable();
 
@@ -68,16 +68,16 @@ export class GlobalService {
     return this.globalCodeBook;
   }
 
-  setGlobalTownShipCodeBook(value:any):any{
-    this.globalSelectTownShipCodeBookCode = value;
+  setGlobalMunicipalityCodeBook(value:any):any{
+    this.globalSelectMunicipalityCodeBookCode = value;
   }
 
-  getGlobalTownShipCodeBook():any{
-    return this.globalSelectTownShipCodeBookCode;
+  getGlobalMunicipalityCodeBook():any{
+    return this.globalSelectMunicipalityCodeBookCode;
   }
 
-  setTownShipCodeValue(newValue: any) {
-    this.townShipValueSubject.next(newValue);
+  setMunicipalityCodeValue(newValue: any) {
+    this.municipalityValueSubject.next(newValue);
   }
 
   setGlobalPlaceCodeBook(value:any):any{

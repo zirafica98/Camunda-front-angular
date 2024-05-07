@@ -1,7 +1,7 @@
 <div class="container">
     <div class="components">
         <div class="wrapper">
-            <span *ngIf="mandatory">*</span>
+            <span>*</span>
             <label>{{inputResource[customType].text}}</label>
             <svg width="16" height="16" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path fill-rule="evenodd" clip-rule="evenodd"
@@ -10,7 +10,10 @@
             </svg>
         </div>
         <form [formGroup]="form">
-        <input type="text" [placeholder]="inputResource[customType].placeholder" [name]="customType" formControlName="input" ngDefaultControl [class.errorInput]="isValid()" [class.phone]="customType=='phone'">
+        <select [name]="customType" formControlName="input" ngDefaultControl [class.errorInput]="isValid()" [class.placeholder]="this.form.invalid">
+            <option [value]="null" disabled selected hidden>{{placeholder}}</option>
+            <option *ngFor="let option of options" [value]="option">{{ option }}</option>
+        </select>
         <div *ngIf="isValid()" class="error">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd" d="M5.99935 11.8334C2.77769 11.8334 0.166016 9.22168 0.166016 6.00002C0.166016 2.77836 2.77769 0.166687 5.99935 0.166687C9.22101 0.166687 11.8327 2.77836 11.8327 6.00002C11.8327 9.22168 9.22101 11.8334 5.99935 11.8334ZM5.41602 3.08335V6.58335H6.58268V3.08335H5.41602ZM5.99935 8.91669C5.59664 8.91669 5.27018 8.59023 5.27018 8.18752C5.27018 7.78481 5.59664 7.45835 5.99935 7.45835C6.40206 7.45835 6.72852 7.78481 6.72852 8.18752C6.72852 8.59023 6.40206 8.91669 5.99935 8.91669Z" fill="#D7424B"/>

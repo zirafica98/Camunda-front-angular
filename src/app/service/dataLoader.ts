@@ -26,7 +26,7 @@ export class DataLoader {
   }
 
   getCodeBookStreet(streetCode:any){
-    const placeId = this.globalService.getGlobalTownShipCodeBook();
+    const placeId = this.globalService.getGlobalMunicipalityCodeBook();
     const url = `${this.baseUrl}/api/Codebook/getCodebookStreetsCorporate/${placeId}/${streetCode}`;
     return this.http.get(url);
   }

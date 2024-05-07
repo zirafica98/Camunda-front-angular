@@ -27,6 +27,20 @@
   font-weight: 900;
   font-style: normal;
 }
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #757575;
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #575757;
+}
+
 body {
   background-color: #f7f7f8;
   margin: 0;

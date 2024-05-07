@@ -2,11 +2,10 @@
 <bpmn:definitions xmlns:bpmn="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:camunda="http://camunda.org/schema/1.0/bpmn" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:modeler="http://camunda.org/schema/modeler/1.0" id="Definitions_0hsjqwv" targetNamespace="http://bpmn.io/schema/bpmn" exporter="Camunda Modeler" exporterVersion="5.20.0" modeler:executionPlatform="Camunda Platform" modeler:executionPlatformVersion="7.20.0">
   <bpmn:process id="demoDiagram" isExecutable="true" camunda:historyTimeToLive="180">
     <bpmn:startEvent id="StartEvent_1" name="Start">
-      <bpmn:outgoing>Flow_12jjst4</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0zxvby2</bpmn:outgoing>
     </bpmn:startEvent>
-    <bpmn:sequenceFlow id="Flow_12jjst4" sourceRef="StartEvent_1" targetRef="BasicDataForm" />
     <bpmn:userTask id="SSNForm" name="SSNForm" camunda:formKey="SSNForm">
-      <bpmn:documentation>{ "components": [ { "key": "ssn", "type": "input" } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "ssn", "type": "input", "mandatory":true } ] }</bpmn:documentation>
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codeBookName" />
@@ -17,26 +16,20 @@
       <bpmn:outgoing>Flow_15trvxm</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_15trvxm" sourceRef="SSNForm" targetRef="Activity_137r9lh" />
-    <bpmn:userTask id="AddressForm" name="AddressForm" camunda:formKey="AddressForm">
-      <bpmn:extensionElements />
-      <bpmn:incoming>Flow_171ko6s</bpmn:incoming>
-      <bpmn:outgoing>Flow_1c329v2</bpmn:outgoing>
-    </bpmn:userTask>
     <bpmn:endEvent id="Event_0ye2nuy">
-      <bpmn:incoming>Flow_1c329v2</bpmn:incoming>
+      <bpmn:incoming>Flow_18d0upc</bpmn:incoming>
     </bpmn:endEvent>
     <bpmn:userTask id="Activity_137r9lh" name="CodeBookService" camunda:formKey="CodeBookService">
       <bpmn:incoming>Flow_15trvxm</bpmn:incoming>
-      <bpmn:outgoing>Flow_171ko6s</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0gyf91f</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="BasicDataForm" name="BasicDataForm" camunda:formKey="BasicDataForm">
-      <bpmn:documentation>{ "components": [ { "key": "name", "type": "input" }, { "key": "lastname", "type": "input" }, { "key": "phone", "type": "input" }, { "key": "email", "type": "input" }, { "key": "checkbox1", "type": "checkbox", "text": "Primer obaveznog checkbox-a", "link": "https://raiffeisenbank.rs/", "mandatory": true }, { "key": "checkbox2", "type": "checkbox", "text": "Primer neobaveznog checkbox-a", "link": "https://raiffeisenbank.rs/", "mandatory": false } ] }</bpmn:documentation>
-      <bpmn:incoming>Flow_12jjst4</bpmn:incoming>
+      <bpmn:documentation>{ "components": [ { "key": "name", "type": "input", "mandatory":true }, { "key": "lastname", "type": "input", "mandatory":true }, { "key": "phone", "type": "input", "mandatory":true }, { "key": "email", "type": "input", "mandatory":true }, { "key": "checkbox1", "type": "checkbox", "text": "Primer obaveznog checkbox-a", "link": "https://raiffeisenbank.rs/", "mandatory": true }, { "key": "checkbox2", "type": "checkbox", "text": "Primer neobaveznog checkbox-a", "link": "https://raiffeisenbank.rs/", "mandatory": false } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_0zxvby2</bpmn:incoming>
       <bpmn:outgoing>Flow_0ive0pr</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_1c329v2" sourceRef="AddressForm" targetRef="Event_0ye2nuy" />
     <bpmn:userTask id="PhoneVerificationForm" name="PhoneVerificationForm" camunda:formKey="PhoneVerificationForm">
-      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.png" }, { "key": "text1", "type": "text", "text":"Verifikacija broja telefona omogućava nastavak zahteva u slučaju prekida i elektronski potpis ugovora na kraju, na sličan način. Molimo Vas da upišete verifikacioni kod koji dobijete u SMS poruci." }, { "key": "verification", "type": "input" }, { "key": "verification", "type": "action", "text": "Još uvek niste dobili ništa?", "actionText": "Ponovo pošalji verifikacioni kod" } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.png" }, { "key": "text1", "type": "text", "text": "Verifikacija broja telefona omogućava nastavak zahteva u slučaju prekida i elektronski potpis ugovora na kraju, na sličan način. Molimo Vas da upišete verifikacioni kod koji dobijete u SMS poruci." }, { "key": "verification", "type": "input", "mandatory": true }, { "key": "verification", "type": "action", "text": "Još uvek niste dobili ništa?", "actionText": "Ponovo pošalji verifikacioni kod" } ] }</bpmn:documentation>
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codeBookName" />
@@ -48,62 +41,69 @@
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_1acu3va" sourceRef="PhoneVerificationForm" targetRef="SSNForm" />
     <bpmn:sequenceFlow id="Flow_0ive0pr" sourceRef="BasicDataForm" targetRef="PhoneVerificationForm" />
-    <bpmn:sequenceFlow id="Flow_171ko6s" sourceRef="Activity_137r9lh" targetRef="AddressForm" />
+    <bpmn:userTask id="AddressForm" name="AddressForm" camunda:formKey="AddressForm">
+      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "input", "mandatory": true }, { "key": "apartmentNumber", "type": "input", "mandatory": false }, { "key": "onThisAddress", "type": "select", "options": [ "1 godinu", "2 godine", "3 godine" ], "placeholder":"Izaberite koliko godina živite na ovoj adresi" }, { "key": "status", "type": "select", "options": [ "Vlasnik/Suvlasnik", "Nesto drugo", "Nesto trece" ], "placeholder":"Izaberite Vaš status" }, { "key": "addressDiff", "type": "select", "options": [ "Da", "Ne" ], "placeholder":"Izaberite Da ili Ne" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_0gyf91f</bpmn:incoming>
+      <bpmn:outgoing>Flow_18d0upc</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_18d0upc" sourceRef="AddressForm" targetRef="Event_0ye2nuy" />
+    <bpmn:sequenceFlow id="Flow_0gyf91f" sourceRef="Activity_137r9lh" targetRef="AddressForm" />
+    <bpmn:sequenceFlow id="Flow_0zxvby2" sourceRef="StartEvent_1" targetRef="BasicDataForm" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="demoDiagram">
       <bpmndi:BPMNShape id="_BPMNShape_StartEvent_2" bpmnElement="StartEvent_1">
-        <dc:Bounds x="152" y="99" width="36" height="36" />
+        <dc:Bounds x="132" y="99" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="158" y="142" width="25" height="14" />
+          <dc:Bounds x="138" y="142" width="25" height="14" />
         </bpmndi:BPMNLabel>
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="BPMNShape_1xg4npx" bpmnElement="BasicDataForm">
-        <dc:Bounds x="220" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_0l3425y_di" bpmnElement="AddressForm">
-        <dc:Bounds x="870" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
-        <dc:Bounds x="1072" y="99" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="Activity_137r9lh">
-        <dc:Bounds x="710" y="77" width="100" height="80" />
-        <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1523gbf_di" bpmnElement="SSNForm">
         <dc:Bounds x="550" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1xg4npx" bpmnElement="BasicDataForm">
+        <dc:Bounds x="220" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_02d412x" bpmnElement="PhoneVerificationForm">
         <dc:Bounds x="390" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNEdge id="Flow_12jjst4_di" bpmnElement="Flow_12jjst4">
-        <di:waypoint x="188" y="117" />
-        <di:waypoint x="220" y="117" />
+      <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="Activity_137r9lh">
+        <dc:Bounds x="720" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_06zvh45" bpmnElement="AddressForm">
+        <dc:Bounds x="890" y="77" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
+        <dc:Bounds x="1082" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1acu3va_di" bpmnElement="Flow_1acu3va">
+        <di:waypoint x="490" y="117" />
+        <di:waypoint x="550" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_15trvxm_di" bpmnElement="Flow_15trvxm">
+        <di:waypoint x="650" y="117" />
+        <di:waypoint x="720" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ive0pr_di" bpmnElement="Flow_0ive0pr">
         <di:waypoint x="320" y="117" />
         <di:waypoint x="390" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_171ko6s_di" bpmnElement="Flow_171ko6s">
-        <di:waypoint x="810" y="117" />
-        <di:waypoint x="870" y="117" />
+      <bpmndi:BPMNEdge id="Flow_0gyf91f_di" bpmnElement="Flow_0gyf91f">
+        <di:waypoint x="820" y="117" />
+        <di:waypoint x="890" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1c329v2_di" bpmnElement="Flow_1c329v2">
-        <di:waypoint x="970" y="117" />
-        <di:waypoint x="1072" y="117" />
+      <bpmndi:BPMNEdge id="Flow_18d0upc_di" bpmnElement="Flow_18d0upc">
+        <di:waypoint x="990" y="117" />
+        <di:waypoint x="1082" y="117" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_15trvxm_di" bpmnElement="Flow_15trvxm">
-        <di:waypoint x="650" y="117" />
-        <di:waypoint x="710" y="117" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_1acu3va_di" bpmnElement="Flow_1acu3va">
-        <di:waypoint x="490" y="117" />
-        <di:waypoint x="550" y="117" />
+      <bpmndi:BPMNEdge id="Flow_0zxvby2_di" bpmnElement="Flow_0zxvby2">
+        <di:waypoint x="168" y="117" />
+        <di:waypoint x="220" y="117" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

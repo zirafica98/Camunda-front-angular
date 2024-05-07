@@ -48,6 +48,9 @@
 .container .components .wrapper > svg {
   align-self: flex-start;
 }
+.container .components > form {
+  position: relative;
+}
 .container .components > form > select,
 .container .components > form > input {
   position: relative;
@@ -63,13 +66,13 @@
   padding-left: 16px;
   padding-top: 4px;
 }
-.container .components > form > select,
+.container .components > form > select:focus,
 .container .components > form > input:focus {
   outline: none;
   border: solid 2px #EFD006;
 }
-.container .components > form > select option[value=""][disabled] {
-  color: #8F9199;
+.container .components > form .placeholder {
+  color: #757575;
 }
 .container .components > form .wrapper {
   display: flex;
@@ -114,6 +117,10 @@
 }
 .container .components > form .dropdown-list.active {
   display: block;
+  position: absolute;
+  width: calc(100% + 16px);
+  z-index: 100;
+  background-color: white;
 }
 .container .components > form .dropdown-list ul {
   list-style-type: none;
@@ -122,6 +129,8 @@
   border: 1px solid #ccc;
   border-top: none;
   max-height: 150px;
+  overflow-y: scroll;
+  width: 100%;
 }
 .container .components > form .dropdown-list ul li {
   padding: 5px 10px;
