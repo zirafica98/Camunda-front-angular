@@ -28,13 +28,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HouseNumberComponent } from './archive/houseNumberInput/houseNumber.component';
 import { ApartmanNumberComponent } from './archive/ApartmanNumberInput/apartmanNumber.component';
 import { ListBoxComponent } from './archive/customListBox/customListBox.component';
-import { DefaultComponent } from './forms/default/default.component';
+import { DefaultComponent } from './archive/default/default.component';
 import { CustomInputComponent } from './components/custom-input/custom-input.component';
 import { FormsModule } from '@angular/forms';
 import { DynamicFormComponent } from './forms/dynamic-form/dynamic-form.component';
 import { ActionComponent } from './components/action/action.component';
 import { CustomListBoxComponent } from './components/custom-list-box/custom-list-box.component';
 import { CustomSelectComponent } from './components/custom-select/custom-select.component';
+import { WelcomeComponent } from './shared/welcome/welcome.component';
+import { FormsComponent } from './shared/forms/forms.component';
+import { PrefilledInputComponent } from './components/prefilled-input/prefilled-input.component';
  
 @NgModule({
   declarations: [
@@ -66,8 +69,10 @@ import { CustomSelectComponent } from './components/custom-select/custom-select.
     DynamicFormComponent,
     ActionComponent,
     CustomListBoxComponent,
-    CustomSelectComponent
-    
+    CustomSelectComponent,
+    WelcomeComponent,
+    FormsComponent,
+    PrefilledInputComponent
   ],
   imports: [
     BrowserModule,

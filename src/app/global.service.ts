@@ -18,7 +18,7 @@ export class GlobalService {
   municipalityValue$ = this.municipalityValueSubject.asObservable();
   private placeValueSubject = new BehaviorSubject<any>('');
   placeValue$ = this.placeValueSubject.asObservable();
-
+  params:number[]=[];
   constructor() { }
 
   setGlobalVariable(value: any): void {
@@ -94,6 +94,17 @@ export class GlobalService {
   
   setGlobalSelectStreetCodeBookCode(value:any){
     this.globalSelectStreetCodeBookCode = value;
+  }
+
+  getParams():number[]{
+    return this.params;
+  }
+
+  setParams(p1:number,p2:number,p3:number){
+    this.params=[];
+    this.params.push(p1);
+    this.params.push(p2);
+    this.params.push(p3);
   }
   
 

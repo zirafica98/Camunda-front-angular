@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { AfterViewInit, Component, OnInit} from '@angular/core';
 import { CamundaService } from '../../service/camundaConnect';
 import { GlobalService } from '../../global.service';
 
@@ -8,7 +8,7 @@ import { GlobalService } from '../../global.service';
   templateUrl: './start-camunda.component.html',
   styleUrls: ['./start-camunda.component.css']
 })
-export class StartCamundaComponent {
+export class StartCamundaComponent implements OnInit,AfterViewInit {
   //processDefinitionKey: string = 'Process_18c7yk0';
   tasks: any[] = [];
   currentUser: string = "";
@@ -20,6 +20,12 @@ export class StartCamundaComponent {
 
   constructor(private camundaService: CamundaService,private globalService:GlobalService) { }
 
+  ok:boolean=false;
+  ngOnInit(): void {this.ok=true;
+  }
+  ngAfterViewInit(){
+    this.startProcess();
+  }
 
   // createProcessIfNeeded():void{
   //     this.startProcess();

@@ -43,15 +43,16 @@ export class CustomInputComponent {
   }
 
 }
-function customValidator(customType: string): ValidatorFn {
+
+function customValidator(key: string): ValidatorFn {
   return (control: AbstractControl): ValidationErrors | null => {
     const value = control.value;
     let isValid=true;
-    switch (customType) {
+    switch (key) {
       case 'ssn':
         isValid = SSNValidator(value);break;
       case 'phone':
-         isValid = /^[0-9]{7,8}$/.test(value);break;
+         isValid = /^6[0-9]{7,8}$/.test(value);break;
       case 'name': case 'lastname':
          isValid = /^[a-zA-ZčćžđšČĆŽĐŠ\s]{2,}$/.test(value);break;
       case 'email':

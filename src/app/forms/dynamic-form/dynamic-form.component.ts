@@ -10,6 +10,7 @@ import { CheckBoxComponent } from '../../archive/checkBoxInput/checkBoxInput.com
 import { ActionComponent } from '../../components/action/action.component';
 import { CustomListBoxComponent } from '../../components/custom-list-box/custom-list-box.component';
 import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
+import { PrefilledInputComponent } from '../../components/prefilled-input/prefilled-input.component';
 
 interface ComponentData {
   type: string;
@@ -19,8 +20,9 @@ interface ComponentData {
   actionText: string;
   mandatory: boolean;
   name: string;
-  options:string[];
-  placeholder:string;
+  options: string[];
+  placeholder: string;
+  prefilled: boolean;
 }
 
 interface MyJSON {
@@ -39,6 +41,7 @@ export class DynamicFormComponent {
   customSelectComponentRefs: ComponentRef<CustomSelectComponent>[] = [];
   customListBoxComponentRefs: ComponentRef<CustomListBoxComponent>[] = [];
   customCheckboxComponentRefs: ComponentRef<CheckBoxComponent>[] = [];
+  customPrefilledInputComponentRefs: ComponentRef<PrefilledInputComponent>[] = [];
   customActionComponentRefs: ComponentRef<ActionComponent>[] = [];
 
   id: string = "";
@@ -49,8 +52,10 @@ export class DynamicFormComponent {
   isChecked: boolean[] = [];
   myInputComponents: ComponentData[] = [];
   myCheckboxComponents: ComponentData[] = [];
+  myPrefilledInputComponents: ComponentData[] = [];
   areMandatorySelected: boolean = true;
-  codeBook:any=[];
+  codeBook: any = [];
+  numMini: number = 0;
 
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
@@ -61,8 +66,8 @@ export class DynamicFormComponent {
       this.title = this.formsResources[this.globalService.getGlobalTaskKey()].title;
       this.text = this.formsResources[this.globalService.getGlobalTaskKey()].text;
       (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML = this.text;
-      switch(this.id){
-        case "AddressForm":this.codeBook = this.globalService.getGlobalCodeBook();
+      switch (this.id) {
+        case "AddressForm": this.codeBook = this.globalService.getGlobalCodeBook();
       }
     }
     else alert("nedozvoljen pristup");
@@ -79,7 +84,13 @@ export class DynamicFormComponent {
     for (let [index, component] of this.myJSON.components.entries()) {
 
       switch (component.type) {
-        case 'input': this.loadInput(component, inputIndex); inputIndex++; break;
+        case 'input':
+          if (component.prefilled)
+            this.loadPrefilledInput(component);
+          else
+            {this.loadInput(component, inputIndex); inputIndex++;}
+          break;
+        case 'miniInput': this.loadInput(component, inputIndex); inputIndex++; break;
         case 'checkbox': this.loadCheckBox(component, checkboxIndex); checkboxIndex++; break;
         case 'select': this.loadSelect(component, inputIndex); inputIndex++; break;
         case 'listBox': this.loadListBox(component, inputIndex); inputIndex++; break;
@@ -139,7 +150,7 @@ export class DynamicFormComponent {
 
   areAllInputElementsValid(): boolean {
     for (let i = 0; i < this.myInputComponents.length; i++) {
-      if ((this.myInputComponents[i].type === 'input'||this.myInputComponents[i].type === 'listBox'||this.myInputComponents[i].type === 'select') && !this.formIsValid[i]) {
+      if ((this.myInputComponents[i].type === 'input' || this.myInputComponents[i].type === 'miniInput' || this.myInputComponents[i].type === 'listBox' || this.myInputComponents[i].type === 'select') && !this.formIsValid[i]) {
         return false;
       }
     }
@@ -168,6 +179,27 @@ export class DynamicFormComponent {
     this.customInputComponentRefs.push(componentRef);
     this.formIsValid.push(false);
     this.myInputComponents.push(component);
+
+    if (component.type == "miniInput") {
+      this.numMini++;
+      this.renderer.setStyle(componentRef.location.nativeElement, 'display', 'inline-block');
+      this.renderer.setStyle(componentRef.location.nativeElement, 'width', 'calc(50% - 40px)');
+      if (this.numMini % 2 == 0)
+        this.renderer.setStyle(componentRef.location.nativeElement, 'margin-left', '80px');
+    }
+  }
+
+  tempVal:number=0;
+  loadPrefilledInput(component: ComponentData) {
+    const factory = this.resolver.resolveComponentFactory(PrefilledInputComponent);
+    const componentRef = this.container.createComponent(factory);
+
+    //dohvati pravi parametar
+    let val=["Mihajlo","Bondji","648229473","mihajlobondji@gmail.com"];
+    componentRef.instance.customType = component.key;
+    componentRef.instance.value = val[this.tempVal];
+    this.myPrefilledInputComponents.push(component);
+    this.tempVal++;
   }
 
   loadCheckBox(component: ComponentData, checkboxIndex: number) {
@@ -198,7 +230,7 @@ export class DynamicFormComponent {
     this.formIsValid.push(false);
     this.myInputComponents.push(component);
   }
-  
+
   loadSelect(component: ComponentData, selectIndex: number) {
     const factory = this.resolver.resolveComponentFactory(CustomSelectComponent);
     const componentRef = this.container.createComponent(factory);

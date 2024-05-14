@@ -1,4 +1,5 @@
 <header-component></header-component>
-<app-steps-wrap></app-steps-wrap>
-<app-start-camunda *ngIf="ok"></app-start-camunda>
+<app-welcome *ngIf="ok==1" (notifyParent)="startCamunda()"></app-welcome>
+<app-steps-wrap *ngIf="ok==2"></app-steps-wrap>
+<app-start-camunda *ngIf="ok==2"></app-start-camunda>
 <footer-component></footer-component>

@@ -22,7 +22,7 @@ export const inputResource:inputResources={
         error:"Neispravno ime"
     },
     lastname:{
-        text:"Vaše prezime",
+        text:"Prezime",
         placeholder:"Unesite svoje prezime",
         error:"Neispravno prezime"
     },
@@ -90,8 +90,8 @@ export const formResources:formResources={
         text:"U narednim koracima, dok popunjavate potrebne informacije, mi ćemo uraditi brzu proveru kroz Kreditni biro. Za tu svrhu biće nam potreban Vaš JMBG. U samo nekoliko minuta ćemo Vam reći da li zadovoljavate uslove za kreditnu karticu.",
     },
     BasicDataForm:{
-        title:"Unos ličnih podataka",
-        text:"Apliciranje za Online kreditnu karticu je jednostavno i može da se završi u nekoliko koraka. Kao prvo, moramo da se upoznamo: unesite svoje lične podatke i nakon klika na dugme <b>Nastavi</b> poslaćemo Vam SMS poruku sa verifikacionim kodom.",
+        title:"Lični podaci",
+        text:"Proverite svoje podatke koje imamo u sistemu",
     },
     AddressForm:{
         title:"Adresa stanovanja",
@@ -101,4 +101,87 @@ export const formResources:formResources={
         title:"Verifikacija broja telefona",
         text:"",
     }
+}
+
+interface welcomeResource {
+    [key: string]: {
+        text: string;
+    };
+}
+export const welcomeResource:welcomeResource={
+    upperTitle:{
+        text:"Online oročena štednja nikada do sada nije bila ovako brza i jednostavna!"
+    },
+    upperText:{
+        text:"Oročite sredstva bez odlaska u filijalu u samo par koraka"
+    },
+    infoTitle1:{
+        text:"Oročenje za nekoliko minuta"
+    },
+    infoText1:{
+        text:"Oročite sredstva online za samo nekoliko minuta."
+    },
+    infoTitle2:{
+        text:"Minimalna dokumentacija"
+    },
+    infoText2:{
+        text:"Dovoljan je jedan lični dokument, pasoš ili lična karta."
+    },
+    infoTitle3:{
+        text:"100% online zahtev"
+    },
+    infoText3:{
+        text:"Podnesite Zahtev bez odlaska u filijalu u samo par koraka."
+    },
+    inputTitle:{
+        text:"Želim oročenje u iznosu od:"
+    },
+    inputTitle2:{
+        text:"Želim da oročim na:"
+    },
+    buttonText:{
+        text:"Podnesi zahtev online"
+    },
+    bottomTitle:{
+        text:"Reprezentativni primer"
+    },
+    bottomText:{
+        text:"U nastavku je reprezentativni primer za odabrane vrednosti."
+    },
+    tableCol11:{
+        text:"Oročena štednja:"
+    },
+    tableCol12:{
+        text:"Kamatna stopa:"
+    },
+    tableCol13:{
+        text:"Efektivna kamatna stopa:"
+    },
+    tableCol14:{
+        text:"Iznos kamate:"
+    },
+    tableCol15:{
+        text:"Iznos poreza:"
+    },
+    tableCol16:{
+        text:"Ukupan iznos nakon oročenja:"
+    },
+    tableCol21:{
+        text:"100.000 EUR, period oročenja 24 meseca"
+    },
+    tableCol22:{
+        text:"3,30%"
+    },
+    tableCol23:{
+        text:"3,00%"
+    },
+    tableCol24:{
+        text:"6.600,00 EUR"
+    },
+    tableCol25:{
+        text:"600,00 EUR"
+    },
+    tableCol26:{
+        text:"106.000,00 EUR"
+    },
 }

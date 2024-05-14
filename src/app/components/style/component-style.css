@@ -1,9 +1,10 @@
 .container {
   position: relative;
-  display: flex;
+  display: block;
   justify-content: center;
   align-items: center;
   margin-bottom: 20px;
+  width: 100%;
 }
 .container .components {
   display: block;
@@ -66,6 +67,9 @@
   padding-left: 16px;
   padding-top: 4px;
 }
+.container .components > form > select {
+  width: calc(100% + 18px);
+}
 .container .components > form > select:focus,
 .container .components > form > input:focus {
   outline: none;
@@ -108,6 +112,9 @@
   background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
   background-size: auto 24px;
   background-color: #f3f3f4;
+}
+.container .components > form .prefilled {
+  color: #8F9199;
 }
 .container .components > form .errorInput {
   border: solid 2px #D7424B;

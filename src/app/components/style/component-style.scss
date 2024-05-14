@@ -1,9 +1,10 @@
 .container {
     position: relative;
-    display: flex;
+    display: block;
     justify-content: center;
     align-items: center;
     margin-bottom: 20px;
+    width: 100%;
 
     .components {
         display: block;
@@ -70,6 +71,10 @@
                 padding-top: 4px;
             }
 
+            >select{
+                width: calc(100% + 18px);
+            }
+
             >select:focus,
             >input:focus {
                 outline: none;
@@ -120,6 +125,10 @@
                 background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
                 background-size: auto 24px;
                 background-color: #f3f3f4;
+            }
+
+            .prefilled{
+                color:#8F9199;
             }
 
             .errorInput {

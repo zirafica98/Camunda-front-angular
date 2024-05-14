@@ -24,7 +24,10 @@
         "build": {
           "builder": "@angular-devkit/build-angular:application",
           "options": {
-            "outputPath": "dist/camunda-front",
+            "outputPath": {
+            "base": "dist/camunda-front",
+            "media": "assets"
+            },
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [

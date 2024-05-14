@@ -6,9 +6,11 @@ import { JmbgForms } from './archive/JmbgForms/jmbgForms';
 import { LoadService } from './forms/LoadService/loadService.component';
 import { BasicDataForms2Component } from './archive/basic-data-forms2/basic-data-forms2.component';
 import { AddressDataForm } from './archive/address-data-forms/address-data-forms.component';
-import { DefaultComponent } from './forms/default/default.component';
+import { DefaultComponent } from './archive/default/default.component';
 import { DynamicFormComponent } from './forms/dynamic-form/dynamic-form.component';
 import { AppComponent } from './app.component';
+import { WelcomeComponent } from './shared/welcome/welcome.component';
+import { FormsComponent } from './shared/forms/forms.component';
 
 
 
