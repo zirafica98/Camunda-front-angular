@@ -1,5 +1,5 @@
 * {
-  font-family: futura;
+  font-family: amalia;
 }
 
 .upper {
@@ -127,7 +127,7 @@
 }
 .main .inputWrapper > span > input {
   position: relative;
-  font-family: futura;
+  font-family: amalia;
   background-color: rgba(101, 103, 114, 0.0784313725);
   color: #232529;
   font-weight: 500;
@@ -158,8 +158,8 @@
   padding-right: 50px;
 }
 .main .inputWrapper > span #number2Input {
-  width: 95px;
-  padding-right: 55px;
+  width: 90px;
+  padding-right: 60px;
 }
 .main .inputWrapper > label {
   color: #656772;
