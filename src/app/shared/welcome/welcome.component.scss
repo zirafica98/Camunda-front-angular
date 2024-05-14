@@ -85,6 +85,8 @@
         justify-content: flex-start;
         align-items: flex-start;
         gap: 10px;
+        opacity: 0;
+        animation: opacityChange 0.5s ease-out 1s forwards;
 
         .title {
             font-size: 32px;
@@ -97,7 +99,15 @@
             font-weight: 400;
             color: #656772;
         }
+
+        @keyframes opacityChange {
+            from{opacity: 0;}
+            to{opacity: 1;}
+        }
     }
+
+    .section:nth-child(2){animation-delay: 1.5s;}
+    .section:nth-child(3){animation-delay: 2s;}
 }
 
 .main {
@@ -139,7 +149,7 @@
 
             >input:focus {
                 outline: none;
-                border: solid 2px #EFD006;
+                border: solid 2px #00A5BC;
             }
 
             .inputAfter {
@@ -209,6 +219,12 @@
 
                 .button:hover{
                     border-color: #00A5BC;
+                }
+
+                .button:active{
+                    -webkit-box-shadow: 0px 0px 2px 2px rgba(0,165,188,0.3);
+                    -moz-box-shadow: 0px 0px 2px 2px rgba(0,165,188,0.3);
+                    box-shadow: 0px 0px 2px 2px rgba(0,165,188,0.3);
                 }
 
                 .customSliderWrapper {
@@ -364,10 +380,22 @@
                 }
 
                 >svg:hover {
-                    opacity: 0.8;
+                    fill: #FEE600;
+                    >path{
+                        fill: #FEE600;
+                    }
                 }
             }
         }
+    }
+
+    .customSelect{
+        width: 80%;
+        margin: 40px auto;
+    }
+
+    .line{
+        border-bottom: 1px solid #8F91993D;
     }
 
     .button {

@@ -7,6 +7,7 @@
     width: 100%;
 
     .components {
+        position: relative;
         display: block;
         width: 100%;
 
@@ -131,6 +132,10 @@
                 color:#8F9199;
             }
 
+            .withIcon{
+                padding-left: 42px;
+            }
+
             .errorInput {
                 border: solid 2px #D7424B;
             }
@@ -166,6 +171,12 @@
                     }
                 }
             }
+        }
+
+        .leftIcon{
+            position: absolute;
+            top:42px;
+            left:16px;
         }
     }
 

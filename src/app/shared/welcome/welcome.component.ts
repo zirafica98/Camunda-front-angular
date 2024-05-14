@@ -1,6 +1,7 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output, ViewChild } from '@angular/core';
 import { welcomeResource } from '../../resources';
 import { DecimalPipe } from '@angular/common';
+import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
 
 @Component({
   selector: 'app-welcome',
@@ -11,15 +12,18 @@ import { DecimalPipe } from '@angular/common';
 export class WelcomeComponent implements OnInit {
   welcomeResource = welcomeResource;
   @Output() notifyParent: EventEmitter<void> = new EventEmitter<void>();
+  @ViewChild(CustomSelectComponent) customSelectComponent!:CustomSelectComponent;
 
   value: number = 150000;
   value2: string = "";
+  valid:boolean=false;
   minValue = 500;
   maxValue = 300000;
   value3: number = 12;
   minValue2 = 6;
   maxValue2 = 60;
   selected:number=0;
+  accounts:string[]=["540 0123456789 11","541 0123456789 33","542 0123456789 55"];
 
   ngOnInit(): void {
     this.onInputChange();
@@ -27,7 +31,10 @@ export class WelcomeComponent implements OnInit {
   }
 
   continue(): void {
+    if(this.valid){
     this.notifyParent.emit();
+    }
+    else this.customSelectComponent.input?.markAsTouched();
   }
 
   onInputChange() {
@@ -99,5 +106,9 @@ export class WelcomeComponent implements OnInit {
       this.value3--;
       this.onInputChange3();
     }
+  }
+
+  handleFormValidityChange(validity: boolean) {
+    this.valid=validity;
   }
 }

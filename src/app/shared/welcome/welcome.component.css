@@ -77,6 +77,8 @@
   justify-content: flex-start;
   align-items: flex-start;
   gap: 10px;
+  opacity: 0;
+  animation: opacityChange 0.5s ease-out 1s forwards;
 }
 .info .section .title {
   font-size: 32px;
@@ -87,6 +89,20 @@
   font-size: 16px;
   font-weight: 400;
   color: #656772;
+}
+@keyframes opacityChange {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+.info .section:nth-child(2) {
+  animation-delay: 1.5s;
+}
+.info .section:nth-child(3) {
+  animation-delay: 2s;
 }
 
 .main {
@@ -126,7 +142,7 @@
 }
 .main .inputWrapper > span > input:focus {
   outline: none;
-  border: solid 2px #EFD006;
+  border: solid 2px #00A5BC;
 }
 .main .inputWrapper > span .inputAfter {
   font-weight: 500;
@@ -189,6 +205,9 @@
 }
 .main .sliderWrapper .slider .inside .button:hover {
   border-color: #00A5BC;
+}
+.main .sliderWrapper .slider .inside .button:active {
+  box-shadow: 0px 0px 2px 2px rgba(0, 165, 188, 0.3);
 }
 .main .sliderWrapper .slider .inside .customSliderWrapper {
   position: relative;
@@ -323,7 +342,17 @@
   cursor: pointer;
 }
 .bottom > table > tr > td > svg:hover {
-  opacity: 0.8;
+  fill: #FEE600;
+}
+.bottom > table > tr > td > svg:hover > path {
+  fill: #FEE600;
+}
+.bottom .customSelect {
+  width: 80%;
+  margin: 40px auto;
+}
+.bottom .line {
+  border-bottom: 1px solid rgba(143, 145, 153, 0.2392156863);
 }
 .bottom .button {
   font-size: 14px;

@@ -262,6 +262,9 @@
         </tr>
     </table>
 
+    <app-custom-select [options]="accounts" [customType]="'accounts'" [placeholder]="'Izaberite račun'" class="customSelect" (formValidityChange)="handleFormValidityChange($event)"></app-custom-select>
+
+    <div class="line"></div>
 
     <div class="button" (click)="continue()">
         {{welcomeResource['buttonText'].text}}

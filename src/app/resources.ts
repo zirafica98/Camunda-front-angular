@@ -75,6 +75,11 @@ export const inputResource:inputResources={
         text:"Adresa u ličnoj karti se razlikuje od adrese stanovanja",
         placeholder:"",
         error:"Obavezno polje"
+    },
+    accounts:{
+        text:"Račun sa koga će sredstva biti oročena",
+        placeholder:"",
+        error:"Molimo Vas izaberite račun"
     }
 }
 
