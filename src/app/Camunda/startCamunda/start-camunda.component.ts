@@ -5,8 +5,7 @@ import { GlobalService } from '../../global.service';
 
 @Component({
   selector: 'app-start-camunda',
-  templateUrl: './start-camunda.component.html',
-  styleUrls: ['./start-camunda.component.css']
+  templateUrl: './start-camunda.component.html'
 })
 export class StartCamundaComponent implements OnInit,AfterViewInit {
   //processDefinitionKey: string = 'Process_18c7yk0';
