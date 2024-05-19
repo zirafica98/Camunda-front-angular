@@ -4,6 +4,8 @@
     position: relative;
     z-index: 10;
     font-family: amalia;
+    width: 100%;
+    overflow-x: hidden;
     .container-1{
         min-height: 72px;
         width: 100%;
@@ -24,28 +26,6 @@
             font-size: 26px;
             font-weight: 500;
             margin: -4px 0 0 0;
-            flex-grow: 1;
-        }
-
-        .button-site{
-            justify-self: flex-end;
-            background-color: #fee600;
-            display:flex;
-            margin-right: 30px;
-            align-items: center;
-            padding: 0 16px;
-            color: #232529;
-            width: auto;
-            height: 40px;
-            font-size: 14px;
-            border-radius: 8px;
-            font-weight: 500;
-            flex-grow: 0;
-            cursor: pointer;
-        }
-
-        .button-site:hover{
-            background-color: #f1d900;
         }
 
     }

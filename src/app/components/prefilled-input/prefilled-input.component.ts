@@ -10,6 +10,7 @@ export class PrefilledInputComponent {
   
   @Input() customType: string = "";
   @Input() value: string = "";
+  @Input() tooltip: string = "";
 
   inputResource=inputResource;
 

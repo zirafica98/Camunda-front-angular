@@ -101,13 +101,23 @@
         }
 
         @keyframes opacityChange {
-            from{opacity: 0;}
-            to{opacity: 1;}
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
     }
 
-    .section:nth-child(2){animation-delay: 1.5s;}
-    .section:nth-child(3){animation-delay: 2s;}
+    .section:nth-child(2) {
+        animation-delay: 1.5s;
+    }
+
+    .section:nth-child(3) {
+        animation-delay: 2s;
+    }
 }
 
 .main {
@@ -144,7 +154,7 @@
                 border: none;
                 font-size: 18px;
                 text-align: right;
-                padding-top: 2PX;
+                padding-top: 2px;
             }
 
             >input:focus {
@@ -168,8 +178,8 @@
             }
 
             #number2Input {
-                width: 90px;
-                padding-right: 60px;
+                width: 75px;
+                padding-right: 75px;
             }
         }
 
@@ -178,6 +188,7 @@
             font-size: 16px;
             font-weight: 400;
             display: inline-block;
+            text-align: left;
         }
     }
 
@@ -195,7 +206,7 @@
             position: relative;
             text-align: center;
 
-            >img{
+            >img {
                 width: calc(100% - 84px);
             }
 
@@ -213,18 +224,18 @@
                     width: 32px;
                     height: 32px;
                     border-radius: 16px;
-                    border:solid 1px #ccc;
+                    border: solid 1px #ccc;
                     cursor: pointer;
                 }
 
-                .button:hover{
+                .button:hover {
                     border-color: #00A5BC;
                 }
 
-                .button:active{
-                    -webkit-box-shadow: 0px 0px 2px 2px rgba(0,165,188,0.3);
-                    -moz-box-shadow: 0px 0px 2px 2px rgba(0,165,188,0.3);
-                    box-shadow: 0px 0px 2px 2px rgba(0,165,188,0.3);
+                .button:active {
+                    -webkit-box-shadow: 0px 0px 2px 2px rgba(0, 165, 188, 0.3);
+                    -moz-box-shadow: 0px 0px 2px 2px rgba(0, 165, 188, 0.3);
+                    box-shadow: 0px 0px 2px 2px rgba(0, 165, 188, 0.3);
                 }
 
                 .customSliderWrapper {
@@ -322,6 +333,7 @@
     .title {
         font-size: 34px;
         font-weight: 500;
+        width: 100%;
     }
 
     .choices {
@@ -350,7 +362,7 @@
         font-size: 16px;
         font-weight: 400;
         margin: 20px 0;
-        color:#656772
+        color: #656772
     }
 
     >table {
@@ -362,17 +374,17 @@
             border-bottom: 1px solid #8F91993D;
 
             >td {
-                padding:24px 0 14px 0;
+                padding: 24px 0 14px 0;
                 font-size: 16px;
                 position: relative;
 
-                >span{
+                >span {
                     position: absolute;
                     top: 10px;
                     left: 0;
                     font-size: 12px;
                     font-weight: 500;
-                    color:#656772
+                    color: #656772
                 }
 
                 >svg {
@@ -381,7 +393,8 @@
 
                 >svg:hover {
                     fill: #FEE600;
-                    >path{
+
+                    >path {
                         fill: #FEE600;
                     }
                 }
@@ -389,12 +402,12 @@
         }
     }
 
-    .customSelect{
-        width: 80%;
+    .customSelect {
+        width: 100%;
         margin: 40px auto;
     }
 
-    .line{
+    .line {
         border-bottom: 1px solid #8F91993D;
     }
 
@@ -404,7 +417,7 @@
         background-color: #fee600;
         display: flex;
         align-items: center;
-        padding:10px 20px;
+        padding: 10px 20px;
         width: auto;
         max-width: fit-content;
         font-size: 16px;
@@ -418,5 +431,102 @@
 
     .button:hover {
         background-color: #f1d900;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .upper {
+        flex-direction: column;
+        height: auto;
+
+        .left {
+            width: 100%;
+            height: auto;
+
+            .title {
+                margin: 40px;
+                font-size: 32px;
+                width: calc(100% - 80px);
+                animation: upperTitleAnimation2 0.3s ease-out 0.5s forwards;
+            }
+
+            @keyframes upperTitleAnimation2 {
+                from {
+                    margin-left: 0;
+                    opacity: 0;
+                }
+
+                to {
+                    margin-left: 40px;
+                    opacity: 1;
+                }
+            }
+
+            .text {
+                font-size: 14px;
+                margin: 0 40px 40px 40px;
+                width: calc(100% - 80px);
+                animation: upperTextAnimation2 0.3s ease-out 0.8s forwards;
+            }
+
+            @keyframes upperTextAnimation2 {
+                from {
+                    margin-left: 20px;
+                    opacity: 0;
+                }
+
+                to {
+                    margin-left: 40px;
+                    opacity: 1;
+                }
+            }
+        }
+
+        .right {
+            width: 100%;
+            height: 74vw;
+        }
+    }
+
+    .info {
+        flex-direction: column;
+        gap: 40px;
+        justify-content: space-between;
+
+        .section {
+            width: 100%;
+            align-items: center;
+            text-align: center;
+        }
+    }
+
+    .main {
+        .inputWrapper {
+            width: calc(100% - 20px);
+
+            >span {
+                #number2Input {
+                    width: 80px;
+                    padding-right: 70px;
+                }
+            }
+        }
+
+        .sliderWrapper {
+            width: calc(100% - 20px);
+        }
+    }
+
+    .bottom {
+        width: 80%;
+
+        .title {
+            font-size: 32px;
+        }
+
+        .customSelect {
+            width: 100%;
+            margin: 40px auto;
+        }
     }
 }

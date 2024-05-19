@@ -100,7 +100,7 @@ export const formResources:formResources={
     },
     AddressForm:{
         title:"Adresa stanovanja",
-        text:"Molim, unesite podatke o adresi stanovanja. Nakon unosa prvih nekoliko karaktera, odaberite svoju opštinu, mesto i ulicu iz liste. Na ovu adresu će Vam biti poslata kreditna kartica.",
+        text:"Molimo, unesite podatke o adresi stanovanja. Nakon unosa prvih nekoliko karaktera, odaberite svoju opštinu, mesto i ulicu iz liste.",
     },
     PhoneVerificationForm:{
         title:"Verifikacija broja telefona",
@@ -127,13 +127,13 @@ export const welcomeResource:welcomeResource={
         text:"Oročite sredstva online za samo nekoliko minuta."
     },
     infoTitle2:{
-        text:"Minimalna dokumentacija"
+        text:"Bez dokumentacije"
     },
     infoText2:{
         text:"Dovoljan je jedan lični dokument, pasoš ili lična karta."
     },
     infoTitle3:{
-        text:"100% online zahtev"
+        text:"100% online"
     },
     infoText3:{
         text:"Podnesite Zahtev bez odlaska u filijalu u samo par koraka."

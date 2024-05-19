@@ -20,7 +20,7 @@ export class WelcomeComponent implements OnInit {
   minValue = 500;
   maxValue = 300000;
   value3: number = 12;
-  minValue2 = 6;
+  minValue2 = 1;
   maxValue2 = 60;
   selected:number=0;
   accounts:string[]=["540 0123456789 11","541 0123456789 33","542 0123456789 55"];
@@ -110,5 +110,13 @@ export class WelcomeComponent implements OnInit {
 
   handleFormValidityChange(validity: boolean) {
     this.valid=validity;
+  }
+
+  returnLetter():string{
+    if((this.value3%10==2||this.value3%10==3||this.value3%10==4)&&this.value3!=12&&this.value3!=13&&this.value3!=14)
+      return "a"
+    else if(this.value3%10==1&&this.value3!=11)
+      return ""
+    else  return "i"
   }
 }

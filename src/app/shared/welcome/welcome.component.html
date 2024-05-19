@@ -106,9 +106,9 @@
     <div class="inputWrapper">
         <label>{{welcomeResource['inputTitle2'].text}}</label>
         <span>
-            <input type="number" [(ngModel)]="value3" [min]="minValue2" [max]="maxValue2" (change)="onInputChange3()"
+            <input type="text" [(ngModel)]="value3" [min]="minValue2" [max]="maxValue2" (change)="onInputChange3()"
                 id="number2Input">
-            <div class="inputAfter">mesec<span *ngIf="!(value3>20&&value3%10==1)">i</span></div>
+            <div class="inputAfter">mesec<span>{{returnLetter()}}</span></div>
         </span>
     </div>
 
@@ -262,7 +262,7 @@
         </tr>
     </table>
 
-    <app-custom-select [options]="accounts" [customType]="'accounts'" [placeholder]="'Izaberite račun'" class="customSelect" (formValidityChange)="handleFormValidityChange($event)"></app-custom-select>
+    <app-custom-select [options]="accounts" [customType]="'accounts'" [placeholder]="'Izaberite račun'" [tooltip]="''" class="customSelect" (formValidityChange)="handleFormValidityChange($event)"></app-custom-select>
 
     <div class="line"></div>
 

@@ -12,6 +12,8 @@ export class CustomInputComponent {
   
   @Input() customType: string = "";
   @Input() mandatory: boolean = true;
+  @Input() tooltip: string = "";
+  @Input() prefilledValue: string = "";
 
   @Output() formValidityChange = new EventEmitter<boolean>();
 
@@ -31,6 +33,8 @@ export class CustomInputComponent {
   }
 
   ngOnInit() {
+    if(this.prefilledValue!="")
+      this.form.get('input')?.setValue(this.prefilledValue);
     this.form.get('input')?.setValidators(customValidator(this.customType));
     if(this.mandatory) this.form.get('input')?.addValidators(Validators.required);
     this.form.get('input')?.updateValueAndValidity();
@@ -52,7 +56,7 @@ function customValidator(key: string): ValidatorFn {
       case 'ssn':
         isValid = SSNValidator(value);break;
       case 'phone':
-         isValid = /^6[0-9]{7,8}$/.test(value);break;
+         isValid = /^[0-9]{7,8}$/.test(value);break;
       case 'name': case 'lastname':
          isValid = /^[a-zA-ZčćžđšČĆŽĐŠ\s]{2,}$/.test(value);break;
       case 'email':

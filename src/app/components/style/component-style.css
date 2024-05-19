@@ -41,6 +41,7 @@
   font-size: 14px;
   font-weight: 500;
   display: inline-block;
+  text-align: left;
 }
 .container .components .wrapper > span {
   color: #D7424B;
@@ -66,7 +67,6 @@
   border: none;
   font-size: 16px;
   padding-left: 16px;
-  padding-top: 4px;
 }
 .container .components > form > select {
   width: calc(100% + 18px);
@@ -109,10 +109,12 @@
 }
 .container .components > form .phone {
   width: calc(100% - 96px);
-  padding-left: 112px;
-  background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
+  padding-left: 111px;
+  background: url("/assets/icon/phoneFlag2.png") no-repeat 16px center;
   background-size: auto 24px;
   background-color: #f3f3f4;
+  color: #232529 !important;
+  opacity: 0.5;
 }
 .container .components > form .prefilled {
   color: #8F9199;
@@ -150,9 +152,9 @@
 .container .components > form .dropdown-list ul li:hover {
   background-color: #f0f0f0;
 }
-.container .components .leftIcon {
+.container .components > form .leftIcon {
   position: absolute;
-  top: 42px;
+  top: 16px;
   left: 16px;
 }
 .container > span {

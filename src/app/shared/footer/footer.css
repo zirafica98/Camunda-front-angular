@@ -1,12 +1,13 @@
 #page-footer {
   left: 0;
   bottom: 0;
-  width: 80%;
-  margin: 0 10%;
-  padding: 50px 0;
+  width: 100%;
+  margin: 0%;
+  padding: 50px 10%;
   display: flex;
   justify-content: space-around;
   border-top: solid 2px #dedfe2;
+  overflow: hidden;
 }
 #page-footer .info {
   display: flex;

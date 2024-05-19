@@ -40,6 +40,7 @@
                 font-size: 14px;
                 font-weight: 500;
                 display: inline-block;
+                text-align: left;
             }
 
             >span {
@@ -69,10 +70,9 @@
                 border: none;
                 font-size: 16px;
                 padding-left: 16px;
-                padding-top: 4px;
             }
 
-            >select{
+            >select {
                 width: calc(100% + 18px);
             }
 
@@ -122,17 +122,19 @@
 
             .phone {
                 width: calc(100% - 96px);
-                padding-left: 112px;
-                background: url("/assets/icon/phoneFlag.png") no-repeat 16px center;
+                padding-left: 111px;
+                background: url("/assets/icon/phoneFlag2.png") no-repeat 16px center;
                 background-size: auto 24px;
                 background-color: #f3f3f4;
+                color: #232529 !important;
+                opacity: 0.5;
             }
 
-            .prefilled{
-                color:#8F9199;
+            .prefilled {
+                color: #8F9199;
             }
 
-            .withIcon{
+            .withIcon {
                 padding-left: 42px;
             }
 
@@ -171,13 +173,14 @@
                     }
                 }
             }
+
+            .leftIcon {
+                position: absolute;
+                top: 16px;
+                left: 16px;
+            }
         }
 
-        .leftIcon{
-            position: absolute;
-            top:42px;
-            left:16px;
-        }
     }
 
     >span {

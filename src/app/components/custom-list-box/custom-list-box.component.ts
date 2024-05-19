@@ -13,6 +13,7 @@ import { DataLoader } from '../../service/dataLoader';
 export class CustomListBoxComponent {
 
   @Input() customType: string = "";
+  @Input() tooltip: string = "";
   codeBook: any = [];
 
   isDropdownVisible: boolean = false;

@@ -2,7 +2,7 @@ import { ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, R
 import { CamundaService } from '../../service/camundaConnect';
 import { GlobalService } from '../../global.service';
 import { ActivatedRoute, Navigation, Router } from '@angular/router';
-import { FrameComponent } from '../Frame/frame.component';
+import { FrameComponent } from '../frame/frame.component';
 import { formResources } from '../../resources';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { CheckboxInputComponent } from '../../components/checkbox-input/checkbox-input.component';
@@ -23,6 +23,7 @@ interface ComponentData {
   options: string[];
   placeholder: string;
   prefilled: boolean;
+  tooltip:string;
 }
 
 interface MyJSON {
@@ -85,7 +86,7 @@ export class DynamicFormComponent {
 
       switch (component.type) {
         case 'input':
-          if (component.prefilled)
+          if (component.prefilled&&!component.mandatory)
             this.loadPrefilledInput(component);
           else
             {this.loadInput(component, inputIndex); inputIndex++;}
@@ -175,6 +176,14 @@ export class DynamicFormComponent {
     const currentIndex = checkboxIndex;
     componentRef.instance.customType = component.key;
     componentRef.instance.mandatory = component.mandatory;
+    componentRef.instance.tooltip = component.tooltip;
+
+    if(component.key=='email'){
+      //dohvati pravi parametar
+      let mail="mihajlobondji@gmail.com"
+      componentRef.instance.prefilledValue = mail;
+    }
+
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customInputComponentRefs.push(componentRef);
     this.formIsValid.push(false);
@@ -195,8 +204,9 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
 
     //dohvati pravi parametar
-    let val=["Mihajlo","Bondji","648229473","mihajlobondji@gmail.com"];
+    let val=["Mihajlo","Bondji","0905000710310","48229473"];
     componentRef.instance.customType = component.key;
+    componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.value = val[this.tempVal];
     this.myPrefilledInputComponents.push(component);
     this.tempVal++;
@@ -225,6 +235,7 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
     const currentIndex = listBoxIndex;
     componentRef.instance.customType = component.key;
+    componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customListBoxComponentRefs.push(componentRef);
     this.formIsValid.push(false);
@@ -238,6 +249,7 @@ export class DynamicFormComponent {
     componentRef.instance.customType = component.key;
     componentRef.instance.options = component.options;
     componentRef.instance.placeholder = component.placeholder;
+    componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customSelectComponentRefs.push(componentRef);
     this.formIsValid.push(false);

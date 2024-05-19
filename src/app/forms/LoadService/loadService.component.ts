@@ -4,7 +4,7 @@ import { CamundaService } from "../../service/camundaConnect";
 import { DataLoader } from "../../service/dataLoader";
 import { GlobalService } from "../../global.service";
 import { ActivatedRoute,  Router } from "@angular/router";
-import { FrameComponent } from "../Frame/frame.component";
+import { FrameComponent } from "../frame/frame.component";
 
 
 @Component({
