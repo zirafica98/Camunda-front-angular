@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { GlobalService } from '../../global.service';
-import { CamundaService } from '../../service/camundaConnect';
+import { CamundaService } from '../../services/camundaConnect';
 import { ActivatedRoute, NavigationExtras, Router } from '@angular/router';
 @Component({
   selector: 'frame-component',

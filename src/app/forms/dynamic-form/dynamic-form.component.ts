@@ -1,5 +1,5 @@
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
-import { CamundaService } from '../../service/camundaConnect';
+import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
 import { ActivatedRoute, Navigation, Router } from '@angular/router';
 import { FrameComponent } from '../frame/frame.component';

@@ -3,7 +3,7 @@ import { inputResource } from '../../resources';
 import { AbstractControl, FormBuilder, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 import { GlobalService } from '../../global.service';
 import { distinctUntilChanged } from 'rxjs/operators';
-import { DataLoader } from '../../service/dataLoader';
+import { DataLoader } from '../../services/dataLoader';
 
 @Component({
   selector: 'app-custom-list-box',

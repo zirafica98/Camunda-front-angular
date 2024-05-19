@@ -1,7 +1,7 @@
 import { Component } from "@angular/core";
 import { HttpClient } from '@angular/common/http';
-import { CamundaService } from "../../service/camundaConnect";
-import { DataLoader } from "../../service/dataLoader";
+import { CamundaService } from "../../services/camundaConnect";
+import { DataLoader } from "../../services/dataLoader";
 import { GlobalService } from "../../global.service";
 import { ActivatedRoute,  Router } from "@angular/router";
 import { FrameComponent } from "../frame/frame.component";

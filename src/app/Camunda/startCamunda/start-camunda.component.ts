@@ -1,5 +1,5 @@
 import { AfterViewInit, Component, OnInit} from '@angular/core';
-import { CamundaService } from '../../service/camundaConnect';
+import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
 
 

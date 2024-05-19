@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './shared/header/header';
 import { FooterComponent } from './shared/footer/footer';
 import { StepsWrapComponent } from './shared/stepWrapper/stepWrapper';
-import { CamundaService } from './service/camundaConnect';
+import { CamundaService } from './services/camundaConnect';
 import { StartCamundaComponent } from './Camunda/startCamunda/start-camunda.component';
 import { FrameComponent } from './forms/frame/frame.component';
 import { LoadService } from './forms/loadService/loadService.component';
