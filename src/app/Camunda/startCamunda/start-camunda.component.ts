@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit} from '@angular/core';
+import { AfterViewInit, Component } from '@angular/core';
 import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
 
@@ -7,30 +7,15 @@ import { GlobalService } from '../../global.service';
   selector: 'app-start-camunda',
   templateUrl: './start-camunda.component.html'
 })
-export class StartCamundaComponent implements OnInit,AfterViewInit {
-  //processDefinitionKey: string = 'Process_18c7yk0';
-  tasks: any[] = [];
-  currentUser: string = "";
-  variables : any = {
-
-  }
+export class StartCamundaComponent implements AfterViewInit {
 
   showFrameComponent:boolean=false;
 
   constructor(private camundaService: CamundaService,private globalService:GlobalService) { }
 
-  ok:boolean=false;
-  ngOnInit(): void {this.ok=true;
-  }
   ngAfterViewInit(){
     this.startProcess();
   }
-
-  // createProcessIfNeeded():void{
-  //     this.startProcess();
-  //     this.processService.markProcessCreated();
-  // }
-
 
   startProcess():void{
     this.camundaService.startProcess()
@@ -45,22 +30,4 @@ export class StartCamundaComponent implements OnInit,AfterViewInit {
         }
       )
   }
-  
-  
-
-  // generateRandomUsername(): string {
-  //   const adjectives = ['Happy', 'Sunny', 'Funny', 'Lucky', 'Clever', 'Brave', 'Gentle', 'Kind', 'Smart', 'Wise'];
-  //   const nouns = ['Dog', 'Cat', 'Rabbit', 'Bird', 'Tiger', 'Elephant', 'Lion', 'Wolf', 'Bear', 'Monkey'];
-  
-  //   const randomAdjectiveIndex = Math.floor(Math.random() * adjectives.length);
-  //   const randomNounIndex = Math.floor(Math.random() * nouns.length);
-  
-  //   const adjective = adjectives[randomAdjectiveIndex];
-  //   const noun = nouns[randomNounIndex];
-  
-  //   const randomNumber = Math.floor(Math.random() * 1000);
-  //   this.currentUser = `${adjective}${noun}${randomNumber}`
-  //   this.globalService.setGloablUserName(`${adjective}${noun}${randomNumber}`)
-  //   return `${adjective}${noun}${randomNumber}`;
-  // }
 }

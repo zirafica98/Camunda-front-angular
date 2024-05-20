@@ -21,6 +21,7 @@ import { CustomSelectComponent } from './components/custom-select/custom-select.
 import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { FormsComponent } from './shared/forms/forms.component';
 import { PrefilledInputComponent } from './components/prefilled-input/prefilled-input.component';
+import { RadioInputComponent } from './components/radio-input/radio-input.component';
  
 @NgModule({
   declarations: [
@@ -38,7 +39,8 @@ import { PrefilledInputComponent } from './components/prefilled-input/prefilled-
     CustomSelectComponent,
     WelcomeComponent,
     FormsComponent,
-    PrefilledInputComponent
+    PrefilledInputComponent,
+    RadioInputComponent
   ],
   imports: [
     BrowserModule,

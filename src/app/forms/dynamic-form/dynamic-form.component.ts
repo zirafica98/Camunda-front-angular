@@ -6,7 +6,6 @@ import { FrameComponent } from '../frame/frame.component';
 import { formResources } from '../../resources';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { CheckboxInputComponent } from '../../components/checkbox-input/checkbox-input.component';
-import { CheckBoxComponent } from '../../archive/checkBoxInput/checkBoxInput.component';
 import { ActionComponent } from '../../components/action/action.component';
 import { CustomListBoxComponent } from '../../components/custom-list-box/custom-list-box.component';
 import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
@@ -41,7 +40,7 @@ export class DynamicFormComponent {
   customInputComponentRefs: ComponentRef<CustomInputComponent>[] = [];
   customSelectComponentRefs: ComponentRef<CustomSelectComponent>[] = [];
   customListBoxComponentRefs: ComponentRef<CustomListBoxComponent>[] = [];
-  customCheckboxComponentRefs: ComponentRef<CheckBoxComponent>[] = [];
+  customCheckboxComponentRefs: ComponentRef<CheckboxInputComponent>[] = [];
   customPrefilledInputComponentRefs: ComponentRef<PrefilledInputComponent>[] = [];
   customActionComponentRefs: ComponentRef<ActionComponent>[] = [];
 
