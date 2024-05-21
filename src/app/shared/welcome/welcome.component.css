@@ -288,30 +288,12 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  background: #f7f7f8;
 }
 .bottom .title {
   font-size: 34px;
   font-weight: 500;
   width: 100%;
-}
-.bottom .choices {
-  width: 100%;
-  margin-top: 10px;
-  border-bottom: 1px solid rgba(143, 145, 153, 0.2392156863);
-  display: flex;
-  gap: 20px;
-}
-.bottom .choices .choice {
-  font-size: 16px;
-  font-weight: 400;
-  padding: 9px 0 10px 0;
-  cursor: pointer;
-}
-.bottom .choices .selected {
-  font-weight: 500;
-  font-size: 18px;
-  border-bottom: solid 4px #FEE600;
-  padding: 10px 0;
 }
 .bottom .text {
   font-size: 16px;

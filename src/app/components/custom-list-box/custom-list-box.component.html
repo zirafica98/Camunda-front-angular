@@ -11,7 +11,7 @@
         </div>
         <form [formGroup]="form">
             <input type="text" [name]="customType" formControlName="input" [placeholder]="inputResource[customType].placeholder" (click)="toggleDropdownMunicipality()" ngDefaultControl [class.errorInput]="isValid()" [class.placeholder]="this.form.invalid">
-            <div class="dropdown-list" [ngClass]="{'active': isDropdownVisible && form.get('input')?.value?.length >= 3}">
+            <div class="dropdown-list" [ngClass]="{'active': isDropdownVisible}"> <!--&& form.get('input')?.value?.length >= 3-->
                 <ul>
                   <li *ngFor="let mesto of filterMunicipality()" (click)="onSelectMunicipality(mesto)">
                     {{ mesto.codeDescription }}

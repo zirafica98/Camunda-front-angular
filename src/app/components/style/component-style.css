@@ -138,19 +138,21 @@
 .container .components > form .dropdown-list ul {
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  border: 1px solid #ccc;
+  margin: 5px 0 0 0;
+  border: 1px solid rgba(143, 145, 153, 0.2392156863);
   border-top: none;
   max-height: 200px;
   overflow-y: scroll;
   width: 100%;
+  border-radius: 8px;
+  box-shadow: 0px 2px 2px 0px #cfcfcf;
 }
 .container .components > form .dropdown-list ul li {
   padding: 20px 15px;
   cursor: pointer;
 }
 .container .components > form .dropdown-list ul li:hover {
-  background-color: #f0f0f0;
+  background-color: rgba(101, 103, 114, 0.0784313725);
 }
 .container .components > form .leftIcon {
   position: absolute;

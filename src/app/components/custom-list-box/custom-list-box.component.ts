@@ -54,6 +54,7 @@ export class CustomListBoxComponent {
         municipality.codeDescription.toLowerCase().startsWith(userInput)
       );
     }
+    else return this.codeBook;
   }
 
   onSelectMunicipality(mesto: { code: number, codeDescription: string }) {

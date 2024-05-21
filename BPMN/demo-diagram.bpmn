@@ -9,6 +9,7 @@
     </bpmn:endEvent>
     <bpmn:userTask id="Activity_137r9lh" name="CodeBookService" camunda:formKey="CodeBookService">
       <bpmn:incoming>Flow_0dn26s5</bpmn:incoming>
+      <bpmn:incoming>Flow_0zxvby2</bpmn:incoming>
       <bpmn:outgoing>Flow_0l5iemv</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="BasicDataForm" name="BasicDataForm" camunda:formKey="BasicDataForm">
@@ -35,7 +36,7 @@
       <bpmn:outgoing>Flow_18d0upc</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_18d0upc" sourceRef="AddressForm" targetRef="Gateway_1eugi2m" />
-    <bpmn:sequenceFlow id="Flow_0zxvby2" sourceRef="StartEvent_1" targetRef="Event_1drs32d" />
+    <bpmn:sequenceFlow id="Flow_0zxvby2" sourceRef="StartEvent_1" targetRef="Activity_137r9lh" />
     <bpmn:sequenceFlow id="Flow_0dn26s5" sourceRef="PhoneVerificationForm" targetRef="Activity_137r9lh" />
     <bpmn:sequenceFlow id="Flow_0l5iemv" sourceRef="Activity_137r9lh" targetRef="AddressForm" />
     <bpmn:intermediateThrowEvent id="Event_011ypgc" name="Dodatne informacije">
@@ -45,7 +46,6 @@
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="Flow_01modjw" sourceRef="Event_011ypgc" targetRef="Event_0ye2nuy" />
     <bpmn:intermediateThrowEvent id="Event_1drs32d" name="Lični podaci">
-      <bpmn:incoming>Flow_0zxvby2</bpmn:incoming>
       <bpmn:outgoing>Flow_03zqo35</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
     <bpmn:sequenceFlow id="Flow_03zqo35" sourceRef="Event_1drs32d" targetRef="BasicDataForm" />
@@ -128,7 +128,9 @@
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0zxvby2_di" bpmnElement="Flow_0zxvby2">
         <di:waypoint x="198" y="117" />
-        <di:waypoint x="262" y="117" />
+        <di:waypoint x="409" y="117" />
+        <di:waypoint x="409" y="80" />
+        <di:waypoint x="623" y="80" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0dn26s5_di" bpmnElement="Flow_0dn26s5">
         <di:waypoint x="580" y="117" />
