@@ -105,6 +105,10 @@ export const formResources:formResources={
     PhoneVerificationForm:{
         title:"Verifikacija broja telefona",
         text:"",
+    },
+    CodeBookService:{
+        title:"Molimo Vas sačekajte",
+        text:"Slanje podataka...",
     }
 }
 

@@ -1,7 +1,7 @@
 import { ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
-import { ActivatedRoute, Navigation, Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { FrameComponent } from '../frame/frame.component';
 import { formResources } from '../../resources';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
@@ -22,7 +22,7 @@ interface ComponentData {
   options: string[];
   placeholder: string;
   prefilled: boolean;
-  tooltip:string;
+  tooltip: string;
 }
 
 interface MyJSON {
@@ -57,6 +57,8 @@ export class DynamicFormComponent {
   codeBook: any = [];
   numMini: number = 0;
 
+  formsResources = formResources;
+
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
   ngOnInit() {
@@ -85,10 +87,9 @@ export class DynamicFormComponent {
 
       switch (component.type) {
         case 'input':
-          if (component.prefilled&&!component.mandatory)
+          if (component.prefilled && !component.mandatory)
             this.loadPrefilledInput(component);
-          else
-            {this.loadInput(component, inputIndex); inputIndex++;}
+          else { this.loadInput(component, inputIndex); inputIndex++; }
           break;
         case 'miniInput': this.loadInput(component, inputIndex); inputIndex++; break;
         case 'checkbox': this.loadCheckBox(component, checkboxIndex); checkboxIndex++; break;
@@ -100,15 +101,6 @@ export class DynamicFormComponent {
       }
     }
   }
-
-  ngOnDestroy() {
-    this.customInputComponentRefs.forEach(ref => {
-      ref.destroy();
-    });
-  }
-
-  formsResources = formResources;
-
 
   handleFormValidity(isValid: boolean, index: number) {
     this.formIsValid[index] = isValid;
@@ -177,9 +169,9 @@ export class DynamicFormComponent {
     componentRef.instance.mandatory = component.mandatory;
     componentRef.instance.tooltip = component.tooltip;
 
-    if(component.key=='email'){
+    if (component.key == 'email') {
       //dohvati pravi parametar
-      let mail="mihajlobondji@gmail.com"
+      let mail = "mihajlobondji@gmail.com"
       componentRef.instance.prefilledValue = mail;
     }
 
@@ -197,13 +189,13 @@ export class DynamicFormComponent {
     }
   }
 
-  tempVal:number=0;
+  tempVal: number = 0;
   loadPrefilledInput(component: ComponentData) {
     const factory = this.resolver.resolveComponentFactory(PrefilledInputComponent);
     const componentRef = this.container.createComponent(factory);
 
     //dohvati pravi parametar
-    let val=["Mihajlo","Bondji","0905000710310","48229473"];
+    let val = ["Mihajlo", "Bondji", "0905000710310", "48229473"];
     componentRef.instance.customType = component.key;
     componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.value = val[this.tempVal];
@@ -279,5 +271,11 @@ export class DynamicFormComponent {
 
   onClickMethod() {
     console.log("click");
+  }
+
+  ngOnDestroy() {
+    this.customInputComponentRefs.forEach(ref => {
+      ref.destroy();
+    });
   }
 }
