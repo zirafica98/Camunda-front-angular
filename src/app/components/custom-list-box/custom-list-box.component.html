@@ -9,7 +9,6 @@
                     fill="#8F9199" />
             </svg>
         </div>
-        <!-- <input class="jmbg-input" type="text" placeholder="Unesite opštinu"> -->
         <form [formGroup]="form">
             <input type="text" [name]="customType" formControlName="input" [placeholder]="inputResource[customType].placeholder" (click)="toggleDropdownMunicipality()" ngDefaultControl [class.errorInput]="isValid()" [class.placeholder]="this.form.invalid">
             <div class="dropdown-list" [ngClass]="{'active': isDropdownVisible && form.get('input')?.value?.length >= 3}">

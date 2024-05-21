@@ -17,21 +17,21 @@
         .title {
             font-size: 48px;
             font-weight: 500;
-            margin-left: 5%;
             opacity: 0;
-            margin-top: 50px;
-            width: 62%;
+            margin-top: 100px;
+            margin-left: 25%;
+            width: 65%;
             animation: upperTitleAnimation 0.3s ease-out 0.5s forwards;
         }
 
         @keyframes upperTitleAnimation {
             from {
-                margin-left: 5%;
+                margin-top: 100px;
                 opacity: 0;
             }
 
             to {
-                margin-left: 25%;
+                margin-top: 50px;
                 opacity: 1;
             }
         }
@@ -40,20 +40,20 @@
             font-size: 18px;
             font-weight: 500;
             opacity: 0;
-            margin-left: 5%;
-            margin-top: 50px;
-            width: 62%;
+            margin-left: 25%;
+            margin-top: 100px;
+            width: 65%;
             animation: upperTextAnimation 0.3s ease-out 0.8s forwards;
         }
 
         @keyframes upperTextAnimation {
             from {
-                margin-left: 5%;
+                margin-top: 100px;
                 opacity: 0;
             }
 
             to {
-                margin-left: 25%;
+                margin-top: 50px;
                 opacity: 1;
             }
         }
@@ -79,7 +79,7 @@
     background-color: white;
 
     .section {
-        width: 20%;
+        width: 25%;
         display: flex;
         flex-direction: column;
         justify-content: flex-start;

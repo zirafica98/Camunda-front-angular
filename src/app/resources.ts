@@ -95,8 +95,8 @@ export const formResources:formResources={
         text:"U narednim koracima, dok popunjavate potrebne informacije, mi ćemo uraditi brzu proveru kroz Kreditni biro. Za tu svrhu biće nam potreban Vaš JMBG. U samo nekoliko minuta ćemo Vam reći da li zadovoljavate uslove za kreditnu karticu.",
     },
     BasicDataForm:{
-        title:"Lični podaci",
-        text:"Proverite svoje podatke koje imamo u sistemu",
+        title:"Provera podataka",
+        text:"Molimo proverite svoje podatke koje imamo u sistemu.",
     },
     AddressForm:{
         title:"Adresa stanovanja",
@@ -119,10 +119,10 @@ interface welcomeResource {
 }
 export const welcomeResource:welcomeResource={
     upperTitle:{
-        text:"Online oročena štednja nikada do sada nije bila ovako brza i jednostavna!"
+        text:"Onlajn oročena štednja nikada do sada nije bila ovako brza i jednostavna!"
     },
     upperText:{
-        text:"Oročite sredstva bez odlaska u filijalu u samo par koraka"
+        text:"Oročite sredstva bez odlaska u filijalu u samo par koraka!"
     },
     infoTitle1:{
         text:"Oročenje za nekoliko minuta"
@@ -134,13 +134,13 @@ export const welcomeResource:welcomeResource={
         text:"Bez dokumentacije"
     },
     infoText2:{
-        text:"Dovoljan je jedan lični dokument, pasoš ili lična karta."
+        text:"Ukoliko niste menjali lični dokument nije Vam potrebna nikakva dokumentacija"
     },
     infoTitle3:{
         text:"100% online"
     },
     infoText3:{
-        text:"Podnesite Zahtev bez odlaska u filijalu u samo par koraka."
+        text:"Realizujte štednju bez odlaska u filijalu u samo par koraka."
     },
     inputTitle:{
         text:"Želim oročenje u iznosu od:"
