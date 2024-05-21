@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <title>Raiffeisen Bank - Oročena štednja</title>
+    <script>
+        function openUrl() {
+            const principalID = document.getElementById("principalID").value;
+            const sessionID = document.getElementById("sessionID").value;
+            const channelID = document.getElementById("channelID").value;
+
+            const url = `http://localhost:4200/?PrincipalID=${principalID}&SessionID=${sessionID}&ChannelID=${channelID}`;
+
+            window.location.href = url;
+        }
+    </script>
+
+    <style>
+        * {
+            font-family:Verdana, Geneva, Tahoma, sans-serif;
+        }
+
+        body {
+            background-color: #f7f7f8;
+            margin: 0;
+        }
+
+        .startForm {
+            margin: 100px auto;
+            width: 60%;
+            padding: 60px 30px;
+            border-radius: 10px;
+            background-color: white;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            gap: 10px;
+            box-shadow: 0px 2px 2px 0px #cfcfcf;
+        }
+
+        input {
+            position: relative;
+            background-color: #f3f3f4;
+            color: #232529;
+            font-weight: 700;
+            display: block;
+            width: 215px;
+            height: 48px;
+            border-radius: 8px;
+            border: none;
+            font-size: 16px;
+            padding-left: 16px;
+            text-align: center;
+        }
+
+        input:focus {
+            outline: none;
+            border: solid 2px #EFD006;
+        }
+
+        label {
+            color: #232529;
+            font-size: 18px;
+            font-weight: 500;
+            display: inline-block;
+            margin-top: 20px;
+        }
+
+        .button {
+            font-size: 12px;
+            color: #232529;
+            background-color: #fee600;
+            padding: 0 20px;
+            width: auto;
+            height: 40px;
+            font-size: 18px;
+            border-radius: 8px;
+            font-weight: 600;
+            border: 1px solid #13141614;
+            cursor: pointer;
+            box-shadow: 0px 2px 2px 0px #cfcfcf;
+        }
+
+        .button:hover {
+            background-color: #f1d900;
+        }
+
+        #page-header {
+            background-color: #232529;
+            box-shadow: none;
+            position: relative;
+            z-index: 10;
+            font-family: amalia;
+        }
+
+        #page-header .container-1 {
+            min-height: 72px;
+            width: 100%;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+        }
+
+        #page-header .container-1 .page-logo-2 {
+            position: relative;
+            margin: 0 30px;
+            width: 32px;
+            height: 32px;
+            flex-grow: 0;
+        }
+
+        #page-header .container-1 .page-title {
+            position: relative;
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+            margin: 0;
+            flex-grow: 1;
+        }
+
+        #page-header .container-1 .button-site {
+            justify-self: flex-end;
+            background-color: #fee600;
+            display: flex;
+            margin-right: 30px;
+            align-items: center;
+            padding: 0 16px;
+            color: #232529;
+            width: auto;
+            height: 40px;
+            font-size: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            flex-grow: 0;
+            cursor: pointer;
+        }
+
+        #page-header .container-1 .button-site:hover {
+            background-color: #f1d900;
+        }
+
+        /*# sourceMappingURL=header.css.map */
+    </style>
+</head>
+
+<body>
+    <header id="page-header" class="page-header corp">
+        <div class="container-1 cf">
+            <a class="page-logo-2">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                        d="M0 6.4C0 2.86538 2.86538 0 6.4 0H25.6C29.1346 0 32 2.86538 32 6.4V25.6C32 29.1346 29.1346 32 25.6 32H6.4C2.86538 32 0 29.1346 0 25.6V6.4Z"
+                        fill="#FEE600" />
+                    <path fill-rule="evenodd" clip-rule="evenodd"
+                        d="M16.1707 18.7364L23.8761 26.4181L26.8928 23.4053L19.179 15.7038L20.6827 14.2135L20.683 11.2166L21.7547 10.1453L21.7571 12.6317L22.8044 13.662L26.5671 9.89836L27.584 10.9028C27.584 10.2557 27.3931 8.0284 25.6034 6.2854C23.5991 4.33301 21.5933 5.47496 20.9024 6.16476L17.2689 9.79578L18.1729 10.6977L16.1707 12.6922L14.1709 10.6977L15.0737 9.79578L11.4414 6.16476C10.7499 5.47496 8.74438 4.33301 6.73947 6.286C4.9507 8.0284 4.80078 10.2569 4.80078 10.9034L5.77645 9.89836L9.53852 13.662L10.5873 12.6191L10.5882 10.1453L11.6599 11.2166L11.6578 14.2059L13.1642 15.7038L5.52749 23.3274L8.54088 26.333L16.1707 18.7364Z"
+                        fill="#232529" />
+                </svg>
+            </a>
+            <span class="page-title">Oročena štednja - simulacija MB</span>
+        </div>
+    </header>
+
+    <div class="startForm">
+        <label>PrincipalID</label>
+        <input type="text" id="principalID" value="19542" required>
+        <label>SessionID</label>
+        <input type="text" id="sessionID" value="241421" required>
+        <label>ChannelID</label>
+        <input type="text" id="channelID" value="11244122" required>
+        <br />
+        <input type="button" class="button" value="Pošalji" onclick="openUrl()">
+    </div>
+</body>
+
+</html>
