@@ -1,0 +1,32 @@
+<div class="popup">
+    <div class="main">
+        <div class="left">
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="data.icon=='info'">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M15.9993 2.66669C8.63555 2.66669 2.66602 8.63622 2.66602 16C2.66602 23.3638 8.63555 29.3334 15.9993 29.3334C23.3631 29.3334 29.3327 23.3638 29.3327 16C29.3327 8.63622 23.3631 2.66669 15.9993 2.66669ZM15.9993 13.3334C17.1039 13.3334 17.9993 12.4379 17.9993 11.3334C17.9993 10.2288 17.1039 9.33335 15.9993 9.33335C14.8948 9.33335 13.9993 10.2288 13.9993 11.3334C13.9993 12.4379 14.8948 13.3334 15.9993 13.3334ZM12.666 20V22.6667H19.3327V20H17.3327V16C17.3327 15.2636 16.7357 14.6667 15.9993 14.6667H13.3327V17.3334H14.666V20H12.666Z"
+                    fill="#008FA8" />
+            </svg>
+            <svg width="32" height="32" viewBox="0 0 32 32" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="data.icon=='checkmark'">
+                <path fill-rule="evenodd" clip-rule="evenodd" d="M16.0003 2.66669C8.63653 2.66669 2.66699 8.63622 2.66699 16C2.66699 23.3638 8.63653 29.3334 16.0003 29.3334C23.3641 29.3334 29.3337 23.3638 29.3337 16C29.3337 8.63622 23.3641 2.66669 16.0003 2.66669ZM15.6097 20.2761L22.2764 13.6094L20.3908 11.7238L14.6669 17.4477L10.9431 13.7238L9.05745 15.6094L13.7241 20.2761C14.2448 20.7968 15.089 20.7968 15.6097 20.2761Z" fill="#00997D"/>
+            </svg>                
+        </div>
+        <div class="right">
+            <div class="title">
+                {{data.title}}
+            </div>
+            <div class="text">
+                {{data.text}}
+            </div>
+            <div class="table" *ngIf="data.table">
+                <div class="row" *ngFor="let r of data.table">
+                    <span>{{r.text}}</span>
+                    <span>{{r.value}}</span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="buttons">
+        <button class="back" (click)="onNoClick()" tabindex="1" *ngIf="data.buttons[1]">{{data.buttons[1]}}</button>
+        <button (click)="onSubmit()" tabindex="2" autofocus>{{data.buttons[0]}}</button>
+    </div>
+</div>

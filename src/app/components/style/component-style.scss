@@ -134,10 +134,15 @@
                 color: #8F9199;
             }
 
-            .withIcon {
+            .inputWithIcon {
+                width: calc(100% - 42px);
                 padding-left: 42px;
             }
 
+            .selectWithIcon {
+                width: 100%;
+                padding-left: 42px;
+            }
             .errorInput {
                 border: solid 2px #D7424B;
             }

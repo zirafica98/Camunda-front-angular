@@ -22,6 +22,10 @@ import { WelcomeComponent } from './shared/welcome/welcome.component';
 import { FormsComponent } from './shared/forms/forms.component';
 import { PrefilledInputComponent } from './components/prefilled-input/prefilled-input.component';
 import { RadioInputComponent } from './components/radio-input/radio-input.component';
+import { PopupComponent } from './shared/popup/popup.component';
+import { MatDialogModule } from '@angular/material/dialog';
+import { TooltipDirective } from './shared/tooltip/tooltip.directive';
+import { ErrorComponent } from './shared/error/error.component';
  
 @NgModule({
   declarations: [
@@ -40,14 +44,18 @@ import { RadioInputComponent } from './components/radio-input/radio-input.compon
     WelcomeComponent,
     FormsComponent,
     PrefilledInputComponent,
-    RadioInputComponent
+    RadioInputComponent,
+    PopupComponent,
+    TooltipDirective,
+    ErrorComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    MatDialogModule
   ],
   providers: [CamundaService],
   bootstrap: [AppComponent]

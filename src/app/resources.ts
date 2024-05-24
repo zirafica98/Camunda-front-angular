@@ -79,7 +79,7 @@ export const inputResource:inputResources={
     accounts:{
         text:"Račun sa koga će sredstva biti oročena",
         placeholder:"",
-        error:"Molimo Vas izaberite račun"
+        error:"Molimo Vas odaberite račun."
     }
 }
 
@@ -109,15 +109,51 @@ export const formResources:formResources={
     CodeBookService:{
         title:"Molimo Vas sačekajte",
         text:"Slanje podataka...",
+    },
+    popupVerification:{
+        title:"Verifikacioni kod poslat",
+        text:"Na Vaš broj mobilnog telefona ponovo smo poslali verifikacioni kod.",
+    },
+    popupSendCode:{
+        title:"Ponovo pošalji kod",
+        text:"Da li ste sigurni da želite ponovo da pošaljete verifikacioni kod?",
+    },
+    popupStartProcess:{
+        title:"Podnesi zahtev online",
+        text:"U narednim koracima oročićete iznos koji ste izabrali na kalkulatoru. Ukoliko želite da izaberete drugi iznos vratite se korak unazad.",
     }
 }
 
-interface welcomeResource {
+interface buttonResources {
     [key: string]: {
         text: string;
     };
 }
-export const welcomeResource:welcomeResource={
+
+export const buttonResources:buttonResources={
+    ok:{
+        text:"U redu"
+    },
+    send:{
+        text:"Pošalji"
+    },
+    cancel:{
+        text:"Otkaži"
+    },
+    next:{
+        text:"Nastavi"
+    },
+    back:{
+        text:"Nazad"
+    }
+}
+
+interface welcomeResources {
+    [key: string]: {
+        text: string;
+    };
+}
+export const welcomeResources:welcomeResources={
     upperTitle:{
         text:"Onlajn oročena štednja nikada do sada nije bila ovako brza i jednostavna!"
     },
@@ -193,4 +229,13 @@ export const welcomeResource:welcomeResource={
     tableCol26:{
         text:"106.000,00 EUR"
     },
+    iznosOrocenja:{
+        text:"Iznos oročenja"
+    },
+    periodOrocenja:{
+        text:"Period oročenja"
+    },
+    racunOrocenja:{
+        text:"Račun sa koga će sredstva biti oročena"
+    }
 }

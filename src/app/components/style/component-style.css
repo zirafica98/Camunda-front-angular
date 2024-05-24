@@ -119,7 +119,12 @@
 .container .components > form .prefilled {
   color: #8F9199;
 }
-.container .components > form .withIcon {
+.container .components > form .inputWithIcon {
+  width: calc(100% - 42px);
+  padding-left: 42px;
+}
+.container .components > form .selectWithIcon {
+  width: 100%;
   padding-left: 42px;
 }
 .container .components > form .errorInput {

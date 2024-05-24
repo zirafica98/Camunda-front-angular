@@ -10,7 +10,7 @@
             </svg>
         </div>
         <form [formGroup]="form">
-        <select [name]="customType" formControlName="input" ngDefaultControl [class.errorInput]="isValid()" [class.placeholder]="this.form.invalid" [class.withIcon]="customType=='accounts'">
+        <select [name]="customType" formControlName="input" ngDefaultControl [class.errorInput]="isValid()" [class.placeholder]="this.form.invalid" [class.selectWithIcon]="customType=='accounts'">
             <option [value]="null" disabled selected hidden>{{placeholder}}</option>
             <option *ngFor="let option of options" [value]="option">{{ option }}</option>
         </select>

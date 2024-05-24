@@ -1,10 +1,10 @@
 <div class="upper">
     <div class="left">
         <div class="title">
-            {{welcomeResource['upperTitle'].text}}
+            {{welcomeResources['upperTitle'].text}}
         </div>
         <div class="text">
-            {{welcomeResource['upperText'].text}}
+            {{welcomeResources['upperText'].text}}
         </div>
     </div>
     <div class="right"></div>
@@ -35,9 +35,10 @@
                 d="M33 36V21H39V34.7574L48.6213 44.3787L44.3787 48.6213L33.8787 38.1213C33.3161 37.5587 33 36.7957 33 36Z"
                 fill="#232529" />
         </svg>
-        <div class="title">{{welcomeResource['infoTitle1'].text}}</div>
-        <div class="text">{{welcomeResource['infoText1'].text}}</div>
+        <div class="title">{{welcomeResources['infoTitle1'].text}}</div>
+        <div class="text">{{welcomeResources['infoText1'].text}}</div>
     </div>
+
     <div class="section">
         <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path d="M9 3C7.34315 3 6 4.34315 6 6V54H12V9H51V3H9Z" fill="#232529" />
@@ -48,26 +49,31 @@
             <path d="M30 39H54V45H30V39Z" fill="#232529" />
             <path d="M30 51H54V57H30V51Z" fill="#232529" />
         </svg>
-        <div class="title">{{welcomeResource['infoTitle2'].text}}</div>
-        <div class="text">{{welcomeResource['infoText2'].text}}</div>
+        <div class="title">{{welcomeResources['infoTitle2'].text}}</div>
+        <div class="text">{{welcomeResources['infoText2'].text}}</div>
     </div>
+
     <div class="section">
         <svg width="72" height="72" viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg">
             <path fill-rule="evenodd" clip-rule="evenodd"
                 d="M36 66C19.4315 66 6 52.5685 6 36C6 19.4315 19.4315 6 36 6C52.5685 6 66 19.4315 66 36C66 52.5685 52.5685 66 36 66ZM59.8143 39H47.9054C47.6435 45.1553 46.8378 51.5057 45.4902 58.0506C53.1478 54.7505 58.7446 47.5782 59.8143 39ZM38.9653 59.8186L39.0738 59.3385C40.6643 52.3029 41.6055 45.5236 41.8996 39H30.1004C30.3945 45.5236 31.3357 52.3029 32.9262 59.3385L33.0347 59.8186C34.0063 59.9384 34.996 60 36 60C37.004 60 37.9937 59.9384 38.9653 59.8186ZM26.5098 58.0506C18.8522 54.7505 13.2554 47.5782 12.1857 39H24.0946C24.3565 45.1553 25.1622 51.5057 26.5098 58.0506ZM59.8143 33C58.7516 24.4774 53.2203 17.3426 45.639 14.0141C47.0993 19.9761 47.8811 26.3058 47.9874 33H59.8143ZM38.9296 12.177C37.9694 12.0602 36.9917 12 36 12C35.0083 12 34.0306 12.0602 33.0704 12.177L32.8835 12.828C31.0937 19.0607 30.1355 25.7829 30.0134 33H41.9866C41.8645 25.7829 40.9063 19.0607 39.1165 12.828L38.9296 12.177ZM26.361 14.0141C24.9007 19.9761 24.1189 26.3058 24.0126 33H12.1857C13.2484 24.4774 18.7797 17.3426 26.361 14.0141Z"
                 fill="#232529" />
         </svg>
-        <div class="title">{{welcomeResource['infoTitle3'].text}}</div>
-        <div class="text">{{welcomeResource['infoText3'].text}}</div>
+        <div class="title">{{welcomeResources['infoTitle3'].text}}</div>
+        <div class="text">{{welcomeResources['infoText3'].text}}</div>
     </div>
 </div>
 
 <div class="main">
 
+    <div class="errorWrapper" id="errorWrapper">
+        <span #errorWrapper></span>
+    </div>
+
     <div class="inputWrapper">
-        <label>{{welcomeResource['inputTitle'].text}}</label>
+        <label>{{welcomeResources['inputTitle'].text}}</label>
         <span>
-            <input type="text" [(ngModel)]="value2" (change)="onInputChange2()" id="numberInput">
+            <input type="text" [(ngModel)]="value2" (change)="onInputChange2()" id="numberInput" autocomplete="off">
             <div class="inputAfter">EUR</div>
         </span>
     </div>
@@ -104,10 +110,10 @@
     </div>
 
     <div class="inputWrapper">
-        <label>{{welcomeResource['inputTitle2'].text}}</label>
+        <label>{{welcomeResources['inputTitle2'].text}}</label>
         <span>
             <input type="text" [(ngModel)]="value3" [min]="minValue2" [max]="maxValue2" (change)="onInputChange3()"
-                id="number2Input">
+                id="number2Input" autocomplete="off">
             <div class="inputAfter">mesec<span>{{returnLetter()}}</span></div>
         </span>
     </div>
@@ -146,19 +152,19 @@
 </div>
 <div class="bottom">
     <div class="title">
-        {{welcomeResource['bottomTitle'].text}}
+        {{welcomeResources['bottomTitle'].text}}
     </div>
     <div class="text">
-        {{welcomeResource['bottomText'].text}}
+        {{welcomeResources['bottomText'].text}}
     </div>
     <table>
         <tr>
             <td>
-                <span>{{welcomeResource['tableCol11'].text}}</span>
-                {{welcomeResource['tableCol21'].text}}
+                <span>{{welcomeResources['tableCol11'].text}}</span>
+                {{welcomeResources['tableCol21'].text}}
             </td>
             <td>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" appTooltip="Osnovni podaci o oročenoj štednji koje ste izabrali na kalkulatoru.">
                     <path
                         d="M11.5 6.5C11.5 7.32843 10.8284 8 10 8C9.17157 8 8.5 7.32843 8.5 6.5C8.5 5.67157 9.17157 5 10 5C10.8284 5 11.5 5.67157 11.5 6.5Z"
                         fill="#8F9199" />
@@ -172,11 +178,11 @@
         </tr>
         <tr>
             <td>
-                <span>{{welcomeResource['tableCol12'].text}}</span>
-                {{welcomeResource['tableCol22'].text}}
+                <span>{{welcomeResources['tableCol12'].text}}</span>
+                {{welcomeResources['tableCol22'].text}}
             </td>
             <td>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" appTooltip="Nominalna kamatna stopa koja je iskazana na godišnjem nivou.">
                     <path
                         d="M11.5 6.5C11.5 7.32843 10.8284 8 10 8C9.17157 8 8.5 7.32843 8.5 6.5C8.5 5.67157 9.17157 5 10 5C10.8284 5 11.5 5.67157 11.5 6.5Z"
                         fill="#8F9199" />
@@ -190,11 +196,11 @@
         </tr>
         <tr>
             <td>
-                <span>{{welcomeResource['tableCol13'].text}}</span>
-                {{welcomeResource['tableCol23'].text}}
+                <span>{{welcomeResources['tableCol13'].text}}</span>
+                {{welcomeResources['tableCol23'].text}}
             </td>
             <td>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" appTooltip="Efektivna kamatna stopa je obračunata na današnji dan i predstavlja stvarnu dobit.">
                     <path
                         d="M11.5 6.5C11.5 7.32843 10.8284 8 10 8C9.17157 8 8.5 7.32843 8.5 6.5C8.5 5.67157 9.17157 5 10 5C10.8284 5 11.5 5.67157 11.5 6.5Z"
                         fill="#8F9199" />
@@ -208,11 +214,11 @@
         </tr>
         <tr>
             <td>
-                <span>{{welcomeResource['tableCol14'].text}}</span>
-                {{welcomeResource['tableCol24'].text}}
+                <span>{{welcomeResources['tableCol14'].text}}</span>
+                {{welcomeResources['tableCol24'].text}}
             </td>
             <td>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" appTooltip="Porez na dohodak građana na prihode od kapitala po osnovu kamate.">
                     <path
                         d="M11.5 6.5C11.5 7.32843 10.8284 8 10 8C9.17157 8 8.5 7.32843 8.5 6.5C8.5 5.67157 9.17157 5 10 5C10.8284 5 11.5 5.67157 11.5 6.5Z"
                         fill="#8F9199" />
@@ -226,11 +232,11 @@
         </tr>
         <tr>
             <td>
-                <span>{{welcomeResource['tableCol15'].text}}</span>
-                {{welcomeResource['tableCol25'].text}}
+                <span>{{welcomeResources['tableCol15'].text}}</span>
+                {{welcomeResources['tableCol25'].text}}
             </td>
             <td>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" appTooltip="Trošak poreza koji se naplaćuje od kamate.">
                     <path
                         d="M11.5 6.5C11.5 7.32843 10.8284 8 10 8C9.17157 8 8.5 7.32843 8.5 6.5C8.5 5.67157 9.17157 5 10 5C10.8284 5 11.5 5.67157 11.5 6.5Z"
                         fill="#8F9199" />
@@ -244,11 +250,11 @@
         </tr>
         <tr>
             <td>
-                <span>{{welcomeResource['tableCol16'].text}}</span>
-                {{welcomeResource['tableCol26'].text}}
+                <span>{{welcomeResources['tableCol16'].text}}</span>
+                {{welcomeResources['tableCol26'].text}}
             </td>
             <td>
-                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg" appTooltip="Ukupan raspoloživi iznos depozita i kamate nakon isteka perioda oročenja.">
                     <path
                         d="M11.5 6.5C11.5 7.32843 10.8284 8 10 8C9.17157 8 8.5 7.32843 8.5 6.5C8.5 5.67157 9.17157 5 10 5C10.8284 5 11.5 5.67157 11.5 6.5Z"
                         fill="#8F9199" />
@@ -262,11 +268,12 @@
         </tr>
     </table>
 
-    <app-custom-select [options]="accounts" [customType]="'accounts'" [placeholder]="'Izaberite račun'" [tooltip]="''" class="customSelect" (formValidityChange)="handleFormValidityChange($event)"></app-custom-select>
+    <app-custom-select *ngIf="accounts.length>1" [options]="accountNumbers" [customType]="'accounts'" [placeholder]="'Izaberite račun'" [tooltip]="''" class="customSelect" (formValidityChange)="handleFormValidityChange($event)" (valueChange)="onValueChange($event)"></app-custom-select>
+    <app-prefilled-input *ngIf="accounts.length==1" [customType]="'accounts'" [value]="accountNumbers[0]" class="customSelect"></app-prefilled-input>
 
     <div class="line"></div>
 
-    <div class="button" (click)="continue()">
-        {{welcomeResource['buttonText'].text}}
+    <div class="button" (click)="openPopUp()">
+        {{welcomeResources['buttonText'].text}}
     </div>
 </div>

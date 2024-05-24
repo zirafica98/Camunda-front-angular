@@ -14,6 +14,7 @@ export class CustomSelectComponent implements OnInit{
   @Input() placeholder: string = "";
   @Input() tooltip: string = "";
   @Output() formValidityChange = new EventEmitter<boolean>();
+  @Output() valueChange = new EventEmitter<string>();
 
   form=new FormGroup({
     input : new FormControl('', [Validators.required])
@@ -27,6 +28,10 @@ export class CustomSelectComponent implements OnInit{
 
     this.form.statusChanges.subscribe(status => {
       this.formValidityChange.emit(status === 'VALID');
+    });
+    
+    this.form.get('input')?.valueChanges.subscribe(value => {
+      this.valueChange.emit(value||"");
     });
   }
 

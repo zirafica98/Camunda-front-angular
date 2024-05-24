@@ -1,6 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
 /*#region fonts*/
-
 @font-face {
   font-family: "amalia";
   src: url("assets/fonts/Amalia-Regular.ttf");
@@ -48,4 +47,35 @@ body {
   margin: 0;
   overflow-x: hidden;
   width: 100%;
+}
+
+.mat-mdc-dialog-surface {
+  border-radius: 16px !important;
+}
+
+.tooltip{
+  display: block;
+  background: white;
+  padding: 16px 20px;
+  font-weight: 400;
+  font-size: 12px;
+  color: #656772;
+  box-shadow: 0px 2px 5px 0px #cfcfcf;
+  border-radius: 16px;
+  z-index: 1000;
+  max-width: 300px;
+}
+
+.tooltip::after {
+  content: '';
+  display: block;
+  position: absolute;
+  bottom: -13px;
+  right: 11px;
+  width: 40px;
+  height: 13.35px;
+  background-image: url('assets/icon/Pointer.svg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 999;
 }

@@ -3,7 +3,7 @@ import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FrameComponent } from '../frame/frame.component';
-import { formResources } from '../../resources';
+import { formResources, buttonResources } from '../../resources';
 import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
 import { CheckboxInputComponent } from '../../components/checkbox-input/checkbox-input.component';
 import { ActionComponent } from '../../components/action/action.component';
@@ -57,7 +57,7 @@ export class DynamicFormComponent {
   codeBook: any = [];
   numMini: number = 0;
 
-  formsResources = formResources;
+  buttonResources=buttonResources;
 
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
@@ -65,8 +65,8 @@ export class DynamicFormComponent {
     this.id = this.route.snapshot.paramMap.get("id") || "";
     if (this.globalService.getGlobalTaskKey() == this.id) {
       this.myJSON = JSON.parse(this.globalService.getGlobalTaskJSON());
-      this.title = this.formsResources[this.globalService.getGlobalTaskKey()].title;
-      this.text = this.formsResources[this.globalService.getGlobalTaskKey()].text;
+      this.title = formResources[this.globalService.getGlobalTaskKey()].title;
+      this.text = formResources[this.globalService.getGlobalTaskKey()].text;
       (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML = this.text;
       switch (this.id) {
         case "AddressForm": this.codeBook = this.globalService.getGlobalCodeBook();
@@ -267,10 +267,6 @@ export class DynamicFormComponent {
     componentRef.instance.actionText = component.actionText;
     componentRef.instance.key = component.key;
     this.customActionComponentRefs.push(componentRef);
-  }
-
-  onClickMethod() {
-    console.log("click");
   }
 
   ngOnDestroy() {

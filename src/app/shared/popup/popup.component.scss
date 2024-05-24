@@ -1,0 +1,101 @@
+.popup {
+    width: 100%;
+    height: 100%;
+    background: white;
+    font-family: Amalia;
+    animation: opac 0.3s ease;
+    display: block;
+
+    .main {
+        margin: 24px;
+        position: relative;
+        width: calc(100% - 48px);
+        display: flex;
+        gap:20px;
+
+        .left {
+            width: 40px;
+        }
+
+        .right {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+
+            .title {
+                font-weight: 700;
+                font-size: 20px;
+                color: #232529;
+            }
+
+            .text {
+                margin: 10px 0;
+                font-weight: 400;
+                font-size: 14px;
+                color: #656772;
+            }
+
+            .row {
+                border-bottom: 1px solid #8F91993D;
+                padding: 14px 0;
+                color: #232529;
+                font-weight: 400;
+                font-size: 14px;
+                display: flex;
+                justify-content: space-between;
+            }
+        }
+    }
+
+    .buttons {
+        position: relative;
+        display: flex;
+        justify-content: flex-end;
+        gap:20px;
+        border-top: 1px solid #e4e5e7;
+        width: calc(100% - 32px);
+        padding: 16px;
+        margin-top: 20px;
+
+        >button {
+            font-size: 14px;
+            font-family: amalia;
+            color: #232529;
+            background-color: #fee600;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            width: auto;
+            height: 40px;
+            font-size: 14px;
+            border-radius: 8px;
+            font-weight: 500;
+            border: 1px solid #13141614;
+            cursor: pointer;
+            box-shadow: 0px 2px 2px 0px #cfcfcf;
+        }
+
+        >button:hover {
+            background-color: #f1d900;
+        }
+
+        .back {
+            border: 1px solid #f7f7f8;
+            background-color: white;
+        }
+
+        .back:hover {
+            background-color: #f7f7f8;
+        }
+    }
+}
+
+@keyframes opac {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}

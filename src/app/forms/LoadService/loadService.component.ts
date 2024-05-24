@@ -17,16 +17,14 @@ export class LoadService{
     id:string = "";
     constructor(private camundaService: CamundaService,private globalService:GlobalService, private router:Router,private route:ActivatedRoute,private frameComponet:FrameComponent,private dataLoader:DataLoader) { }
 
-    formsResources = formResources;
-
     text: string = "";
     title: string = "";
 
     ngOnInit() {
       this.id = this.route.snapshot.paramMap.get("id") || "";
       
-      this.title = this.formsResources[this.globalService.getGlobalTaskKey()].title;
-      this.text = this.formsResources[this.globalService.getGlobalTaskKey()].text;
+      this.title = formResources[this.globalService.getGlobalTaskKey()].title;
+      this.text = formResources[this.globalService.getGlobalTaskKey()].text;
 
       switch (this.id) {
         case 'CodeBookService':

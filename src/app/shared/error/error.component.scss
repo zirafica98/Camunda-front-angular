@@ -1,0 +1,20 @@
+:host {
+    width: 100%;
+}
+.error{
+    width:calc(100% - 32px);
+    background: #D7424B;
+    display: flex;
+    gap:20px;
+    padding: 16px;
+    color:white;
+    font-size: 14px;
+    border-radius: 8px;
+    opacity: 0;
+    animation: show 0.3s ease forwards;
+}
+
+@keyframes show {
+    from{opacity: 0;}
+    to{opacity: 1;}
+}
