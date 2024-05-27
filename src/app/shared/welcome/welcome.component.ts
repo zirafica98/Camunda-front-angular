@@ -1,7 +1,7 @@
 import { Component, ComponentRef, EventEmitter, OnInit, Output, ViewChild, ViewContainerRef } from '@angular/core';
 import { buttonResources, formResources, welcomeResources } from '../../resources';
 import { DecimalPipe } from '@angular/common';
-import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
+import { CustomSelectComponent } from '../../ui-components/custom-select/custom-select.component';
 import { PopupComponent } from '../popup/popup.component';
 import { MatDialog } from '@angular/material/dialog';
 import { ErrorComponent } from '../error/error.component';

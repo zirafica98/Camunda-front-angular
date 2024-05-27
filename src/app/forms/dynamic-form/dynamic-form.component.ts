@@ -4,12 +4,12 @@ import { GlobalService } from '../../global.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FrameComponent } from '../frame/frame.component';
 import { formResources, buttonResources } from '../../resources';
-import { CustomInputComponent } from '../../components/custom-input/custom-input.component';
-import { CheckboxInputComponent } from '../../components/checkbox-input/checkbox-input.component';
-import { ActionComponent } from '../../components/action/action.component';
-import { CustomListBoxComponent } from '../../components/custom-list-box/custom-list-box.component';
-import { CustomSelectComponent } from '../../components/custom-select/custom-select.component';
-import { PrefilledInputComponent } from '../../components/prefilled-input/prefilled-input.component';
+import { CustomInputComponent } from '../../ui-components/custom-input/custom-input.component';
+import { CheckboxInputComponent } from '../../ui-components/checkbox-input/checkbox-input.component';
+import { ActionComponent } from '../../ui-components/action/action.component';
+import { CustomListBoxComponent } from '../../ui-components/custom-list-box/custom-list-box.component';
+import { CustomSelectComponent } from '../../ui-components/custom-select/custom-select.component';
+import { PrefilledInputComponent } from '../../ui-components/prefilled-input/prefilled-input.component';
 
 interface ComponentData {
   type: string;

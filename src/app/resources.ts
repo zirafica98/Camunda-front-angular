@@ -91,8 +91,8 @@ interface formResources {
 }
 export const formResources:formResources={
     SSNForm:{
-        title:"Upit u kreditni biro",
-        text:"U narednim koracima, dok popunjavate potrebne informacije, mi ćemo uraditi brzu proveru kroz Kreditni biro. Za tu svrhu biće nam potreban Vaš JMBG. U samo nekoliko minuta ćemo Vam reći da li zadovoljavate uslove za kreditnu karticu.",
+        title:"Unos JMBG",
+        text:"Potreban nam je Vaš JMBG.",
     },
     BasicDataForm:{
         title:"Provera podataka",
