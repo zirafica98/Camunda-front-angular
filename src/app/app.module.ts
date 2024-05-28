@@ -19,7 +19,6 @@ import { ActionComponent } from './ui-components/action/action.component';
 import { CustomListBoxComponent } from './ui-components/custom-list-box/custom-list-box.component';
 import { CustomSelectComponent } from './ui-components/custom-select/custom-select.component';
 import { WelcomeComponent } from './shared/welcome/welcome.component';
-import { FormsComponent } from './shared/forms/forms.component';
 import { PrefilledInputComponent } from './ui-components/prefilled-input/prefilled-input.component';
 import { RadioInputComponent } from './ui-components/radio-input/radio-input.component';
 import { PopupComponent } from './shared/popup/popup.component';
@@ -42,7 +41,6 @@ import { ErrorComponent } from './shared/error/error.component';
     CustomListBoxComponent,
     CustomSelectComponent,
     WelcomeComponent,
-    FormsComponent,
     PrefilledInputComponent,
     RadioInputComponent,
     PopupComponent,

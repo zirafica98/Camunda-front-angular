@@ -71,9 +71,6 @@
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
     <bpmndi:BPMNPlane id="BPMNPlane_1" bpmnElement="demoDiagram">
-      <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
-        <dc:Bounds x="1442" y="99" width="36" height="36" />
-      </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="Activity_137r9lh">
         <dc:Bounds x="680" y="77" width="100" height="80" />
         <bpmndi:BPMNLabel />
@@ -115,9 +112,12 @@
           <dc:Bounds x="158" y="142" width="25" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
+        <dc:Bounds x="1392" y="99" width="36" height="36" />
+      </bpmndi:BPMNShape>
       <bpmndi:BPMNEdge id="Flow_01modjw_di" bpmnElement="Flow_01modjw">
         <di:waypoint x="1198" y="117" />
-        <di:waypoint x="1442" y="117" />
+        <di:waypoint x="1392" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0dn26s5_di" bpmnElement="Flow_0dn26s5">
         <di:waypoint x="640" y="117" />
@@ -126,6 +126,10 @@
       <bpmndi:BPMNEdge id="Flow_0l5iemv_di" bpmnElement="Flow_0l5iemv">
         <di:waypoint x="780" y="117" />
         <di:waypoint x="820" y="117" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_03zqo35_di" bpmnElement="Flow_03zqo35">
+        <di:waypoint x="308" y="117" />
+        <di:waypoint x="400" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0ive0pr_di" bpmnElement="Flow_0ive0pr">
         <di:waypoint x="500" y="117" />
@@ -152,10 +156,6 @@
       <bpmndi:BPMNEdge id="Flow_0zxvby2_di" bpmnElement="Flow_0zxvby2">
         <di:waypoint x="188" y="117" />
         <di:waypoint x="272" y="117" />
-      </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_03zqo35_di" bpmnElement="Flow_03zqo35">
-        <di:waypoint x="308" y="117" />
-        <di:waypoint x="400" y="117" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Group_0x3j805_di" bpmnElement="Group_0x3j805">
         <dc:Bounds x="660" y="50" width="280" height="130" />
