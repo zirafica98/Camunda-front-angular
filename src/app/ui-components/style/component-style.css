@@ -51,6 +51,13 @@
 .container .components .wrapper > svg {
   align-self: flex-start;
 }
+.container .components .wrapper > svg {
+  align-self: flex-start;
+  cursor: pointer;
+}
+.container .components .wrapper > svg:hover > path {
+  fill: rgba(143, 145, 153, 0.6);
+}
 .container .components > form {
   position: relative;
 }
@@ -96,6 +103,10 @@
 }
 .container .components > form .wrapper > svg {
   align-self: flex-start;
+  cursor: pointer;
+}
+.container .components > form .wrapper > svg:hover > path {
+  fill: rgba(143, 145, 153, 0.6);
 }
 .container .components > form .error {
   color: #D7424B;

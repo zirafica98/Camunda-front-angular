@@ -268,7 +268,7 @@
         </tr>
     </table>
 
-    <app-custom-select *ngIf="accounts.length>1" [options]="accountNumbers" [customType]="'accounts'" [placeholder]="'Izaberite račun'" [tooltip]="''" class="customSelect" (formValidityChange)="handleFormValidityChange($event)" (valueChange)="onValueChange($event)"></app-custom-select>
+    <app-custom-select *ngIf="accounts.length>1" [options]="accountNumbers" [customType]="'accounts'" class="customSelect" (formValidityChange)="handleFormValidityChange($event)" (valueChange)="onValueChange($event)"></app-custom-select>
     <app-prefilled-input *ngIf="accounts.length==1" [customType]="'accounts'" [value]="accountNumbers[0]" class="customSelect"></app-prefilled-input>
 
     <div class="line"></div>

@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { inputResource } from '../../resources';
 
 @Component({
@@ -6,14 +6,18 @@ import { inputResource } from '../../resources';
   templateUrl: './prefilled-input.component.html',
   styleUrl: '../style/component-style.css',
 })
-export class PrefilledInputComponent {
+export class PrefilledInputComponent implements OnInit{
   
   @Input() customType: string = "";
   @Input() value: string = "";
-  @Input() tooltip: string = "";
+  tooltip: string = "";
 
   inputResource=inputResource;
 
   constructor() {}
+
+  ngOnInit(): void {
+    this.tooltip=inputResource[this.customType].tooltip;
+  }
 
 }

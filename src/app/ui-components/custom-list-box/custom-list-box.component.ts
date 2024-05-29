@@ -13,7 +13,7 @@ import { DataLoader } from '../../services/dataLoader';
 export class CustomListBoxComponent {
 
   @Input() customType: string = "";
-  @Input() tooltip: string = "";
+  tooltip: string = "";
   codeBook: any = [];
 
   isDropdownVisible: boolean = false;
@@ -44,6 +44,7 @@ export class CustomListBoxComponent {
     this.codeBook = this.globalService.getGlobalCodeBook();
     this.form.get('input')?.addValidators(Validators.required);
     this.form.get('input')?.updateValueAndValidity();
+    this.tooltip=inputResource[this.customType].tooltip;
     this.addChangeListeners();
   }
 

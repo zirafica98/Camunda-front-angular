@@ -1,6 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { buttonResources, formResources } from '../../resources';
+import { buttonResources, formResources, actionResources } from '../../resources';
 import { PopupComponent } from '../../shared/popup/popup.component';
 
 @Component({
@@ -8,13 +8,18 @@ import { PopupComponent } from '../../shared/popup/popup.component';
   templateUrl: './action.component.html',
   styleUrl: '../style/component-style.css',
 })
-export class ActionComponent {
+export class ActionComponent implements OnInit{
 
-  @Input() text: string = "";
-  @Input() actionText: string = "";
+  text: string = "";
+  actionText: string = "";
   @Input() key: string = "";
 
   constructor(private dialog: MatDialog) { }
+
+  ngOnInit(): void {
+    this.text=actionResources[this.key].text;
+    this.actionText=actionResources[this.key].actionText;
+  }
 
   callMethod() {
     switch (this.key) {
@@ -26,7 +31,7 @@ export class ActionComponent {
     if (true) {
       let x = window.innerWidth > 600 ? '50vw' : '90vw';
 
-      const buttons: string[] = [buttonResources["send"].text, buttonResources["cancel"].text];
+      const buttons: string[] = [buttonResources["confirm"].text, buttonResources["cancel"].text];
 
       const dialogRef = this.dialog.open(PopupComponent, {
         width: x,

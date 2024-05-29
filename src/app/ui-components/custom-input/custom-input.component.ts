@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { NgModule } from '@angular/core';
 import { FormControl, FormGroup, Validators,AbstractControl, ValidatorFn, ValidationErrors } from "@angular/forms";
 import { inputResource } from '../../resources';
@@ -8,11 +8,11 @@ import { inputResource } from '../../resources';
   templateUrl: './custom-input.component.html',
   styleUrl: '../style/component-style.css',
 })
-export class CustomInputComponent {
+export class CustomInputComponent implements OnInit{
   
   @Input() customType: string = "";
   @Input() mandatory: boolean = true;
-  @Input() tooltip: string = "";
+  tooltip: string = "";
   @Input() prefilledValue: string = "";
 
   @Output() formValidityChange = new EventEmitter<boolean>();
@@ -38,6 +38,7 @@ export class CustomInputComponent {
     this.form.get('input')?.setValidators(customValidator(this.customType));
     if(this.mandatory) this.form.get('input')?.addValidators(Validators.required);
     this.form.get('input')?.updateValueAndValidity();
+    this.tooltip=inputResource[this.customType].tooltip;
   }
 
 

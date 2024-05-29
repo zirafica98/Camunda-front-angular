@@ -52,6 +52,18 @@
             >svg {
                 align-self: flex-start;
             }
+            
+
+            >svg {
+                align-self: flex-start;
+                cursor: pointer;
+            }
+            
+            >svg:hover{
+                >path{
+                    fill:#8F919999;
+                }
+            }
         }
 
         >form {
@@ -105,6 +117,12 @@
 
                 >svg {
                     align-self: flex-start;
+                    cursor: pointer;
+                }
+                >svg:hover{
+                    >path{
+                        fill:#8F919999;
+                    }
                 }
             }
 

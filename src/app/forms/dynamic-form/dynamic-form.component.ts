@@ -3,7 +3,7 @@ import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
 import { ActivatedRoute, Router } from '@angular/router';
 import { FrameComponent } from '../frame/frame.component';
-import { formResources, buttonResources } from '../../resources';
+import { formResources, buttonResources, textResources } from '../../resources';
 import { CustomInputComponent } from '../../ui-components/custom-input/custom-input.component';
 import { CheckboxInputComponent } from '../../ui-components/checkbox-input/checkbox-input.component';
 import { ActionComponent } from '../../ui-components/action/action.component';
@@ -96,7 +96,7 @@ export class DynamicFormComponent {
         case 'select': this.loadSelect(component, inputIndex); inputIndex++; break;
         case 'listBox': this.loadListBox(component, inputIndex); inputIndex++; break;
         case 'image': this.loadImage(component.name); break;
-        case 'text': this.loadDiv(component.text); break;
+        case 'text': this.loadDiv(component.key); break;
         case 'action': this.loadAction(component); break;
       }
     }
@@ -167,7 +167,6 @@ export class DynamicFormComponent {
     const currentIndex = checkboxIndex;
     componentRef.instance.customType = component.key;
     componentRef.instance.mandatory = component.mandatory;
-    componentRef.instance.tooltip = component.tooltip;
 
     if (component.key == 'email') {
       //dohvati pravi parametar
@@ -197,7 +196,6 @@ export class DynamicFormComponent {
     //dohvati pravi parametar
     let val = ["Mihajlo", "Bondji", "0905000710310", "48229473"];
     componentRef.instance.customType = component.key;
-    componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.value = val[this.tempVal];
     this.myPrefilledInputComponents.push(component);
     this.tempVal++;
@@ -209,9 +207,8 @@ export class DynamicFormComponent {
       const componentRef = this.container.createComponent(factory);
       const currentIndex = checkboxIndex;
       this.isChecked.push(false);
-      componentRef.instance.customText = component.text;
       componentRef.instance.mandatory = component.mandatory;
-      componentRef.instance.link = component.link;
+      componentRef.instance.key = component.key;
       componentRef.instance.isChecked = this.isChecked[checkboxIndex];
       componentRef.instance.isCheckedChange.subscribe((isChecked: boolean) => {
         this.isChecked[currentIndex] = isChecked;
@@ -226,7 +223,6 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
     const currentIndex = listBoxIndex;
     componentRef.instance.customType = component.key;
-    componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customListBoxComponentRefs.push(componentRef);
     this.formIsValid.push(false);
@@ -238,9 +234,6 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
     const currentIndex = selectIndex;
     componentRef.instance.customType = component.key;
-    componentRef.instance.options = component.options;
-    componentRef.instance.placeholder = component.placeholder;
-    componentRef.instance.tooltip = component.tooltip;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customSelectComponentRefs.push(componentRef);
     this.formIsValid.push(false);
@@ -253,9 +246,9 @@ export class DynamicFormComponent {
     this.renderer.appendChild(this.container.element.nativeElement, img);
   }
 
-  loadDiv(textToShow: string) {
+  loadDiv(key: string) {
     const div = this.renderer.createElement('div');
-    const text = this.renderer.createText(textToShow);
+    const text = this.renderer.createText(textResources[key].text);
     this.renderer.appendChild(div, text);
     this.renderer.appendChild(this.container.element.nativeElement, div);
   }
@@ -263,8 +256,6 @@ export class DynamicFormComponent {
   loadAction(component: ComponentData) {
     const factory = this.resolver.resolveComponentFactory(ActionComponent);
     const componentRef = this.container.createComponent(factory);
-    componentRef.instance.text = component.text;
-    componentRef.instance.actionText = component.actionText;
     componentRef.instance.key = component.key;
     this.customActionComponentRefs.push(componentRef);
   }

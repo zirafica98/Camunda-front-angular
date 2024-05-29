@@ -1,5 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
-import { inputResource } from '../../resources';
+import { selectResources } from '../../resources';
 import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
 
 @Component({
@@ -11,8 +11,8 @@ export class CustomSelectComponent implements OnInit{
 
   @Input() options:string[]=[];
   @Input() customType: string = "";
-  @Input() placeholder: string = "";
-  @Input() tooltip: string = "";
+  placeholder: string = "";
+  tooltip: string = "";
   @Output() formValidityChange = new EventEmitter<boolean>();
   @Output() valueChange = new EventEmitter<string>();
 
@@ -22,7 +22,7 @@ export class CustomSelectComponent implements OnInit{
 
   get input(){return this.form.get('input')}
 
-  inputResource=inputResource;
+  selectResources=selectResources;
 
   constructor() {
 
@@ -36,11 +36,15 @@ export class CustomSelectComponent implements OnInit{
   }
 
   ngOnInit() {
+    if(this.options.length==0)
+      this.options=selectResources[this.customType].options;
     if (this.customType === "addressDiff" && this.options.length > 1) 
       this.form.get('input')?.setValue(this.options[1]);
     else
       this.form.get('input')?.setValue(null);
   
+    this.placeholder=selectResources[this.customType].placeholder;
+    this.tooltip=selectResources[this.customType].tooltip;
     this.form.get('input')?.updateValueAndValidity();
   }
 

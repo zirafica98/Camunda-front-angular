@@ -3,83 +3,160 @@ interface inputResources {
         text: string;
         placeholder: string;
         error: string;
+        tooltip:string;
     };
 }
 export const inputResource:inputResources={
     phone:{
         text:"Broj mobilnog telefona",
         placeholder:"Unesite svoj broj mobilnog telefona",
-        error:"Neispravan broj telefona"
+        error:"Neispravan broj telefona",
+        tooltip:""
     },
     email:{
         text:"E-mail adresa",
         placeholder:"Unesite svoju e-mail adresu",
-        error:"Neispravna e-mail adresa"
+        error:"Neispravna e-mail adresa",
+        tooltip:""
     },
     name:{
         text:"Vaše ime",
         placeholder:"Unesite svoje ime",
-        error:"Neispravno ime"
+        error:"Neispravno ime",
+        tooltip:""
     },
     lastname:{
         text:"Prezime",
         placeholder:"Unesite svoje prezime",
-        error:"Neispravno prezime"
+        error:"Neispravno prezime",
+        tooltip:""
     },
     ssn:{
         text:"Vaš JMBG",
         placeholder:"Unesite Vaš JMBG",
-        error:"JMBG mora biti validan"
+        error:"JMBG mora biti validan",
+        tooltip:""
     },
     verification:{
         text:"Verifikacioni kod",
         placeholder:"Unesite verifikacioni kod",
-        error:"Verifikacioni kod nije validan"
+        error:"Molimo upišite verifikacioni kod.",
+        tooltip: "Unesite kod koji ste dobili putem SMS poruke."
     },
     municipality:{
         text:"Opština",
         placeholder:"Unesite opštinu",
-        error:"Obavezno polje"
+        error:"Obavezno polje",
+        tooltip:""
     },
     place:{
         text:"Mesto",
         placeholder:"Unesite mesto",
-        error:"Obavezno polje"
+        error:"Obavezno polje",
+        tooltip:""
     },
     street:{
         text:"Ulica",
         placeholder:"Unesite ulicu",
-        error:"Obavezno polje"
+        error:"Obavezno polje",
+        tooltip:""
     },
     houseNumber:{
         text:"Kućni broj",
         placeholder:"Unesite kućni broj",
-        error:"Obavezno polje"
+        error:"Obavezno polje",
+        tooltip:""
     },
     apartmentNumber:{
         text:"Broj stana",
         placeholder:"Unesite broj stana",
-        error:""
+        error:"",
+        tooltip:""
     },
     onThisAddress:{
         text:"Živim na ovoj adresi u poslednjih",
         placeholder:"",
-        error:"Obavezno polje"
+        error:"Obavezno polje",
+        tooltip:""
     },
     status:{
         text:"Status",
         placeholder:"",
-        error:"Obavezno polje"
-    },
+        error:"Obavezno polje",
+        tooltip:""
+    }
+}
+
+interface selectResources{
+    [key: string]: {
+        text: string;
+        placeholder: string;
+        error: string;
+        tooltip:string;
+        options:string[];
+    };
+}
+
+export const selectResources:selectResources={
     addressDiff:{
         text:"Adresa u ličnoj karti se razlikuje od adrese stanovanja",
         placeholder:"",
-        error:"Obavezno polje"
+        error:"Obavezno polje",
+        tooltip:"",
+        options:["Da","Ne"]
     },
     accounts:{
         text:"Račun sa koga će sredstva biti oročena",
-        placeholder:"",
-        error:"Molimo Vas odaberite račun."
+        placeholder:"Izaberite račun",
+        error:"Molimo Vas odaberite račun.",
+        tooltip:"",
+        options:[]
+    }
+}
+
+interface checkboxResources{
+    [key:string]:{
+        text:string;
+        link:string;
+    };
+}
+
+export const checkboxResources:checkboxResources={
+    checkbox1:{
+        text:"Slažem se da moji podaci budu obrađeni.",
+        link:"https://raiffeisenbank.rs/"
+    },
+    checkbox2:{
+        text:"Slažem se da komunikaciju sa mnom banka vrši elektronskim putem.",
+        link:"https://raiffeisenbank.rs/"
+    }
+}
+
+
+interface textResources{
+    [key:string]:{
+        text:string;
+    };
+}
+
+export const textResources:textResources={
+    verification:{
+        text:"Verifikacija broja telefona omogućava nastavak zahteva u slučaju prekida i elektronski potpis ugovora na kraju, na sličan način. Molimo Vas da upišete verifikacioni kod koji dobijete u SMS poruci."
+    }
+}
+
+
+interface actionResources{
+    [key:string]:{
+        text:string;
+        actionText:string
+    };
+}
+
+export const actionResources:actionResources={
+    verification:{
+        text:"Još uvek niste dobili ništa?",
+        actionText:"Ponovo pošalji verifikacioni kod"
     }
 }
 
@@ -115,8 +192,8 @@ export const formResources:formResources={
         text:"Na Vaš broj mobilnog telefona ponovo smo poslali verifikacioni kod.",
     },
     popupSendCode:{
-        title:"Ponovo pošalji kod",
-        text:"Da li ste sigurni da želite ponovo da pošaljete verifikacioni kod?",
+        title:"Ponovo pošalji verifikacioni kod",
+        text:"Novi kod biće poslat na broj telefona +381641234567. Molimo, potvrdite da li želite da Vam ponovo pošaljemo SMS kod.",
     },
     popupStartProcess:{
         title:"Podnesi zahtev online",
@@ -138,13 +215,16 @@ export const buttonResources:buttonResources={
         text:"Pošalji"
     },
     cancel:{
-        text:"Otkaži"
+        text:"Odustani"
     },
     next:{
         text:"Nastavi"
     },
     back:{
         text:"Nazad"
+    },
+    confirm:{
+        text:"Potvrdi"
     }
 }
 

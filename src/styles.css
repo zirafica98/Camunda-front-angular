@@ -53,6 +53,7 @@ body {
 }
 
 .tooltip {
+  font-family: amalia;
   display: block;
   background: white;
   padding: 16px 20px;
