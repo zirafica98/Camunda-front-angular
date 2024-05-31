@@ -56,6 +56,7 @@ export class DynamicFormComponent {
   areMandatorySelected: boolean = true;
   codeBook: any = [];
   numMini: number = 0;
+  buttonKey:string="";
 
   buttonResources=buttonResources;
 
@@ -98,6 +99,7 @@ export class DynamicFormComponent {
         case 'image': this.loadImage(component.name); break;
         case 'text': this.loadDiv(component.key); break;
         case 'action': this.loadAction(component); break;
+        case 'button': this.buttonKey=component.key; break;
       }
     }
   }
@@ -170,7 +172,7 @@ export class DynamicFormComponent {
 
     if (component.key == 'email') {
       //dohvati pravi parametar
-      let mail = "mihajlobondji@gmail.com"
+      let mail = "test@gmail.com"
       componentRef.instance.prefilledValue = mail;
     }
 
@@ -194,7 +196,7 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
 
     //dohvati pravi parametar
-    let val = ["Mihajlo", "Bondji", "0905000710310", "48229473"];
+    let val = ["Petar", "Petrovic", "0905000710310", "41234567"];
     componentRef.instance.customType = component.key;
     componentRef.instance.value = val[this.tempVal];
     this.myPrefilledInputComponents.push(component);

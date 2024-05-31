@@ -18,6 +18,6 @@
     </div>
     <div class="bottom">
         <!-- <button class="back">{{buttonResources["back"].text}}</button> -->
-        <button class="next" (click)="submitForm()">{{buttonResources["next"].text}}</button>
+        <button class="next" (click)="submitForm()" *ngIf="buttonKey!=''">{{buttonResources[buttonKey].text}}</button>
     </div>
 </div>

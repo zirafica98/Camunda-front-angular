@@ -1,6 +1,6 @@
 interface inputResources {
     [key: string]: {
-        text: string;
+        label: string;
         placeholder: string;
         error: string;
         tooltip:string;
@@ -8,79 +8,79 @@ interface inputResources {
 }
 export const inputResource:inputResources={
     phone:{
-        text:"Broj mobilnog telefona",
+        label:"Broj mobilnog telefona",
         placeholder:"Unesite svoj broj mobilnog telefona",
         error:"Neispravan broj telefona",
-        tooltip:""
+        tooltip:"Prikazan broj telefona je vaš registrovani broj u banci. Ukoliko ste izmenili broj telefona molimo Vas da pre nastavka procesa izmenite broj telefona."
     },
     email:{
-        text:"E-mail adresa",
+        label:"E-mail adresa",
         placeholder:"Unesite svoju e-mail adresu",
-        error:"Neispravna e-mail adresa",
-        tooltip:""
+        error:"Molimo upišite validnu e-mail adresu.",
+        tooltip:"Molimo Vas unesite Vašu e-mail adresu."
     },
     name:{
-        text:"Vaše ime",
+        label:"Vaše ime",
         placeholder:"Unesite svoje ime",
         error:"Neispravno ime",
         tooltip:""
     },
     lastname:{
-        text:"Prezime",
+        label:"Prezime",
         placeholder:"Unesite svoje prezime",
         error:"Neispravno prezime",
         tooltip:""
     },
     ssn:{
-        text:"Vaš JMBG",
+        label:"Vaš JMBG",
         placeholder:"Unesite Vaš JMBG",
         error:"JMBG mora biti validan",
         tooltip:""
     },
     verification:{
-        text:"Verifikacioni kod",
+        label:"Verifikacioni kod",
         placeholder:"Unesite verifikacioni kod",
         error:"Molimo upišite verifikacioni kod.",
         tooltip: "Unesite kod koji ste dobili putem SMS poruke."
     },
     municipality:{
-        text:"Opština",
+        label:"Opština",
         placeholder:"Unesite opštinu",
         error:"Obavezno polje",
         tooltip:""
     },
     place:{
-        text:"Mesto",
+        label:"Mesto",
         placeholder:"Unesite mesto",
         error:"Obavezno polje",
         tooltip:""
     },
     street:{
-        text:"Ulica",
+        label:"Ulica",
         placeholder:"Unesite ulicu",
         error:"Obavezno polje",
         tooltip:""
     },
     houseNumber:{
-        text:"Kućni broj",
+        label:"Kućni broj",
         placeholder:"Unesite kućni broj",
         error:"Obavezno polje",
         tooltip:""
     },
     apartmentNumber:{
-        text:"Broj stana",
+        label:"Broj stana",
         placeholder:"Unesite broj stana",
         error:"",
         tooltip:""
     },
     onThisAddress:{
-        text:"Živim na ovoj adresi u poslednjih",
+        label:"Živim na ovoj adresi u poslednjih",
         placeholder:"",
         error:"Obavezno polje",
         tooltip:""
     },
     status:{
-        text:"Status",
+        label:"Status",
         placeholder:"",
         error:"Obavezno polje",
         tooltip:""
@@ -89,7 +89,7 @@ export const inputResource:inputResources={
 
 interface selectResources{
     [key: string]: {
-        text: string;
+        label: string;
         placeholder: string;
         error: string;
         tooltip:string;
@@ -99,14 +99,14 @@ interface selectResources{
 
 export const selectResources:selectResources={
     addressDiff:{
-        text:"Adresa u ličnoj karti se razlikuje od adrese stanovanja",
+        label:"Adresa u ličnoj karti se razlikuje od adrese stanovanja",
         placeholder:"",
         error:"Obavezno polje",
         tooltip:"",
         options:["Da","Ne"]
     },
     accounts:{
-        text:"Račun sa koga će sredstva biti oročena",
+        label:"Račun sa koga će sredstva biti oročena",
         placeholder:"Izaberite račun",
         error:"Molimo Vas odaberite račun.",
         tooltip:"",

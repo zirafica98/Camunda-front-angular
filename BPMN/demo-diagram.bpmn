@@ -12,12 +12,12 @@
       <bpmn:outgoing>Flow_0l5iemv</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="BasicDataForm" name="BasicDataForm" camunda:formKey="BasicDataForm">
-      <bpmn:documentation>{ "components": [ { "key": "name", "type": "input", "mandatory": false, "prefilled": true }, { "key": "lastname", "type": "input", "mandatory": false, "prefilled": true }, { "key": "ssn", "type": "input", "mandatory": false, "prefilled": true }, { "key": "phone", "type": "input", "mandatory": false, "prefilled": true }, { "key": "email", "type": "input", "mandatory": true, "prefilled": true }, { "key": "checkbox1", "type": "checkbox", "mandatory": true }, { "key": "checkbox2", "type": "checkbox", "mandatory": true } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "name", "type": "input", "mandatory": false, "prefilled": true }, { "key": "lastname", "type": "input", "mandatory": false, "prefilled": true }, { "key": "ssn", "type": "input", "mandatory": false, "prefilled": true }, { "key": "phone", "type": "input", "mandatory": false, "prefilled": true }, { "key": "email", "type": "input", "mandatory": true, "prefilled": true }, { "key": "checkbox1", "type": "checkbox", "mandatory": true }, { "key": "checkbox2", "type": "checkbox", "mandatory": true }, { "key": "next", "type": "button"} ] }</bpmn:documentation>
       <bpmn:incoming>Flow_03zqo35</bpmn:incoming>
       <bpmn:outgoing>Flow_0ive0pr</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="PhoneVerificationForm" name="PhoneVerificationForm" camunda:formKey="PhoneVerificationForm">
-      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.png" }, { "key": "verification", "type": "text" }, { "key": "verification", "type": "input", "mandatory": true, "prefilled": false }, { "key": "verification", "type": "action" } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.png" }, { "key": "verification", "type": "text" }, { "key": "verification", "type": "input", "mandatory": true, "prefilled": false }, { "key": "verification", "type": "action" }, { "key": "next", "type": "button"} ] }</bpmn:documentation>
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codeBookName" />
@@ -29,7 +29,7 @@
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0ive0pr" sourceRef="BasicDataForm" targetRef="PhoneVerificationForm" />
     <bpmn:userTask id="AddressForm" name="AddressForm" camunda:formKey="AddressForm">
-      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "addressDiff", "type": "select" } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "addressDiff", "type": "select" }, { "key": "next", "type": "button"} ] }</bpmn:documentation>
       <bpmn:extensionElements />
       <bpmn:incoming>Flow_0l5iemv</bpmn:incoming>
       <bpmn:outgoing>Flow_18d0upc</bpmn:outgoing>
@@ -59,7 +59,7 @@
       <bpmn:extensionElements />
     </bpmn:sequenceFlow>
     <bpmn:userTask id="AddressIDForm" name="AddressIDForm" camunda:formKey="AddressIDForm">
-      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "next", "type": "button"} ] }</bpmn:documentation>
       <bpmn:incoming>Flow_0fwxgfm</bpmn:incoming>
       <bpmn:outgoing>Flow_1t2nput</bpmn:outgoing>
     </bpmn:userTask>
