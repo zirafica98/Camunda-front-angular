@@ -19,6 +19,10 @@ export class GlobalService {
   private placeValueSubject = new BehaviorSubject<any>('');
   placeValue$ = this.placeValueSubject.asObservable();
   params:number[]=[];
+
+  private subtitle = new BehaviorSubject<string>('');
+  subtitle$ = this.subtitle.asObservable();
+
   constructor() { }
 
   setGlobalVariable(value: any): void {
@@ -107,6 +111,9 @@ export class GlobalService {
     this.params.push(p3);
   }
   
+  setSubtitle(newValue:string){
+    this.subtitle.next(newValue);
+  }
 
   isDev():boolean{
     return true;

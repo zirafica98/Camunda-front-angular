@@ -7,9 +7,9 @@
   display: block;
 }
 .popup .main {
-  margin: 24px;
+  margin: 16px;
   position: relative;
-  width: calc(100% - 48px);
+  width: calc(100% - 32px);
   display: flex;
   gap: 20px;
 }
@@ -46,10 +46,9 @@
   display: flex;
   justify-content: flex-end;
   gap: 20px;
-  border-top: 1px solid #e4e5e7;
   width: calc(100% - 32px);
   padding: 16px;
-  margin-top: 20px;
+  border-top: 1px solid #e4e5e7;
 }
 .popup .buttons > button {
   font-size: 14px;
@@ -66,13 +65,11 @@
   font-weight: 500;
   border: 1px solid rgba(19, 20, 22, 0.0784313725);
   cursor: pointer;
-  box-shadow: 0px 2px 2px 0px #cfcfcf;
 }
 .popup .buttons > button:hover {
   background-color: #f1d900;
 }
 .popup .buttons .back {
-  border: 1px solid #f7f7f8;
   background-color: white;
 }
 .popup .buttons .back:hover {
@@ -85,5 +82,42 @@
   }
   to {
     opacity: 1;
+  }
+}
+@media screen and (max-width: 700px) {
+  .popup .main {
+    flex-direction: column;
+    margin: 16px 16px 0 16px;
+  }
+  .popup .main .left {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
+  .popup .main .right {
+    text-align: center;
+  }
+  .popup .main .right .title {
+    font-size: 16px;
+    font-weight: 500;
+  }
+  .popup .main .right .row {
+    padding: 8px 0;
+    text-align: left;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .popup .main .right .row > span:nth-child(odd) {
+    font-size: 12px;
+    color: #656772;
+  }
+  .popup .buttons {
+    flex-direction: column;
+    border-top: none;
+  }
+  .popup .buttons > button {
+    text-align: center;
+    display: flex;
+    justify-content: center;
   }
 }/*# sourceMappingURL=popup.component.css.map */

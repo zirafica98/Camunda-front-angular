@@ -12,7 +12,7 @@ import { DataLoader } from '../../services/dataLoader';
 })
 export class CustomListBoxComponent {
 
-  @Input() customType: string = "";
+  @Input() key: string = "";
   tooltip: string = "";
   codeBook: any = [];
 
@@ -40,11 +40,11 @@ export class CustomListBoxComponent {
   }
 
   ngOnInit() {
-    if(this.customType=="municipality")
+    if(this.key=="municipality")
     this.codeBook = this.globalService.getGlobalCodeBook();
     this.form.get('input')?.addValidators(Validators.required);
     this.form.get('input')?.updateValueAndValidity();
-    this.tooltip=inputResource[this.customType].tooltip;
+    this.tooltip=inputResource[this.key].tooltip;
     this.addChangeListeners();
   }
 
@@ -65,15 +65,15 @@ export class CustomListBoxComponent {
     });
     this.municipalityCodeSelect = mesto.code;
     this.isDropdownVisible = false;
-    if (this.customType == "municipality") {
+    if (this.key == "municipality") {
       this.globalService.setGlobalMunicipalityCodeBook(mesto.code);
       this.globalService.setMunicipalityCodeValue(mesto.code);
     }
-    else if(this.customType=="place"){
+    else if(this.key=="place"){
         this.globalService.setGlobalPlaceCodeBook(mesto.code);
         this.globalService.setPlaceCodeValue(mesto.code);
       }
-    else if(this.customType=="street"){
+    else if(this.key=="street"){
         this.globalService.setGlobalSelectStreetCodeBookCode(mesto.code);
       }
   }
@@ -88,7 +88,7 @@ export class CustomListBoxComponent {
   }
 
   addChangeListeners(){
-    if(this.customType=="place"){
+    if(this.key=="place"){
       this.globalService.municipalityValue$
       .pipe(
         distinctUntilChanged(),
@@ -102,7 +102,7 @@ export class CustomListBoxComponent {
         }
       });
     }
-    else if(this.customType=="street"){
+    else if(this.key=="street"){
       this.globalService.placeValue$
         .pipe(
           distinctUntilChanged(),

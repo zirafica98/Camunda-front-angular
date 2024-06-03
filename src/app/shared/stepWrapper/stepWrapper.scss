@@ -13,7 +13,7 @@
 
         .steps{
             position: absolute;
-            top: 60px;
+            top: 30px;
             left: 90px;
             width: calc(100% - 180px);
             .progress {
@@ -60,6 +60,39 @@
             .current {
                 background-color: #548ca6;
                 color: white;
+            }
+
+            .subtitle{
+                position: absolute;
+                top:64px;
+                transform: translate3d(-50%, 0, 0);
+                left:0;
+                font-size: 12px;
+                color:#656772;
+                font-weight: 400;
+            }
+        }
+
+        .mobile{
+            display: none;
+        }
+    }
+}
+
+@media screen and (max-width:700px) {
+    .steps-wrap {
+        .container-1{
+            .mobile{
+                display: block;
+                .subtitle{
+                    text-align: center;
+                    left: 50%;
+                    min-width: max-content;
+                }
+            }
+
+            .isMobile{
+                display: none;
             }
         }
     }

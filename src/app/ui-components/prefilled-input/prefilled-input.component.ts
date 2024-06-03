@@ -8,7 +8,7 @@ import { inputResource } from '../../resources';
 })
 export class PrefilledInputComponent implements OnInit{
   
-  @Input() customType: string = "";
+  @Input() key: string = "";
   @Input() value: string = "";
   tooltip: string = "";
 
@@ -17,7 +17,7 @@ export class PrefilledInputComponent implements OnInit{
   constructor() {}
 
   ngOnInit(): void {
-    this.tooltip=inputResource[this.customType].tooltip;
+    this.tooltip=inputResource[this.key].tooltip;
   }
 
 }

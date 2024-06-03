@@ -20,4 +20,18 @@
 #page-footer .info2 {
   color: #232529;
   font-weight: 500;
+}
+
+@media screen and (max-width: 700px) {
+  #page-footer {
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    gap: 24px;
+  }
+  #page-footer .info {
+    flex-direction: column;
+    gap: 8px;
+    text-align: center;
+  }
 }/*# sourceMappingURL=footer.css.map */

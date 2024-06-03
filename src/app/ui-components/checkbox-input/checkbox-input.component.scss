@@ -3,8 +3,8 @@
     display: flex;
     align-items: center;
     margin: 40px 0;
+    gap: 46px;
     >span{
-        margin-left: 20px;
         color:#656772;
         cursor: pointer;
         user-select: none;
@@ -29,13 +29,13 @@
 
     }
 .custom-checkbox {
-    display: inline-block;
+    display: block;
     position: relative;
     cursor: pointer;
     font-size: 16px;
     border-radius: 6px;
     height: 24px;
-    width: 24px;
+    width: 0;
   }
   
   /* Checkbox stil */

@@ -30,14 +30,14 @@ export class WelcomeComponent implements OnInit {
 
   welcomeResources = welcomeResources;
 
-  value: number = 10000;
-  value2: string = "";
+  amount: number = 10000;
+  amountString: string = "";
   valid: boolean = false;
-  minValue = 500;
-  maxValue = 100000;
-  value3: number = 12;
-  minValue2 = 1;
-  maxValue2 = 60;
+  amountMinValue = 500;
+  amountMaxValue = 100000;
+  months: number = 12;
+  monthsMinValue = 1;
+  monthsMaxValue = 60;
   selected: number = 0;
   accounts: any[] = [{ "number": "540-0123456789-11", "amount": "5000" }, { "number": "544-555456789-33", "amount": "0" }, { "number": "541-9123456789-22", "amount": "150000" }];
   accountNumbers: string[] = [];
@@ -45,7 +45,7 @@ export class WelcomeComponent implements OnInit {
   accountAmount: number = 10000;
 
   ngOnInit(): void {
-    this.onInputChange3();
+    //dohvati prave accounts
     if (this.accounts.length == 1) {
       this.selectedAccount = this.accounts[0].number;
       this.valid = true;
@@ -56,50 +56,53 @@ export class WelcomeComponent implements OnInit {
     this.accountAmount = parseInt(this.accounts.reduce((max, account) => {
       return Math.max(max, parseInt(account.amount));
     }, 0));
+
     if (this.accountAmount > 500) {
-      if(this.accountAmount>this.maxValue)
-        this.value = this.maxValue;
+      if(this.accountAmount>this.amountMaxValue)
+        this.amount = this.amountMaxValue;
       else
-        this.value = this.accountAmount;
+        this.amount = this.accountAmount;
     }
-    this.onInputChange();
+
+    this.amountRangeChange();
+    this.monthsChange();
   }
 
-  onInputChange() {
-    this.value2 = this.convertWithDot(this.value);
-    this.checkValue(parseInt(this.value2.replace(/\./g, '')));
-    if (this.value <= this.maxValue && this.value >= this.minValue) {
-      (document.getElementsByClassName("line")[0] as HTMLDivElement).style.width = (((this.value - this.minValue) / (this.maxValue - this.minValue)) * 100) + "%";
-    }
-  }
-
-  onInputChange2() {
-    this.checkValue(parseInt(this.value2.replace(/\./g, '')));
-    let value = parseInt(this.value2.replace(/\./g, ''));
-    this.value2 = this.convertWithDot(value);
-    if (value <= this.maxValue && value >= this.minValue) {
-      this.value = value;
-      (document.getElementById("numberInput") as HTMLInputElement).value = this.value2;
-      (document.getElementsByClassName("line")[0] as HTMLDivElement).style.width = ((this.value / this.maxValue) * 100) + "%";
+  amountRangeChange() {
+    this.amountString = this.convertWithDot(this.amount);
+    this.checkValue(parseInt(this.amountString.replace(/\./g, '')));
+    if (this.amount <= this.amountMaxValue && this.amount >= this.amountMinValue) {
+      (document.getElementsByClassName("line")[0] as HTMLDivElement).style.width = (((this.amount - this.amountMinValue) / (this.amountMaxValue - this.amountMinValue)) * 100) + "%";
     }
   }
 
-  onInputChange3() {
-    this.checkValue2(this.value3);
-    if (this.value3 <= this.maxValue2 && this.value3 >= this.minValue2) {
-      (document.getElementById("number2Input") as HTMLInputElement).value = this.value3.toString();
-      (document.getElementsByClassName("line")[1] as HTMLDivElement).style.width = (((this.value3 - this.minValue2) / (this.maxValue2 - this.minValue2)) * 100) + "%";
+  amountInputChange() {
+    this.checkValue(parseInt(this.amountString.replace(/\./g, '')));
+    let value = parseInt(this.amountString.replace(/\./g, ''));
+    this.amountString = this.convertWithDot(value);
+    if (value <= this.amountMaxValue && value >= this.amountMinValue) {
+      this.amount = value;
+      (document.getElementById("numberInput") as HTMLInputElement).value = this.amountString;
+      (document.getElementsByClassName("line")[0] as HTMLDivElement).style.width = ((this.amount / this.amountMaxValue) * 100) + "%";
+    }
+  }
+
+  monthsChange() {
+    this.checkValue2(this.months);
+    if (this.months <= this.monthsMaxValue && this.months >= this.monthsMinValue) {
+      (document.getElementById("number2Input") as HTMLInputElement).value = this.months.toString();
+      (document.getElementsByClassName("line")[1] as HTMLDivElement).style.width = (((this.months - this.monthsMinValue) / (this.monthsMaxValue - this.monthsMinValue)) * 100) + "%";
     }
   }
 
   checkValue(value: number): boolean {
     if (this.errorComponentRef) this.errorComponentRef.destroy();
 
-    if (value && value >= this.minValue && value <= this.maxValue) return true;
+    if (value && value >= this.amountMinValue && value <= this.amountMaxValue) return true;
 
     let errorText = 'Vrednost nije validna.';
-    if (value < this.minValue) errorText = 'Vrednost ne može biti manja od ' + this.convertWithDot(this.minValue) + ' EUR.';
-    if (value > this.minValue) errorText = 'Vrednost ne može biti veća od ' + this.convertWithDot(this.maxValue) + ' EUR.';
+    if (value < this.amountMinValue) errorText = 'Vrednost ne može biti manja od ' + this.convertWithDot(this.amountMinValue) + ' EUR.';
+    if (value > this.amountMinValue) errorText = 'Vrednost ne može biti veća od ' + this.convertWithDot(this.amountMaxValue) + ' EUR.';
     this.errorComponentRef = this.errorWrapper.createComponent(ErrorComponent);
     this.errorComponentRef.instance.text = errorText;
 
@@ -109,46 +112,40 @@ export class WelcomeComponent implements OnInit {
   checkValue2(value: number): boolean {
     if (this.errorComponentRef2) this.errorComponentRef2.destroy();
 
-    if (value && value >= this.minValue2 && value <= this.maxValue2) return true;
+    if (value && value >= this.monthsMinValue && value <= this.monthsMaxValue) return true;
 
     let errorText = 'Vrednost nije validna.';
-    if (value < this.minValue2) errorText = 'Vrednost ne može biti manja od ' + this.minValue2 + ' meseca.';
-    if (value > this.minValue2) errorText = 'Vrednost ne može biti veća od ' + this.maxValue2 + ' meseci.';
+    if (value < this.monthsMinValue) errorText = 'Vrednost ne može biti manja od ' + this.monthsMinValue + ' meseca.';
+    if (value > this.monthsMinValue) errorText = 'Vrednost ne može biti veća od ' + this.monthsMaxValue + ' meseci.';
     this.errorComponentRef2 = this.errorWrapper.createComponent(ErrorComponent);
     this.errorComponentRef2.instance.text = errorText;
 
     return false;
   }
 
-  changeModel(num: number) {
-    if (num != this.selected) {
-      this.selected = num;
-    }
-  }
-
   convertWithDot(val: number): string {
     return val.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".");
   }
 
-  increase(i: number) {
-    if (i == 0) {
-      this.value += 100;
-      this.onInputChange();
+  increase(s:string) {
+    if (s == 'amount') {
+      this.amount += 100;
+      this.amountRangeChange();
     }
     else {
-      this.value3++;
-      this.onInputChange3();
+      this.months++;
+      this.monthsChange();
     }
   }
 
-  decrease(i: number) {
-    if (i == 0) {
-      this.value -= 100;
-      this.onInputChange();
+  decrease(s:string) {
+    if (s=='amount') {
+      this.amount -= 100;
+      this.amountRangeChange();
     }
     else {
-      this.value3--;
-      this.onInputChange3();
+      this.months--;
+      this.monthsChange();
     }
   }
 
@@ -157,14 +154,14 @@ export class WelcomeComponent implements OnInit {
   }
 
   returnLetter(): string {
-    if ((this.value3 % 10 == 2 || this.value3 % 10 == 3 || this.value3 % 10 == 4) && this.value3 != 12 && this.value3 != 13 && this.value3 != 14)
+    if ((this.months % 10 == 2 || this.months % 10 == 3 || this.months % 10 == 4) && this.months != 12 && this.months != 13 && this.months != 14)
       return "a"
-    else if (this.value3 % 10 == 1 && this.value3 != 11)
+    else if (this.months % 10 == 1 && this.months != 11)
       return ""
     else return "i"
   }
 
-  onValueChange(value: string) {
+  onAccountChange(value: string) {
     this.selectedAccount = value;
     this.accountAmount = parseInt(this.findAmountByNumber(value) || "0");
   }
@@ -176,13 +173,14 @@ export class WelcomeComponent implements OnInit {
 
   openPopUp() {
     if (this.errorComponentRef3) this.errorComponentRef3.destroy();
-    if (this.checkValue(parseInt(this.value2.replace(/\./g, ''))) && this.checkValue2(this.value3)) {
+    
+    if (this.checkValue(parseInt(this.amountString.replace(/\./g, ''))) && this.checkValue2(this.months)) {
       if (this.valid) {
-        if(this.accountAmount>=this.value){
+        if(this.accountAmount>=this.amount){
         let x = window.innerWidth > 600 ? '50vw' : '90vw';
         const table: myTable[] = [
-          { text: welcomeResources["iznosOrocenja"].text, value: this.value2 + " EUR" },
-          { text: welcomeResources["periodOrocenja"].text, value: this.value3 + " mesec" + this.returnLetter() },
+          { text: welcomeResources["iznosOrocenja"].text, value: this.amountString + " EUR" },
+          { text: welcomeResources["periodOrocenja"].text, value: this.months + " mesec" + this.returnLetter() },
           { text: welcomeResources["racunOrocenja"].text, value: this.selectedAccount }
         ];
         const buttons: string[] = [buttonResources["next"].text, buttonResources["cancel"].text];

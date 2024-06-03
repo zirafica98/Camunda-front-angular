@@ -10,7 +10,7 @@ import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn,
 export class CustomSelectComponent implements OnInit{
 
   @Input() options:string[]=[];
-  @Input() customType: string = "";
+  @Input() key: string = "";
   placeholder: string = "";
   tooltip: string = "";
   @Output() formValidityChange = new EventEmitter<boolean>();
@@ -37,14 +37,14 @@ export class CustomSelectComponent implements OnInit{
 
   ngOnInit() {
     if(this.options.length==0)
-      this.options=selectResources[this.customType].options;
-    if (this.customType === "addressDiff" && this.options.length > 1) 
+      this.options=selectResources[this.key].options;
+    if (this.key === "addressDiff" && this.options.length > 1) 
       this.form.get('input')?.setValue(this.options[1]);
     else
       this.form.get('input')?.setValue(null);
   
-    this.placeholder=selectResources[this.customType].placeholder;
-    this.tooltip=selectResources[this.customType].tooltip;
+    this.placeholder=selectResources[this.key].placeholder;
+    this.tooltip=selectResources[this.key].tooltip;
     this.form.get('input')?.updateValueAndValidity();
   }
 

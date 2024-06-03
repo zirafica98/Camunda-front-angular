@@ -41,7 +41,7 @@ export class ActionComponent implements OnInit{
           text: formResources["popupSendCode"].text,
           table: null,
           buttons: buttons,
-          icon: 'info'
+          icon: 'question'
         }
       });
       //to do - pozvati metodu za slanje koda

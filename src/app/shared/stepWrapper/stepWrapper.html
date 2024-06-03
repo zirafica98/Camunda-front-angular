@@ -1,10 +1,18 @@
 <div class="steps-wrap">
     <div class="container-1">
-        <div class="steps">
+        <div class="steps isMobile">
             <div class="progress"><span style="width: 0%;"></span></div>
             <div class="piint-div" *ngFor = "let step of steps; let i = index">
                 <div class="point" [class.current]="i==0" [style.left.%]="step.width">{{i+1}}<p class="text-2" [class.currentp]="i==0">{{ step.title }}</p></div>
             </div>
+            <div class="subtitle">{{subtitle}}</div>
+        </div>
+        
+        <div class="steps mobile">
+            <div class="piint-div">
+                <div class="point" [class.current]="true" [style.left.%]="steps[2].width">{{1}}<p class="text-2" [class.currentp]="true">{{ steps[0].title }}</p></div>
+            </div>
+            <div class="subtitle">{{subtitle}}</div>
         </div>
     </div>
 </div>

@@ -3,6 +3,7 @@
   display: flex;
   align-items: center;
   margin: 40px 0;
+  gap: 46px;
   /* Checkbox stil */
   /* Custom stilizacija za kvadrat */
   /* Boja kada je čekirano */
@@ -11,7 +12,6 @@
   /* Stilizacija checkmark simbola */
 }
 .wrapper > span {
-  margin-left: 20px;
   color: #656772;
   cursor: pointer;
   -webkit-user-select: none;
@@ -34,13 +34,13 @@
   color: #00333f;
 }
 .wrapper .custom-checkbox {
-  display: inline-block;
+  display: block;
   position: relative;
   cursor: pointer;
   font-size: 16px;
   border-radius: 6px;
   height: 24px;
-  width: 24px;
+  width: 0;
 }
 .wrapper .custom-checkbox input {
   position: absolute;

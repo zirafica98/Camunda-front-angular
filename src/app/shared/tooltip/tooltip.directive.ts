@@ -31,10 +31,15 @@ export class TooltipDirective {
     const scrollX = window.scrollX || window.pageXOffset;
 
     const top = hostPos.top + scrollY - tooltipPos.height - this.offset;
-    const left = window.innerWidth- hostPos.left - 50;
+    let left=0;
+    if(hostPos.left>300)
+     left = window.innerWidth- hostPos.left - 50;
 
     this.renderer.setStyle(this.tooltip, 'top', `${top}px`);
-    this.renderer.setStyle(this.tooltip, 'right', `${left}px`);
+    if(hostPos.left>300)
+      this.renderer.setStyle(this.tooltip, 'right', `${left}px`);
+    else
+      this.renderer.setStyle(this.tooltip, 'left', `${left}px`);
     this.renderer.setStyle(this.tooltip, 'position', 'absolute');
   }
 

@@ -10,7 +10,7 @@ import { inputResource } from '../../resources';
 })
 export class CustomInputComponent implements OnInit{
   
-  @Input() customType: string = "";
+  @Input() key: string = "";
   @Input() mandatory: boolean = true;
   tooltip: string = "";
   @Input() prefilledValue: string = "";
@@ -35,10 +35,10 @@ export class CustomInputComponent implements OnInit{
   ngOnInit() {
     if(this.prefilledValue!="")
       this.form.get('input')?.setValue(this.prefilledValue);
-    this.form.get('input')?.setValidators(customValidator(this.customType));
+    this.form.get('input')?.setValidators(customValidator(this.key));
     if(this.mandatory) this.form.get('input')?.addValidators(Validators.required);
     this.form.get('input')?.updateValueAndValidity();
-    this.tooltip=inputResource[this.customType].tooltip;
+    this.tooltip=inputResource[this.key].tooltip;
   }
 
 

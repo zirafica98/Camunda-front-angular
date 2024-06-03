@@ -63,7 +63,7 @@ body {
   box-shadow: 0px 2px 5px 0px #cfcfcf;
   border-radius: 16px;
   z-index: 1000;
-  max-width: 300px;
+  width: 300px;
 }
 
 .tooltip::after {
@@ -78,4 +78,23 @@ body {
   background-size: cover;
   background-repeat: no-repeat;
   z-index: 999;
+}
+
+.miniInput {
+  display: inline-block;
+  width: calc(50% - 40px);
+}
+
+.miniInput2 {
+  margin-left: 80px;
+}
+
+@media screen and (max-width: 700px) {
+  .miniInput {
+    display: inline-block;
+    width: calc(50% - 10px);
+  }
+  .miniInput2 {
+    margin-left: 18px;
+  }
 }/*# sourceMappingURL=styles.css.map */

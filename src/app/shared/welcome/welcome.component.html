@@ -73,7 +73,7 @@
     <div class="inputWrapper">
         <label>{{welcomeResources['inputTitle'].text}}</label>
         <span>
-            <input type="text" [(ngModel)]="value2" (change)="onInputChange2()" id="numberInput" autocomplete="off">
+            <input type="text" [(ngModel)]="amountString" (change)="amountInputChange()" id="numberInput" autocomplete="off">
             <div class="inputAfter">EUR</div>
         </span>
     </div>
@@ -81,7 +81,7 @@
     <div class="sliderWrapper">
         <div class="slider">
             <div class="inside">
-                <div class="button" (click)="decrease(0)">
+                <div class="button" (click)="decrease('amount')">
                     <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M11.3346 1.66659L0.667969 1.66659L0.667969 0.333252L11.3346 0.333252V1.66659Z"
@@ -90,10 +90,10 @@
                 </div>
                 <div class="customSliderWrapper">
                     <div class="line"></div>
-                    <input type="range" [(ngModel)]="value" [min]="minValue" [max]="maxValue" class="custom-slider"
-                        step="100" (ngModelChange)="onInputChange()">
+                    <input type="range" [(ngModel)]="amount" [min]="amountMinValue" [max]="amountMaxValue" class="custom-slider"
+                        step="100" (ngModelChange)="amountRangeChange()">
                 </div>
-                <div class="button" (click)="increase(0)">
+                <div class="button" (click)="increase('amount')">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M6.66667 0L5.33333 0L5.33333 5.33333L0 5.33333L0 6.66667L5.33333 6.66667L5.33333 12L6.66667 12L6.66667 6.66667L12 6.66667L12 5.33333L6.66667 5.33333L6.66667 0Z"
@@ -104,15 +104,15 @@
             <img src="../../../assets/images/sliderBars.png" alt="bars">
         </div>
         <div class="values">
-            <span>{{minValue}} EUR</span>
-            <span>{{convertWithDot(maxValue)}} EUR</span>
+            <span>{{amountMinValue}} EUR</span>
+            <span>{{convertWithDot(amountMaxValue)}} EUR</span>
         </div>
     </div>
 
     <div class="inputWrapper">
         <label>{{welcomeResources['inputTitle2'].text}}</label>
         <span>
-            <input type="text" [(ngModel)]="value3" [min]="minValue2" [max]="maxValue2" (change)="onInputChange3()"
+            <input type="text" [(ngModel)]="months" [min]="monthsMinValue" [max]="monthsMaxValue" (change)="monthsChange()"
                 id="number2Input" autocomplete="off">
             <div class="inputAfter">mesec<span>{{returnLetter()}}</span></div>
         </span>
@@ -121,7 +121,7 @@
     <div class="sliderWrapper">
         <div class="slider">
             <div class="inside">
-                <div class="button" (click)="decrease(1)">
+                <div class="button" (click)="decrease('months')">
                     <svg width="12" height="2" viewBox="0 0 12 2" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path fill-rule="evenodd" clip-rule="evenodd"
                             d="M11.3346 1.66659L0.667969 1.66659L0.667969 0.333252L11.3346 0.333252V1.66659Z"
@@ -130,10 +130,10 @@
                 </div>
                 <div class="customSliderWrapper">
                     <div class="line"></div>
-                    <input type="range" [(ngModel)]="value3" [min]="minValue2" [max]="maxValue2" class="custom-slider"
-                        step="1" (ngModelChange)="onInputChange3()">
+                    <input type="range" [(ngModel)]="months" [min]="monthsMinValue" [max]="monthsMaxValue" class="custom-slider"
+                        step="1" (ngModelChange)="monthsChange()">
                 </div>
-                <div class="button" (click)="increase(1)">
+                <div class="button" (click)="increase('months')">
                     <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path
                             d="M6.66667 0L5.33333 0L5.33333 5.33333L0 5.33333L0 6.66667L5.33333 6.66667L5.33333 12L6.66667 12L6.66667 6.66667L12 6.66667L12 5.33333L6.66667 5.33333L6.66667 0Z"
@@ -145,8 +145,8 @@
 
         </div>
         <div class="values">
-            <span>{{minValue2}} meseci</span>
-            <span>{{maxValue2}} meseci</span>
+            <span>{{monthsMinValue}} meseci</span>
+            <span>{{monthsMaxValue}} meseci</span>
         </div>
     </div>
 </div>
@@ -268,8 +268,8 @@
         </tr>
     </table>
 
-    <app-custom-select *ngIf="accounts.length>1" [options]="accountNumbers" [customType]="'accounts'" class="customSelect" (formValidityChange)="handleFormValidityChange($event)" (valueChange)="onValueChange($event)"></app-custom-select>
-    <app-prefilled-input *ngIf="accounts.length==1" [customType]="'accounts'" [value]="accountNumbers[0]" class="customSelect"></app-prefilled-input>
+    <app-custom-select *ngIf="accounts.length>1" [options]="accountNumbers" [key]="'accounts'" class="customSelect" (formValidityChange)="handleFormValidityChange($event)" (valueChange)="onAccountChange($event)"></app-custom-select>
+    <app-prefilled-input *ngIf="accounts.length==1" [key]="'accounts'" [value]="accountNumbers[0]" class="customSelect"></app-prefilled-input>
 
     <div class="line"></div>
 

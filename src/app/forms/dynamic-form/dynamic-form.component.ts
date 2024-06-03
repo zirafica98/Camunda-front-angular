@@ -67,6 +67,7 @@ export class DynamicFormComponent {
     if (this.globalService.getGlobalTaskKey() == this.id) {
       this.myJSON = JSON.parse(this.globalService.getGlobalTaskJSON());
       this.title = formResources[this.globalService.getGlobalTaskKey()].title;
+      this.globalService.setSubtitle(formResources[this.globalService.getGlobalTaskKey()].title);
       this.text = formResources[this.globalService.getGlobalTaskKey()].text;
       (document.getElementsByClassName("text-content")[0] as HTMLDivElement).innerHTML = this.text;
       switch (this.id) {
@@ -167,7 +168,7 @@ export class DynamicFormComponent {
     const factory = this.resolver.resolveComponentFactory(CustomInputComponent);
     const componentRef = this.container.createComponent(factory);
     const currentIndex = checkboxIndex;
-    componentRef.instance.customType = component.key;
+    componentRef.instance.key = component.key;
     componentRef.instance.mandatory = component.mandatory;
 
     if (component.key == 'email') {
@@ -183,10 +184,9 @@ export class DynamicFormComponent {
 
     if (component.type == "miniInput") {
       this.numMini++;
-      this.renderer.setStyle(componentRef.location.nativeElement, 'display', 'inline-block');
-      this.renderer.setStyle(componentRef.location.nativeElement, 'width', 'calc(50% - 40px)');
+      this.renderer.addClass(componentRef.location.nativeElement,"miniInput");
       if (this.numMini % 2 == 0)
-        this.renderer.setStyle(componentRef.location.nativeElement, 'margin-left', '80px');
+        this.renderer.addClass(componentRef.location.nativeElement,"miniInput2");
     }
   }
 
@@ -197,7 +197,7 @@ export class DynamicFormComponent {
 
     //dohvati pravi parametar
     let val = ["Petar", "Petrovic", "0905000710310", "41234567"];
-    componentRef.instance.customType = component.key;
+    componentRef.instance.key = component.key;
     componentRef.instance.value = val[this.tempVal];
     this.myPrefilledInputComponents.push(component);
     this.tempVal++;
@@ -224,7 +224,7 @@ export class DynamicFormComponent {
     const factory = this.resolver.resolveComponentFactory(CustomListBoxComponent);
     const componentRef = this.container.createComponent(factory);
     const currentIndex = listBoxIndex;
-    componentRef.instance.customType = component.key;
+    componentRef.instance.key = component.key;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customListBoxComponentRefs.push(componentRef);
     this.formIsValid.push(false);
@@ -235,7 +235,7 @@ export class DynamicFormComponent {
     const factory = this.resolver.resolveComponentFactory(CustomSelectComponent);
     const componentRef = this.container.createComponent(factory);
     const currentIndex = selectIndex;
-    componentRef.instance.customType = component.key;
+    componentRef.instance.key = component.key;
     componentRef.instance.formValidityChange.subscribe((event) => this.handleFormValidity(event, currentIndex));
     this.customSelectComponentRefs.push(componentRef);
     this.formIsValid.push(false);

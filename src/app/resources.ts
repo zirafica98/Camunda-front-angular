@@ -46,43 +46,43 @@ export const inputResource:inputResources={
     municipality:{
         label:"Opština",
         placeholder:"Unesite opštinu",
-        error:"Obavezno polje",
-        tooltip:""
+        error:"Polje je obavezno.",
+        tooltip:"Izaberite opštinu na kojoj stanujete."
     },
     place:{
         label:"Mesto",
         placeholder:"Unesite mesto",
-        error:"Obavezno polje",
-        tooltip:""
+        error:"Polje je obavezno.",
+        tooltip:"Izaberite mesto opštine na kojoj stanujete."
     },
     street:{
         label:"Ulica",
         placeholder:"Unesite ulicu",
-        error:"Obavezno polje",
-        tooltip:""
+        error:"Polje je obavezno.",
+        tooltip:"Izaberite ulicu u kojoj stanujete."
     },
     houseNumber:{
         label:"Kućni broj",
         placeholder:"Unesite kućni broj",
-        error:"Obavezno polje",
-        tooltip:""
+        error:"Polje je obavezno.",
+        tooltip:"Unesite kućni broj, ulice u kojoj stanujete."
     },
     apartmentNumber:{
         label:"Broj stana",
         placeholder:"Unesite broj stana",
         error:"",
-        tooltip:""
+        tooltip:"Unesite broj stana."
     },
     onThisAddress:{
         label:"Živim na ovoj adresi u poslednjih",
         placeholder:"",
-        error:"Obavezno polje",
+        error:"Polje je obavezno.",
         tooltip:""
     },
     status:{
         label:"Status",
         placeholder:"",
-        error:"Obavezno polje",
+        error:"Polje je obavezno.",
         tooltip:""
     }
 }
@@ -101,8 +101,8 @@ export const selectResources:selectResources={
     addressDiff:{
         label:"Adresa u ličnoj karti se razlikuje od adrese stanovanja",
         placeholder:"",
-        error:"Obavezno polje",
-        tooltip:"",
+        error:"Polje je obavezno.",
+        tooltip:"Ukoliko se adresa na kojoj stanujete razlikuje od adrese iz Vaše lične karte, biće potreban unos adrese iz lične karte na narednom ekranu.",
         options:["Da","Ne"]
     },
     accounts:{
@@ -215,7 +215,7 @@ export const buttonResources:buttonResources={
         text:"Pošalji"
     },
     cancel:{
-        text:"Odustani"
+        text:"Otkaži"
     },
     next:{
         text:"Nastavi"

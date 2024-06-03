@@ -17,7 +17,7 @@
             background-color: #f3f3f4;
             color: #232529;
             display: block;
-            width: 100%;
+            width: calc(100% - 16px);
             height: 48px;
             border-radius: 8px;
             border: none;
@@ -76,7 +76,7 @@
                 background-color: #f3f3f4;
                 color: #232529;
                 display: block;
-                width: 100%;
+                width: calc(100% - 17px);
                 height: 48px;
                 border-radius: 8px;
                 border: none;
@@ -85,7 +85,7 @@
             }
 
             >select {
-                width: calc(100% + 18px);
+                width: 100%;
             }
 
             >select:focus,
@@ -124,6 +124,7 @@
                         fill:#8F919999;
                     }
                 }
+                
             }
 
             .error {
@@ -139,11 +140,11 @@
             }
 
             .phone {
-                width: calc(100% - 96px);
+                width: calc(100% - 112px);
                 padding-left: 111px;
                 background: url("/assets/icon/phoneFlag2.png") no-repeat 16px center;
                 background-size: auto 24px;
-                background-color: #f3f3f4;
+                background-color: #e8e8ea;
                 color: #232529 !important;
                 opacity: 0.5;
             }

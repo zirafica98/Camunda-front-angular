@@ -14,7 +14,7 @@
         align-items: center;
         .page-logo-2{
             position: relative;
-            margin:0 30px;
+            margin:0 32px;
             width: 32px;
             height: 32px;
             flex-grow: 0;
@@ -28,5 +28,18 @@
             margin: -4px 0 0 0;
         }
 
+    }
+}
+@media screen and (max-width:700px) {
+    #page-header{
+        .container-1{
+            .page-logo-2{
+                margin:0 16px 0 32px;
+            }
+            .page-title{
+                font-size: 16px;
+                font-weight: normal;
+            }
+        }
     }
 }

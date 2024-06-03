@@ -7,11 +7,11 @@
     display: block;
 
     .main {
-        margin: 24px;
+        margin: 16px;
         position: relative;
-        width: calc(100% - 48px);
+        width: calc(100% - 32px);
         display: flex;
-        gap:20px;
+        gap: 20px;
 
         .left {
             width: 40px;
@@ -51,11 +51,10 @@
         position: relative;
         display: flex;
         justify-content: flex-end;
-        gap:20px;
-        border-top: 1px solid #e4e5e7;
+        gap: 20px;
         width: calc(100% - 32px);
         padding: 16px;
-        margin-top: 20px;
+        border-top: 1px solid #e4e5e7;
 
         >button {
             font-size: 14px;
@@ -72,7 +71,6 @@
             font-weight: 500;
             border: 1px solid #13141614;
             cursor: pointer;
-            box-shadow: 0px 2px 2px 0px #cfcfcf;
         }
 
         >button:hover {
@@ -80,7 +78,6 @@
         }
 
         .back {
-            border: 1px solid #f7f7f8;
             background-color: white;
         }
 
@@ -97,5 +94,49 @@
 
     to {
         opacity: 1;
+    }
+}
+
+@media screen and (max-width:700px) {
+    .popup {
+        .main {
+            flex-direction: column;
+            margin: 16px 16px 0 16px;
+            .left {
+                width: 100%;
+                display: flex;
+                justify-content: center;
+            }
+
+            .right{
+                text-align: center;
+
+                .title{
+                    font-size: 16px;
+                    font-weight: 500;
+                }
+
+                .row{
+                    padding: 8px 0;
+                    text-align: left;
+                    flex-direction: column;
+                    gap: 4px;
+
+                    >span:nth-child(odd){
+                        font-size: 12px;
+                        color:#656772;
+                    }
+                }
+            }
+        }.buttons {
+            flex-direction: column;
+            border-top: none;
+        
+            >button {
+                text-align: center;
+                display: flex;
+                justify-content: center;
+            }
+        }
     }
 }
