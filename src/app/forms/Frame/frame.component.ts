@@ -18,18 +18,18 @@ export class FrameComponent implements OnInit{
     this.camundaService.getActiveTask()
       .subscribe(
         response => {
-          if (response[0]) {
-            this.globalService.setGlobalTaskKey(response[0].formKey);
-            this.globalService.setGlobalTaskId(response[0].id);
-            this.globalService.setGlobalTaskJSON(response[0].description);
+          if (response) {
+            this.globalService.setGlobalTaskKey(response.formKey);
+            this.globalService.setGlobalTaskId(response.id);
+            this.globalService.setGlobalTaskJSON(response.description);
 
-            if (response[0].formKey.includes('Form')) {
-              if (response[0].description != "" && response[0].description != null)
-                this.router.navigateByUrl(`dynamicForm/${response[0].formKey}`);
-              else this.router.navigateByUrl(`${response[0].formKey}`);
+            if (response.formKey.includes('Form')) {
+              if (response.description != "" && response.description != null)
+                this.router.navigateByUrl(`dynamicForm/${response.formKey}`);
+              else this.router.navigateByUrl(`${response.formKey}`);
             }
             else
-              this.router.navigateByUrl(`Service/${response[0].formKey}`);
+              this.router.navigateByUrl(`Service/${response.formKey}`);
           }
         }
       )

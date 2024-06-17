@@ -9,7 +9,7 @@ import { GlobalService } from '../global.service';
 
 export class CamundaService {
 
-  private baseUrl: string = 'https://localhost:44386'; 
+  private baseUrl: string = 'http://localhost:8081'; 
   private processName: string = 'demoDiagram'
 
   constructor(private http: HttpClient,private globalService:GlobalService){}
@@ -18,27 +18,12 @@ export class CamundaService {
     var variables = {
       processName:this.processName
     }
-    const url = `${this.baseUrl}/api/Camunda/startProcessInstance/${this.processName}`;
-    return this.http.post(url,{variables})
-  }
-
-  getProcessDefinition(): Observable<any> {
-    const url = `${this.baseUrl}/api/Camunda/getProcessDefinition/${this.processName}`;
-    return this.http.get(url);
-  }
-
-  getProcessDefinitionXML(): Observable<any> {
-    const url = `${this.baseUrl}/api/Camunda/getProcessDefinitionXML/${this.processName}`;
-    return this.http.get(url);
-  }
-
-  getProcessInstance(): Observable<any>{
-    const url = `${this.baseUrl}/api/Camunda/getProcessInstance/${this.globalService.getGlobalVariable()}`;
-    return this.http.get(url);
+    const url = `${this.baseUrl}/api/camunda/process/startProcessInstance/${this.processName}`;
+    return this.http.post(url,{})
   }
 
   getActiveTask(): Observable<any>{
-    const url = `${this.baseUrl}/api/Camunda/getActiveTask/${this.globalService.getGlobalVariable()}`;
+    const url = `${this.baseUrl}/api/camunda/task/getActiveTask/${this.globalService.getGlobalVariable()}`;
     return this.http.get(url);
   }
   
@@ -46,8 +31,8 @@ export class CamundaService {
     var variables = {
       taskId:this.globalService.getGlobalTaskId()
     }
-    const url = `${this.baseUrl}/api/Camunda/completeActiveTask/${this.globalService.getGlobalTaskId()}`;
-    return this.http.post(url,{variables})
+    const url = `${this.baseUrl}/api/camunda/task/completeActiveTask/${this.globalService.getGlobalTaskId()}`;
+    return this.http.post(url,{})
   }
 
 }
