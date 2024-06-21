@@ -251,7 +251,6 @@
         }
 
         .titleCentered {
-            margin-top: 24px;
             text-align: center;
             font-size: 20px;
             font-weight: 700;
@@ -263,6 +262,20 @@
             font-weight: 500;
             padding: 12px 0;
             border-bottom: 1px solid #8f91993d;
+        }
+
+        .withArrow {
+            display: flex;
+            >svg {
+                padding: 16px;
+            }
+
+            >span {
+                display: block;
+                flex:1;
+                padding: 16px 0;
+                border-bottom: 1px solid #8f91993d;
+            }
         }
 
         .title {

@@ -62,6 +62,7 @@
 .container .content .custom-input > img {
   height: 228px;
   max-width: 100%;
+  margin-bottom: 24px;
 }
 .container .content .text-content2 {
   font-size: 16px;

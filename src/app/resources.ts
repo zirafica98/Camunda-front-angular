@@ -229,6 +229,21 @@ export const textResources:textResources={
     },
     co7:{
         text:"Nastavkom dalje prihvatate uslove iz predugovorne dokumentacije."
+    },
+    identification1:{
+        text:"Kako bi Vaše iskustvo bilo što lakše, sledi nekoliko saveta."
+    },
+    identification2:{
+        text:"Osigurajte stabilnu i brzu internet vezu."
+    },
+    identification3:{
+        text:"Pripremite ličnu kartu ili pasoš. U slučaju da na ličnom dokumentu nije prikazana adresa, pripremite i očitanu ličnu kartu ili službenu ispravu koja sadrži adresu prebivališta (na primer, saobraćajnu dozvolu ili rešenje o utvrđivanju poreza na imovinu). Ukoliko nemate navedene službene isprave, možete pripremiti račun za telefon, električnu energiju ili komunalne usluge koji glasi na Vaše ime."
+    },
+    identification4:{
+        text:"Smestite se u dobro osvetljenu prostoriju bez buke."
+    },
+    identification5:{
+        text:"Na računaru ili uređaju s kojeg želite da obavite video identifikaciju morate da imate funkcionalnu kameru."
     }
 }
 
@@ -293,6 +308,10 @@ export const formResources:formResources={
     ConditionalOfferForm:{
         title:"Prihvatanje uslova i identifikacija",
         text:"",
+    },
+    VideoIdentificationForm:{
+        title:"Video identifikacija",
+        text:"",
     }
 }
 
@@ -323,6 +342,9 @@ export const buttonResources:buttonResources={
     },
     downloadAll:{
         text:"Preuzmi sve"
+    },
+    startIdentification:{
+        text:"Započni video identifikaciju"
     }
 }
 

@@ -63,6 +63,13 @@ export class LoadServiceComponent{
     }
 
     servis2(){
-        console.log("Test Servis");
+      this.camundaService.completeTask()
+      .subscribe(
+        response => {
+          this.router.navigate(['/frame']).then(()=>{
+            this.frameComponet.toggleComponent();
+          });
+        }
+      )
     }
 }

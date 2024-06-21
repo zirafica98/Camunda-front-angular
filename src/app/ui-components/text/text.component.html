@@ -1,5 +1,13 @@
-<div class="container">
+<div class="container" [ngStyle]="className === 'withArrow' ? {'margin-bottom': '0px'} : {'margin-bottom': '20px'}">
     <div class="components">
-        <div [className]="className">{{text}}</div>
+        <div [className]="className">
+            <svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg"
+                *ngIf="className=='withArrow'">
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M14.8953 13.5775L14.8953 6.42263L16.562 6.42263L16.562 15.5893C16.562 16.0495 16.1889 16.4226 15.7287 16.4226L6.56201 16.4226L6.56201 14.756L13.7168 14.756L3.47274 4.51195L4.65125 3.33343L14.8953 13.5775Z"
+                    fill="#656772" />
+            </svg>
+            <span>{{text}}</span>
+        </div>
     </div>
 </div>

@@ -211,7 +211,6 @@
   background: #f7f7f8;
 }
 .container .components .titleCentered {
-  margin-top: 24px;
   text-align: center;
   font-size: 20px;
   font-weight: 700;
@@ -221,6 +220,18 @@
   margin-top: 24px;
   font-weight: 500;
   padding: 12px 0;
+  border-bottom: 1px solid rgba(143, 145, 153, 0.2392156863);
+}
+.container .components .withArrow {
+  display: flex;
+}
+.container .components .withArrow > svg {
+  padding: 16px;
+}
+.container .components .withArrow > span {
+  display: block;
+  flex: 1;
+  padding: 16px 0;
   border-bottom: 1px solid rgba(143, 145, 153, 0.2392156863);
 }
 .container .components .title {
