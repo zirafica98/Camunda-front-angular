@@ -17,7 +17,7 @@
             Molimo Vas da označite obavezna polja</div>
     </div>
     <div class="bottom">
-        <!-- <button class="back">{{buttonResources["back"].text}}</button> -->
         <button class="next" (click)="submitForm()" *ngIf="buttonKey!=''">{{buttonResources[buttonKey].text}}</button>
+        <button class="back" onclick="alert('Nema back opcije jos')" *ngIf="buttonKeyBack!=''">{{buttonResources[buttonKeyBack].text}}</button>
     </div>
 </div>

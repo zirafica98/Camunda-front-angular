@@ -4,27 +4,32 @@ import { DataLoader } from "../../services/dataLoader";
 import { GlobalService } from "../../global.service";
 import { ActivatedRoute,  Router } from "@angular/router";
 import { FrameComponent } from "../frame/frame.component";
-import { formResources } from "../../resources";
+import { serviceResources } from "../../resources";
 
 
 @Component({
     selector:'load-service',
-    templateUrl:'./loadService.component.html',
+    templateUrl:'./load-service.component.html',
     styleUrl:'../style/forms-style.css',
 })
 
-export class LoadService{
+export class LoadServiceComponent{
     id:string = "";
     constructor(private camundaService: CamundaService,private globalService:GlobalService, private router:Router,private route:ActivatedRoute,private frameComponet:FrameComponent,private dataLoader:DataLoader) { }
 
-    text: string = "";
     title: string = "";
+    subtitle: string = "";
+    text: string = "";
+    loadingText: string = "";
+    taskKey:string="";
 
     ngOnInit() {
       this.id = this.route.snapshot.paramMap.get("id") || "";
-      
-      this.title = formResources[this.globalService.getGlobalTaskKey()].title;
-      this.text = formResources[this.globalService.getGlobalTaskKey()].text;
+      this.taskKey=this.globalService.getGlobalTaskKey();
+      this.title = serviceResources[this.taskKey].title;
+      this.subtitle = serviceResources[this.taskKey].subtitle;
+      this.text = serviceResources[this.taskKey].text;
+      this.loadingText = serviceResources[this.taskKey].loadingText;
 
       switch (this.id) {
         case 'CodeBookService':
@@ -32,8 +37,10 @@ export class LoadService{
             this.getCodeBook();
           }, 0); //staviti na 100000 za uredjivanje loadComponente
           break;
-        case 'Servis2':
+        case 'PreConditionalService':
+          setTimeout(() => {
           this.servis2();
+        }, 2000);
           break;
       }
     }
@@ -56,6 +63,6 @@ export class LoadService{
     }
 
     servis2(){
-
+        console.log("Test Servis");
     }
 }

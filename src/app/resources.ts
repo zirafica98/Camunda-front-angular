@@ -84,6 +84,18 @@ export const inputResource:inputResources={
         placeholder:"",
         error:"Polje je obavezno.",
         tooltip:""
+    },
+    bornPlace:{
+        label:"Unesite mesto rođenja",
+        placeholder:"Unesite Vaše mesto rođenja",
+        error:"Polje je obavezno.",
+        tooltip:"To do"
+    },
+    employment:{
+        label:"Zanimanje",
+        placeholder:"Unesite zanimanje",
+        error:"Polje je obavezno.",
+        tooltip:"To do"
     }
 }
 
@@ -111,6 +123,48 @@ export const selectResources:selectResources={
         error:"Molimo Vas odaberite račun.",
         tooltip:"",
         options:[]
+    },
+    bornCountry:{
+        label:"Izaberite državu rođenja",
+        placeholder:"",
+        error:"Polje je obavezno.",
+        tooltip:"To do",
+        options:["Srbija","Republika Srpska"]
+    },
+    employmentStatus:{
+        label:"Status zaposlenja",
+        placeholder:"",
+        error:"Polje je obavezno.",
+        tooltip:"To do",
+        options:["Zaposlen","Nezaposlen"]
+    },
+    ownUse:{
+        label:"Da li ćete račun koristiti u svoje ime i za svoje potrebe?",
+        placeholder:"",
+        error:"Polje je obavezno.",
+        tooltip:"To do",
+        options:["Da","Ne"]
+    },
+    incomeSource:{
+        label:"Koji je izvor sredstava koja ćete uplaćivati na račun?",
+        placeholder:"",
+        error:"Polje je obavezno.",
+        tooltip:"To do",
+        options:["Plata ili penzija","Drugo"]
+    },
+    openingReason:{
+        label:"Razlog za otvaranje računa",
+        placeholder:"",
+        error:"Polje je obavezno.",
+        tooltip:"To do",
+        options:["Lična štednja","Drugo"]
+    },
+    isOfficial:{
+        label:"Da li ste funkcioner u javnom sektoru ili ste povezani s istim?",
+        placeholder:"",
+        error:"Polje je obavezno.",
+        tooltip:"To do",
+        options:["Da","Ne"]
     }
 }
 
@@ -129,6 +183,18 @@ export const checkboxResources:checkboxResources={
     checkbox2:{
         text:"Slažem se da komunikaciju sa mnom banka vrši elektronskim putem.",
         link:"https://raiffeisenbank.rs/"
+    },
+    additionalInfoCheckbox1:{
+        text:"Potvrđujem da su svi dostavljeni podaci istiniti i dokumenta važeća.",
+        link:"https://raiffeisenbank.rs/"
+    },
+    additionalInfoCheckbox2:{
+        text:"Slažem se da od banke ubuduće dobijam ponude za korišćenje njenih proizvoda i usluga.",
+        link:"https://raiffeisenbank.rs/"
+    },
+    additionalInfoCheckbox3:{
+        text:"Slažem se da banka u cilju slanja ponuda za korišćenje njenih proizvoda i usluga, pribavlja od kreditnog biroa izveštaj sa podacima o mom načinu korišćenja bankarskih usluga.",
+        link:"https://raiffeisenbank.rs/"
     }
 }
 
@@ -142,6 +208,27 @@ interface textResources{
 export const textResources:textResources={
     verification:{
         text:"Verifikacija broja telefona omogućava nastavak zahteva u slučaju prekida i elektronski potpis ugovora na kraju, na sličan način. Molimo Vas da upišete verifikacioni kod koji dobijete u SMS poruci."
+    },
+    co1:{
+        text:"Čestitamo!"
+    },
+    co2:{
+        text:"Možemo da Vam ponudimo oročenu štednju! Predugovornu dokumentaciju smo poslali na Vašu e-mail adresu aleksandra.stefanovic@gmail.com. Proverite dokumentaciju i nastavite proces dalje."
+    },
+    co3:{
+        text:"Preuzmite dokumentaciju"
+    },
+    co4:{
+        text:"U nastavku možete da pregledate i preuzmete dokumentaciju vezanu za Vaš zahtev. Klikom na dugme \"Preuzmi sve\" možete da preuzmete sva dokumenta odjednom."
+    },
+    co5:{
+        text:"Ostalo je još samo da potvrdimo Vaš identitet"
+    },
+    co6:{
+        text:"U nastavku je potrebno da proverite podatke iz lične karte. U slučaju da podaci nisu promenjeni očekuje Vas pregled i potpisivanje ugovorne dokumentacije. Ukoliko su podaci iz lične karte promenjeni biće potrebno 5 minuta razgovora sa agentom."
+    },
+    co7:{
+        text:"Nastavkom dalje prihvatate uslove iz predugovorne dokumentacije."
     }
 }
 
@@ -157,6 +244,10 @@ export const actionResources:actionResources={
     verification:{
         text:"Još uvek niste dobili ništa?",
         actionText:"Ponovo pošalji verifikacioni kod"
+    },
+    detailsOfficial:{
+        text:"Definiciju funkcionera i povezanog lica možete pronaći",
+        actionText:"ovde."
     }
 }
 
@@ -183,10 +274,6 @@ export const formResources:formResources={
         title:"Verifikacija broja telefona",
         text:"",
     },
-    CodeBookService:{
-        title:"Molimo Vas sačekajte",
-        text:"Slanje podataka...",
-    },
     popupVerification:{
         title:"Verifikacioni kod poslat",
         text:"Na Vaš broj mobilnog telefona ponovo smo poslali verifikacioni kod.",
@@ -198,6 +285,14 @@ export const formResources:formResources={
     popupStartProcess:{
         title:"Podnesi zahtev online",
         text:"U narednim koracima oročićete iznos koji ste izabrali na kalkulatoru. Ukoliko želite da izaberete drugi iznos vratite se korak unazad.",
+    },
+    AdditionalInfoForm:{
+        title:"Dodatne informacije",
+        text:"Kako biste prošli sve neophodne korake u skladu sa propisima, potrebno nam je još par informacija.",
+    },
+    ConditionalOfferForm:{
+        title:"Prihvatanje uslova i identifikacija",
+        text:"",
     }
 }
 
@@ -225,6 +320,9 @@ export const buttonResources:buttonResources={
     },
     confirm:{
         text:"Potvrdi"
+    },
+    downloadAll:{
+        text:"Preuzmi sve"
     }
 }
 
@@ -318,4 +416,27 @@ export const welcomeResources:welcomeResources={
     racunOrocenja:{
         text:"Račun sa koga će sredstva biti oročena"
     }
+}
+
+interface serviceResources {
+    [key: string]: {
+        title: string;
+        subtitle:string;
+        text: string;
+        loadingText:string;
+    };
+}
+export const serviceResources:serviceResources={
+    CodeBookService:{
+        title:"Molimo Vas sačekajte",
+        subtitle:"",
+        text:"Molimo pričekajte nekoliko trenutaka...",
+        loadingText:"Slanje podataka..."
+    },
+    PreConditionalService:{
+        title:"Dodatne informacije",
+        subtitle:"Proveravamo sve podatke i pripremamo odgovor...",
+        text:"Molimo pričekajte nekoliko trenutaka...",
+        loadingText:"Slanje podataka..."
+    },
 }

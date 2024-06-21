@@ -10,6 +10,9 @@ import { ActionComponent } from '../../ui-components/action/action.component';
 import { CustomListBoxComponent } from '../../ui-components/custom-list-box/custom-list-box.component';
 import { CustomSelectComponent } from '../../ui-components/custom-select/custom-select.component';
 import { PrefilledInputComponent } from '../../ui-components/prefilled-input/prefilled-input.component';
+import { DocumentComponent } from '../../ui-components/document/document.component';
+import { TextComponent } from '../../ui-components/text/text.component';
+import { ButtonComponent } from '../../ui-components/button/button.component';
 
 interface ComponentData {
   type: string;
@@ -23,6 +26,7 @@ interface ComponentData {
   placeholder: string;
   prefilled: boolean;
   tooltip: string;
+  class:string;
 }
 
 interface MyJSON {
@@ -43,6 +47,9 @@ export class DynamicFormComponent {
   customCheckboxComponentRefs: ComponentRef<CheckboxInputComponent>[] = [];
   customPrefilledInputComponentRefs: ComponentRef<PrefilledInputComponent>[] = [];
   customActionComponentRefs: ComponentRef<ActionComponent>[] = [];
+  customTextComponentRefs: ComponentRef<TextComponent>[] = [];
+  customDocumentComponentRefs: ComponentRef<DocumentComponent>[] = [];
+  customFormButtonComponentRefs: ComponentRef<ButtonComponent>[] = [];
 
   id: string = "";
   myJSON: MyJSON = { components: [] };
@@ -56,9 +63,10 @@ export class DynamicFormComponent {
   areMandatorySelected: boolean = true;
   codeBook: any = [];
   numMini: number = 0;
-  buttonKey:string="";
+  buttonKey: string = "";
+  buttonKeyBack: string = "";
 
-  buttonResources=buttonResources;
+  buttonResources = buttonResources;
 
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
@@ -98,9 +106,11 @@ export class DynamicFormComponent {
         case 'select': this.loadSelect(component, inputIndex); inputIndex++; break;
         case 'listBox': this.loadListBox(component, inputIndex); inputIndex++; break;
         case 'image': this.loadImage(component.name); break;
-        case 'text': this.loadDiv(component.key); break;
+        case 'text': this.loadText(component.key,component.class); break;
         case 'action': this.loadAction(component); break;
-        case 'button': this.buttonKey=component.key; break;
+        case 'document': this.loadDocument(component.key); break;
+        case 'formButton': this.loadFormButton(component.key); break;
+        case 'button': if (component.key != "back") this.buttonKey = component.key; else this.buttonKeyBack = component.key; break;
       }
     }
   }
@@ -140,6 +150,13 @@ export class DynamicFormComponent {
           ref.instance.input?.markAsTouched();
         }
       });
+      const invalidElement = document.getElementsByClassName("ng-invalid")[0];
+      if (invalidElement) {
+        const parentElement = invalidElement.parentElement;
+        if (parentElement) {
+          parentElement.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
+        }
+      }
     }
   }
 
@@ -184,9 +201,9 @@ export class DynamicFormComponent {
 
     if (component.type == "miniInput") {
       this.numMini++;
-      this.renderer.addClass(componentRef.location.nativeElement,"miniInput");
+      this.renderer.addClass(componentRef.location.nativeElement, "miniInput");
       if (this.numMini % 2 == 0)
-        this.renderer.addClass(componentRef.location.nativeElement,"miniInput2");
+        this.renderer.addClass(componentRef.location.nativeElement, "miniInput2");
     }
   }
 
@@ -248,11 +265,12 @@ export class DynamicFormComponent {
     this.renderer.appendChild(this.container.element.nativeElement, img);
   }
 
-  loadDiv(key: string) {
-    const div = this.renderer.createElement('div');
-    const text = this.renderer.createText(textResources[key].text);
-    this.renderer.appendChild(div, text);
-    this.renderer.appendChild(this.container.element.nativeElement, div);
+  loadText(key: string, className:string) {
+    const factory = this.resolver.resolveComponentFactory(TextComponent);
+    const componentRef = this.container.createComponent(factory);
+    componentRef.instance.text = textResources[key].text;
+    componentRef.instance.className = className;
+    this.customTextComponentRefs.push(componentRef);
   }
 
   loadAction(component: ComponentData) {
@@ -260,6 +278,20 @@ export class DynamicFormComponent {
     const componentRef = this.container.createComponent(factory);
     componentRef.instance.key = component.key;
     this.customActionComponentRefs.push(componentRef);
+  }
+
+  loadDocument(key: string) {
+    const factory = this.resolver.resolveComponentFactory(DocumentComponent);
+    const componentRef = this.container.createComponent(factory);
+    componentRef.instance.key = key;
+    this.customDocumentComponentRefs.push(componentRef);
+  }
+
+  loadFormButton(key: string) {
+    const factory = this.resolver.resolveComponentFactory(ButtonComponent);
+    const componentRef = this.container.createComponent(factory);
+    componentRef.instance.text = buttonResources[key].text;
+    this.customFormButtonComponentRefs.push(componentRef);
   }
 
   ngOnDestroy() {

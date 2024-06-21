@@ -40,6 +40,8 @@ export class CustomSelectComponent implements OnInit{
       this.options=selectResources[this.key].options;
     if (this.key === "addressDiff" && this.options.length > 1) 
       this.form.get('input')?.setValue(this.options[1]);
+    else if(selectResources[this.key].placeholder=="")
+      this.form.get('input')?.setValue(this.options[0]);
     else
       this.form.get('input')?.setValue(null);
   
