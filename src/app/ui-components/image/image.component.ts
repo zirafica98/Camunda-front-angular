@@ -1,13 +1,11 @@
 import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-text',
-  templateUrl: './text.component.html',
+  selector: 'app-image',
+  templateUrl: './image.component.html',
   styleUrl: '../style/component-style.css'
 })
-export class TextComponent {
-
-  @Input() text: string = "";
+export class ImageComponent {
+  @Input() src: string = "";
   @Input() className: string = "";
-
 }

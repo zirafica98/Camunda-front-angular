@@ -1,5 +1,15 @@
+<!--Zakomentarisati ako treba da se preskoci landing page-->
+
 <header-component></header-component>
 <app-welcome *ngIf="ok==1" (notifyParent)="startCamunda()"></app-welcome>
 <app-steps-wrap *ngIf="ok==2"></app-steps-wrap>
 <app-start-camunda *ngIf="ok==2"></app-start-camunda>
 <footer-component></footer-component>
+
+
+<!--Zakomentarisati ako treba da radi normalno
+<header-component></header-component>
+<app-welcome *ngIf="ok==3" (notifyParent)="startCamunda()"></app-welcome>
+<app-steps-wrap *ngIf="ok==1"></app-steps-wrap>
+<app-start-camunda *ngIf="ok==1"></app-start-camunda>
+<footer-component></footer-component>-->

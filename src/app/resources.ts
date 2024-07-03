@@ -96,6 +96,30 @@ export const inputResource:inputResources={
         placeholder:"Unesite zanimanje",
         error:"Polje je obavezno.",
         tooltip:"To do"
+    },
+    id:{
+        label:"Broj lične karte/pasoša",
+        placeholder:"",
+        error:"",
+        tooltip:"To do"
+    },
+    expirationDate:{
+        label:"Datum isteka lične karte/pasoša",
+        placeholder:"",
+        error:"",
+        tooltip:"To do"
+    },
+    address:{
+        label:"Adresa",
+        placeholder:"",
+        error:"",
+        tooltip:"To do"
+    },
+    place2:{
+        label:"Mesto",
+        placeholder:"",
+        error:"",
+        tooltip:"To do"
     }
 }
 
@@ -193,8 +217,16 @@ export const checkboxResources:checkboxResources={
         link:"https://raiffeisenbank.rs/"
     },
     additionalInfoCheckbox3:{
-        text:"Slažem se da banka u cilju slanja ponuda za korišćenje njenih proizvoda i usluga, pribavlja od kreditnog biroa izveštaj sa podacima o mom načinu korišćenja bankarskih usluga.",
+        text:"Prihvatam ugovornu dokumentaciju za oročenu štednju. Zahtevam da banka pristupi izvršenju ugovora pre isteka roka za odustanak.",
         link:"https://raiffeisenbank.rs/"
+    },
+    offerFormCheckbox1:{
+        text:"Prihvatam ugovornu dokumentaciju za oročenu štednju. Zahtevam da banka pristupi izvršenju ugovora pre isteka roka za odustanak.",
+        link:""
+    },
+    offerFormCheckbox2:{
+        text:"Prihvatam da mi banka izda jednokratni sertifikat kojim ću ugovornu dokumentaciju potpisati elektronski, unosom koda koji će stići SMS porukom.",
+        link:""
     }
 }
 
@@ -244,9 +276,68 @@ export const textResources:textResources={
     },
     identification5:{
         text:"Na računaru ili uređaju s kojeg želite da obavite video identifikaciju morate da imate funkcionalnu kameru."
+    },
+    rejectTitle:{
+        text:"Vaš zahtev nije odobren!"
+    },
+    rejectText1:{
+        text:"Nažalost, ne možemo Vam ponuditi oročenu štednju u ovom trenutku. Hvala Vam na apliciranju."
+    },
+    rejectText2:{
+        text:"Ako imate bilo kakvih pitanja u vezi Vašeg apliciranja, molimo posetite najbližu filijalu Raiffeisen banke ili kontaktirajte podršku."
+    },
+    dm1:{
+        text:"Molimo uporedite dole navedene podatke sa podacima u ličnoj karti/pasošu i potvrdite da li su podaci ispravni."
+    },
+    dm2:{
+        text:"Da li su navedeni podaci ispravni?"
+    },
+    requiredFieldsError:{
+        text:"Molimo Vas da označite obavezna polja"
+    },
+    infoTitle:{
+        text:"Sesija za prikupljanje podataka će uskoro početi"
+    },
+    info1:{
+        text:"Ovaj proces identifikacije podrazumeva prikupljanje Vaših privatnih podataka. Pored unosa podataka biće traženo da fotografišete lični dokument i Vaše lice."
+    },
+    info2:{
+        text:"Svi Vaši privatni podaci su zaštićeni u skladu sa najvišim standardima enkripcije i zaštite podataka."
+    },
+    cbTitle:{
+        text:"Molimo Vas sačekajte..."
+    },
+    waitText:{
+        text:"Molimo pričekajte nekoliko trenutaka..."
+    },
+    loadingText:{
+        text:"Slanje podataka..."
+    },
+    pcTitle:{
+        text:"Proveravamo sve podatke i pripremamo odgovor..."
+    },
+    offerTitle:{
+        text:"Obrađujemo podatke..."
+    },
+    offerText:{
+        text:"Koraci koji slede su pregled ugovorne dokumentacije i unos jednokratne lozinke poslate SMS-om."
+    },
+    offerFormText:{
+        text:"Svu dokumentaciju ćemo Vam poslati na i-mejl adresu {1} nakon potpisivanja ugovora."
+    },
+    offerFormText2:{
+        text:"Banka učestvuje u sistemu obaveznog osiguranja depozita uspostavljenog u Republici Srbiji."
+    },
+    offerFormText3:{
+        text:"Preuzmite dokumentaciju"
+    },
+    offerFormText4:{
+        text:"U nastavku možete da pregledate i preuzmete ugovornu dokumentaciju vezanu za Vaš zahtev. Klikom na dugme \"Preuzmi sve\" možete da preuzmete sva dokumenta odjednom."
+    },
+    offerFormText5:{
+        text:"Pre nego što pristupite potpisivanju dokumentacije, potrebne su nam Vaše saglasnosti:"
     }
 }
-
 
 interface actionResources{
     [key:string]:{
@@ -262,6 +353,10 @@ export const actionResources:actionResources={
     },
     detailsOfficial:{
         text:"Definiciju funkcionera i povezanog lica možete pronaći",
+        actionText:"ovde."
+    },
+    offerFormAction:{
+        text:"Brošuru o osiguranju depozita možete preuzeti",
         actionText:"ovde."
     }
 }
@@ -312,6 +407,22 @@ export const formResources:formResources={
     VideoIdentificationForm:{
         title:"Video identifikacija",
         text:"",
+    },
+    RejectForm:{
+        title:"",
+        text:"",
+    },
+    DataMatchForm:{
+        title:"Provera podataka",
+        text:"",
+    },
+    InfoForm:{
+        title:"Informacija",
+        text:"",
+    },
+    OfferForm:{
+        title:"Ugovorna dokumentacija za oročenu štednju",
+        text:"",
     }
 }
 
@@ -345,6 +456,9 @@ export const buttonResources:buttonResources={
     },
     startIdentification:{
         text:"Započni video identifikaciju"
+    },
+    acceptOffer:{
+        text:"Prihvatam ponudu i oročenu štednju"
     }
 }
 
@@ -443,22 +557,28 @@ export const welcomeResources:welcomeResources={
 interface serviceResources {
     [key: string]: {
         title: string;
-        subtitle:string;
-        text: string;
-        loadingText:string;
     };
 }
 export const serviceResources:serviceResources={
     CodeBookService:{
-        title:"Molimo Vas sačekajte",
-        subtitle:"",
-        text:"Molimo pričekajte nekoliko trenutaka...",
-        loadingText:"Slanje podataka..."
+        title:"Adresa stanovanja"
     },
     PreConditionalService:{
-        title:"Dodatne informacije",
-        subtitle:"Proveravamo sve podatke i pripremamo odgovor...",
-        text:"Molimo pričekajte nekoliko trenutaka...",
-        loadingText:"Slanje podataka..."
+        title:"Dodatne informacije"
     },
+    OfferService:{
+        title:"Dodatne informacije"
+    }
+}
+
+interface radioResources{
+    [key: string]: {
+        options:string[];
+    };
+}
+
+export const radioResources:radioResources={
+    dataCorrect:{
+        options:["Lični podaci su ispravni","Lični podaci su izmenjeni i neispravni"]
+    }
 }

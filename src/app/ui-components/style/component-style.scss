@@ -207,6 +207,46 @@
                 top: 16px;
                 left: 16px;
             }
+
+            >label {
+                position: relative;
+                font-family: amalia;
+                background-color: #65677214;
+                color: #232529;
+                display: block;
+                width: calc(100% - 40px);
+                height: 20px;
+                border-radius: 8px;
+                border: none;
+                font-size: 16px;
+                font-weight: 500;
+                padding: 24px 20px;
+                margin-bottom: 8px;
+                cursor: pointer;
+
+                >input {
+                    position: absolute;
+                    opacity: 0;
+                    cursor: pointer;
+                }
+
+                .radio-label {
+                    position: relative;
+                    margin-left: 32px;
+                }
+
+                >svg {
+                    position: absolute;
+                    top: 50%;
+                    left: 20px;
+                    transform: translateY(-50%);
+                    cursor: pointer;
+                }
+            }
+
+            .selectedRadio {
+                background-color: #dff2f6;
+            }
         }
 
         .documentWrapper {
@@ -225,6 +265,7 @@
                 display: flex;
                 flex: 1;
                 justify-content: space-between;
+                align-items: center;
 
                 >div {
                     display: flex;
@@ -257,6 +298,13 @@
             color: #232529;
         }
 
+        .titleCenteredBig {
+            text-align: center;
+            font-size: 32px;
+            font-weight: 700;
+            color: #232529;
+        }
+
         .underlined {
             margin-top: 24px;
             font-weight: 500;
@@ -264,15 +312,30 @@
             border-bottom: 1px solid #8f91993d;
         }
 
+        .centered {
+            text-align: center;
+            margin-top: 16px;
+            font-weight: 400;
+            color: #656772;
+        }
+
+        .centeredBlack {
+            text-align: center;
+            margin-top: 16px;
+            font-weight: 400;
+            color: black;
+        }
+
         .withArrow {
             display: flex;
+
             >svg {
                 padding: 16px;
             }
 
             >span {
                 display: block;
-                flex:1;
+                flex: 1;
                 padding: 16px 0;
                 border-bottom: 1px solid #8f91993d;
             }
@@ -309,6 +372,25 @@
         .button:hover {
             background-color: #f7f7f8;
         }
+
+        .imageWrapper {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            .loader {
+                animation: loaderAnimation 2s infinite linear;
+            }
+        }
+
+        @keyframes loaderAnimation {
+            from {
+                transform: rotate(0deg);
+            }
+
+            to {
+                transform: rotate(360deg);
+            }
+        }
     }
 
     >span {
@@ -320,10 +402,17 @@
         color: #00758F;
         text-decoration: underline;
         cursor: pointer;
-        margin-left: 10px;
     }
 
     .action:hover {
         color: #00333f;
     }
+}
+
+.iframe {
+    width: 100%;
+    height: 600px;
+    margin-top: 40px;
+    border-radius: 40px;
+    border: solid 4px #66666629
 }

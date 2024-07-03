@@ -27,7 +27,9 @@ import { ErrorComponent } from './shared/error/error.component';
 import { LoadServiceComponent } from './forms/load-service/load-service.component';
 import { DocumentComponent } from './ui-components/document/document.component';
 import { TextComponent } from './ui-components/text/text.component';
-import { ButtonComponent } from './ui-components/button/button.component';
+import { FormButtonComponent } from './ui-components/form-button/form-button.component';
+import { MapComponent } from './ui-components/map/map.component';
+import { ImageComponent } from './ui-components/image/image.component';
  
 @NgModule({
   declarations: [
@@ -52,7 +54,9 @@ import { ButtonComponent } from './ui-components/button/button.component';
     LoadServiceComponent,
     DocumentComponent,
     TextComponent,
-    ButtonComponent
+    FormButtonComponent,
+    MapComponent,
+    ImageComponent
   ],
   imports: [
     BrowserModule,

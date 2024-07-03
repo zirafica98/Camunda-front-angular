@@ -1,9 +1,11 @@
 @charset "UTF-8";
 .wrapper {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   margin: 40px 0;
-  gap: 46px;
+  gap: 0;
+  width: 100%;
   /* Checkbox stil */
   /* Custom stilizacija za kvadrat */
   /* Boja kada je čekirano */
@@ -12,15 +14,14 @@
   /* Stilizacija checkmark simbola */
 }
 .wrapper > span {
+  display: block;
+  flex-grow: 1;
   color: #656772;
   cursor: pointer;
   -webkit-user-select: none;
      -moz-user-select: none;
           user-select: none;
-}
-.wrapper > span > span {
-  margin-left: 10px;
-  color: #D7424B;
+  margin-left: 46px;
 }
 .wrapper > span > a {
   color: #00758F;
@@ -32,6 +33,11 @@
 }
 .wrapper > span > a:hover {
   color: #00333f;
+}
+.wrapper .star {
+  display: block;
+  margin-left: 16px;
+  color: #D7424B;
 }
 .wrapper .custom-checkbox {
   display: block;

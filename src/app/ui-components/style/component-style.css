@@ -175,6 +175,41 @@
   top: 16px;
   left: 16px;
 }
+.container .components > form > label {
+  position: relative;
+  font-family: amalia;
+  background-color: rgba(101, 103, 114, 0.0784313725);
+  color: #232529;
+  display: block;
+  width: calc(100% - 40px);
+  height: 20px;
+  border-radius: 8px;
+  border: none;
+  font-size: 16px;
+  font-weight: 500;
+  padding: 24px 20px;
+  margin-bottom: 8px;
+  cursor: pointer;
+}
+.container .components > form > label > input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+.container .components > form > label .radio-label {
+  position: relative;
+  margin-left: 32px;
+}
+.container .components > form > label > svg {
+  position: absolute;
+  top: 50%;
+  left: 20px;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+.container .components > form .selectedRadio {
+  background-color: #dff2f6;
+}
 .container .components .documentWrapper {
   border-radius: 8px;
   display: flex;
@@ -191,6 +226,7 @@
   display: flex;
   flex: 1;
   justify-content: space-between;
+  align-items: center;
 }
 .container .components .documentWrapper .right > div {
   display: flex;
@@ -216,11 +252,29 @@
   font-weight: 700;
   color: #232529;
 }
+.container .components .titleCenteredBig {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 700;
+  color: #232529;
+}
 .container .components .underlined {
   margin-top: 24px;
   font-weight: 500;
   padding: 12px 0;
   border-bottom: 1px solid rgba(143, 145, 153, 0.2392156863);
+}
+.container .components .centered {
+  text-align: center;
+  margin-top: 16px;
+  font-weight: 400;
+  color: #656772;
+}
+.container .components .centeredBlack {
+  text-align: center;
+  margin-top: 16px;
+  font-weight: 400;
+  color: black;
 }
 .container .components .withArrow {
   display: flex;
@@ -262,6 +316,22 @@
 .container .components .button:hover {
   background-color: #f7f7f8;
 }
+.container .components .imageWrapper {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.container .components .imageWrapper .loader {
+  animation: loaderAnimation 2s infinite linear;
+}
+@keyframes loaderAnimation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
 .container > span {
   font-size: 16px;
 }
@@ -270,8 +340,15 @@
   color: #00758F;
   text-decoration: underline;
   cursor: pointer;
-  margin-left: 10px;
 }
 .container .action:hover {
   color: #00333f;
+}
+
+.iframe {
+  width: 100%;
+  height: 600px;
+  margin-top: 40px;
+  border-radius: 40px;
+  border: solid 4px rgba(102, 102, 102, 0.1607843137);
 }/*# sourceMappingURL=component-style.css.map */

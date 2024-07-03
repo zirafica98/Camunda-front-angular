@@ -5,9 +5,10 @@
       <bpmn:outgoing>Flow_0zxvby2</bpmn:outgoing>
     </bpmn:startEvent>
     <bpmn:endEvent id="Event_0ye2nuy">
-      <bpmn:incoming>Flow_0xrun8c</bpmn:incoming>
+      <bpmn:incoming>Flow_1f7o2sl</bpmn:incoming>
     </bpmn:endEvent>
-    <bpmn:userTask id="Activity_137r9lh" name="CodeBookService" camunda:formKey="CodeBookService">
+    <bpmn:userTask id="CodeBookService" name="CodeBookService" camunda:formKey="CodeBookService">
+      <bpmn:documentation>{ "components": [ { "key": "cbTitle", "type": "text", "class": "titleCenteredBig" }, { "key": "waitText", "type": "text", "class": "centered" }, { "key": "loader", "type": "image", "name": "loader.svg" }, { "key": "loadingText", "type": "text", "class": "centered" } ] }</bpmn:documentation>
       <bpmn:incoming>Flow_0dn26s5</bpmn:incoming>
       <bpmn:outgoing>Flow_0l5iemv</bpmn:outgoing>
     </bpmn:userTask>
@@ -17,7 +18,7 @@
       <bpmn:outgoing>Flow_0ive0pr</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:userTask id="PhoneVerificationForm" name="PhoneVerificationForm" camunda:formKey="PhoneVerificationForm">
-      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.png" }, { "key": "verification", "type": "text", "class":"" }, { "key": "verification", "type": "input", "mandatory": true, "prefilled": false }, { "key": "verification", "type": "action" }, { "key": "next", "type": "button" } ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "image1", "type": "image", "name": "verification.svg" }, { "key": "verification", "type": "text", "class":"" }, { "key": "verification", "type": "input", "mandatory": true, "prefilled": false }, { "key": "verification", "type": "action" }, { "key": "next", "type": "button" }, { "key": "back", "type": "button" } ] }</bpmn:documentation>
       <bpmn:extensionElements>
         <camunda:inputOutput>
           <camunda:inputParameter name="codeBookName" />
@@ -29,21 +30,20 @@
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0ive0pr" sourceRef="BasicDataForm" targetRef="PhoneVerificationForm" />
     <bpmn:userTask id="AddressForm" name="AddressForm" camunda:formKey="AddressForm">
-      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "addressDiff", "type": "select" }, { "key": "next", "type": "button"} ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "addressDiff", "type": "select" }, { "key": "next", "type": "button"}, { "key": "back", "type": "button" } ] }</bpmn:documentation>
       <bpmn:extensionElements />
       <bpmn:incoming>Flow_0l5iemv</bpmn:incoming>
       <bpmn:outgoing>Flow_18d0upc</bpmn:outgoing>
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_18d0upc" sourceRef="AddressForm" targetRef="Gateway_1eugi2m" />
     <bpmn:sequenceFlow id="Flow_0zxvby2" sourceRef="StartEvent_1" targetRef="Event_1drs32d" />
-    <bpmn:sequenceFlow id="Flow_0dn26s5" sourceRef="PhoneVerificationForm" targetRef="Activity_137r9lh" />
-    <bpmn:sequenceFlow id="Flow_0l5iemv" sourceRef="Activity_137r9lh" targetRef="AddressForm" />
+    <bpmn:sequenceFlow id="Flow_0dn26s5" sourceRef="PhoneVerificationForm" targetRef="CodeBookService" />
+    <bpmn:sequenceFlow id="Flow_0l5iemv" sourceRef="CodeBookService" targetRef="AddressForm" />
     <bpmn:intermediateThrowEvent id="Event_011ypgc" name="Dodatne informacije">
       <bpmn:incoming>Flow_0f13dqc</bpmn:incoming>
       <bpmn:incoming>Flow_1t2nput</bpmn:incoming>
       <bpmn:outgoing>Flow_01modjw</bpmn:outgoing>
     </bpmn:intermediateThrowEvent>
-    <bpmn:sequenceFlow id="Flow_01modjw" sourceRef="Event_011ypgc" targetRef="AdditionalInfoForm" />
     <bpmn:intermediateThrowEvent id="Event_1drs32d" name="Lični podaci">
       <bpmn:incoming>Flow_0zxvby2</bpmn:incoming>
       <bpmn:outgoing>Flow_03zqo35</bpmn:outgoing>
@@ -59,7 +59,7 @@
       <bpmn:extensionElements />
     </bpmn:sequenceFlow>
     <bpmn:userTask id="AddressIDForm" name="AddressIDForm" camunda:formKey="AddressIDForm">
-      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "next", "type": "button"} ] }</bpmn:documentation>
+      <bpmn:documentation>{ "components": [ { "key": "municipality", "type": "listBox" }, { "key": "place", "type": "listBox" }, { "key": "street", "type": "listBox" }, { "key": "houseNumber", "type": "miniInput", "mandatory": true, "prefilled": false }, { "key": "apartmentNumber", "type": "miniInput", "mandatory": false, "prefilled": false }, { "key": "next", "type": "button"}, { "key": "back", "type": "button" }  ] }</bpmn:documentation>
       <bpmn:incoming>Flow_0fwxgfm</bpmn:incoming>
       <bpmn:outgoing>Flow_1t2nput</bpmn:outgoing>
     </bpmn:userTask>
@@ -74,22 +74,66 @@
     </bpmn:userTask>
     <bpmn:sequenceFlow id="Flow_0nl38xr" sourceRef="AdditionalInfoForm" targetRef="PreConditionalService" />
     <bpmn:userTask id="PreConditionalService" name="PreConditionalService" camunda:formKey="PreConditionalService">
+      <bpmn:documentation>{ "components": [ { "key": "pcTitle", "type": "text", "class": "titleCenteredBig" }, { "key": "waitText", "type": "text", "class": "centered" }, { "key": "loader", "type": "image", "name": "loader.svg" }, { "key": "loadingText", "type": "text", "class": "centered" } ] }</bpmn:documentation>
       <bpmn:incoming>Flow_0nl38xr</bpmn:incoming>
-      <bpmn:outgoing>Flow_07i8h9f</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0uda7el</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_07i8h9f" sourceRef="PreConditionalService" targetRef="ConditionalOfferForm" />
     <bpmn:userTask id="ConditionalOfferForm" name="ConditionalOfferForm" camunda:formKey="ConditionalOfferForm">
-      <bpmn:documentation>{ "components": [ { "key": "image2", "type": "image", "name": "conditionalOffer.png" }, { "key": "co1", "type": "text", "class": "titleCentered" }, { "key": "co2", "type": "text", "class": "" }, { "key": "co3", "type": "text", "class": "underlined" }, { "key": "co4", "type": "text", "class": "" }, { "key": "COdocument1", "type": "document" }, { "key": "COdocument2", "type": "document" }, { "key": "downloadAll", "type": "formButton" }, { "key": "co5", "type": "text", "class": "title" }, { "key": "co6", "type": "text", "class": "" }, { "key": "co7", "type": "text", "class": "bold" }, { "key": "next", "type": "button" } ] }</bpmn:documentation>
-      <bpmn:incoming>Flow_07i8h9f</bpmn:incoming>
+      <bpmn:documentation>{ "components": [ { "key": "image2", "type": "image", "name": "conditionalOffer.svg" }, { "key": "co1", "type": "text", "class": "titleCentered" }, { "key": "co2", "type": "text", "class": "" }, { "key": "co3", "type": "text", "class": "underlined" }, { "key": "co4", "type": "text", "class": "" }, { "key": "COdocument1", "type": "document" }, { "key": "COdocument2", "type": "document" }, { "key": "downloadAll", "type": "formButton" }, { "key": "co5", "type": "text", "class": "title" }, { "key": "co6", "type": "text", "class": "" }, { "key": "co7", "type": "text", "class": "bold" }, { "key": "next", "type": "button" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_00baldg</bpmn:incoming>
       <bpmn:outgoing>Flow_1mejzav</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_1mejzav" sourceRef="ConditionalOfferForm" targetRef="VideoIdentificationForm" />
+    <bpmn:sequenceFlow id="Flow_1mejzav" sourceRef="ConditionalOfferForm" targetRef="DataMatchForm" />
     <bpmn:userTask id="VideoIdentificationForm" name="VideoIdentificationForm" camunda:formKey="VideoIdentificationForm">
-      <bpmn:documentation>{ "components": [ { "key": "image3", "type": "image", "name": "identification.png" }, { "key": "identification1", "type": "text", "class": "" }, { "key": "identification2", "type": "text", "class": "withArrow" }, { "key": "identification3", "type": "text", "class": "withArrow" }, { "key": "identification4", "type": "text", "class": "withArrow" }, { "key": "identification5", "type": "text", "class": "withArrow" }, { "key": "back", "type": "button" }, { "key": "startIdentification", "type": "button" } ] }</bpmn:documentation>
-      <bpmn:incoming>Flow_1mejzav</bpmn:incoming>
+      <bpmn:documentation>{ "components": [ { "key": "image3", "type": "image", "name": "identification.svg" }, { "key": "identification1", "type": "text", "class": "" }, { "key": "identification2", "type": "text", "class": "withArrow" }, { "key": "identification3", "type": "text", "class": "withArrow" }, { "key": "identification4", "type": "text", "class": "withArrow" }, { "key": "identification5", "type": "text", "class": "withArrow" }, { "key": "back", "type": "button" }, { "key": "startIdentification", "type": "button" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_1kbob1y</bpmn:incoming>
       <bpmn:outgoing>Flow_0xrun8c</bpmn:outgoing>
     </bpmn:userTask>
-    <bpmn:sequenceFlow id="Flow_0xrun8c" sourceRef="VideoIdentificationForm" targetRef="Event_0ye2nuy" />
+    <bpmn:sequenceFlow id="Flow_0xrun8c" sourceRef="VideoIdentificationForm" targetRef="InfoForm" />
+    <bpmn:userTask id="RejectForm" name="RejectForm" camunda:formKey="RejectForm">
+      <bpmn:documentation>{ "components": [ { "key": "image4", "type": "image", "name": "reject.svg" }, { "key": "rejectTitle", "type": "text", "class": "titleCentered" }, { "key": "rejectText1", "type": "text", "class": "" }, { "key": "rejectText2", "type": "text", "class": "" }, { "key": "iframe", "type": "iframe" } ], "customClass":"reject" }</bpmn:documentation>
+      <bpmn:incoming>Flow_0wjnl2z</bpmn:incoming>
+      <bpmn:outgoing>Flow_00eclvo</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:exclusiveGateway id="Gateway_14v8w3n">
+      <bpmn:incoming>Flow_0uda7el</bpmn:incoming>
+      <bpmn:outgoing>Flow_00baldg</bpmn:outgoing>
+      <bpmn:outgoing>Flow_0wjnl2z</bpmn:outgoing>
+    </bpmn:exclusiveGateway>
+    <bpmn:endEvent id="Event_0o55zrt">
+      <bpmn:incoming>Flow_00eclvo</bpmn:incoming>
+    </bpmn:endEvent>
+    <bpmn:sequenceFlow id="Flow_00eclvo" sourceRef="RejectForm" targetRef="Event_0o55zrt" />
+    <bpmn:userTask id="DataMatchForm" name="DataMatchForm" camunda:formKey="DataMatchForm">
+      <bpmn:documentation>{ "components": [ { "key": "dataMatch", "type": "image", "name": "dataMatch.svg" }, { "key": "dm1", "type": "text", "class": "" }, { "key": "id", "type": "input", "mandatory": false, "prefilled": true }, { "key": "expirationDate", "type": "input", "mandatory": false, "prefilled": true }, { "key": "address", "type": "input", "mandatory": false, "prefilled": true }, { "key": "place2", "type": "input", "mandatory": false, "prefilled": true }, { "key": "dm2", "type": "text", "class": "" }, { "key": "dataCorrect", "type": "radio" }, { "key": "next", "type": "button" }, { "key": "back", "type": "button" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_1mejzav</bpmn:incoming>
+      <bpmn:outgoing>Flow_1kbob1y</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1kbob1y" sourceRef="DataMatchForm" targetRef="VideoIdentificationForm" />
+    <bpmn:userTask id="InfoForm" name="InfoForm" camunda:formKey="InfoForm">
+      <bpmn:documentation>{ "components": [ { "key": "infoTitle", "type": "text", "class": "titleCenteredBig" }, { "key": "info1", "type": "text", "class": "centered" }, { "key": "info2", "type": "text", "class": "centered" }, { "key": "next", "type": "button" }, { "key": "back", "type": "button" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_0xrun8c</bpmn:incoming>
+      <bpmn:outgoing>Flow_06vqbcy</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_06vqbcy" sourceRef="InfoForm" targetRef="OfferService" />
+    <bpmn:sequenceFlow id="Flow_00baldg" sourceRef="Gateway_14v8w3n" targetRef="ConditionalOfferForm" />
+    <bpmn:sequenceFlow id="Flow_0uda7el" sourceRef="PreConditionalService" targetRef="Gateway_14v8w3n" />
+    <bpmn:sequenceFlow id="Flow_0wjnl2z" sourceRef="Gateway_14v8w3n" targetRef="RejectForm">
+      <bpmn:conditionExpression xsi:type="bpmn:tFormalExpression">${Accept==false}</bpmn:conditionExpression>
+    </bpmn:sequenceFlow>
+    <bpmn:userTask id="OfferService" name="OfferService" camunda:formKey="OfferService">
+      <bpmn:documentation>{ "components": [ { "key": "offerTitle", "type": "text", "class": "titleCenteredBig" }, { "key": "waitText", "type": "text", "class": "centered" }, { "key": "loader", "type": "image", "name": "loader.svg" }, { "key": "loadingText", "type": "text", "class": "centered" }, { "key": "notes", "type": "image", "name": "notes.svg" }, { "key": "offerText", "type": "text", "class": "centeredBlack" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_06vqbcy</bpmn:incoming>
+      <bpmn:outgoing>Flow_0sa2si5</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_0sa2si5" sourceRef="OfferService" targetRef="OfferForm" />
+    <bpmn:sequenceFlow id="Flow_01modjw" name="" sourceRef="Event_011ypgc" targetRef="AdditionalInfoForm" />
+    <bpmn:userTask id="OfferForm" name="OfferForm" camunda:formKey="OfferForm">
+      <bpmn:documentation>{ "components": [ { "key": "offer", "type": "image", "name": "offer.svg" }, { "key": "offerFormText", "type": "text", "class": "" }, { "key": "offerFormAction", "type": "action" }, { "key": "offerFormText2", "type": "text", "class": "" }, { "key": "offerFormText3", "type": "text", "class": "underlined" }, { "key": "offerFormText4", "type": "text", "class": "" }, { "key": "Offerdocument1", "type": "document" }, { "key": "Offerdocument2", "type": "document" }, { "key": "Offerdocument3", "type": "document" }, { "key": "downloadAll", "type": "formButton" }, { "key": "offerFormText5", "type": "text", "class": "title" }, { "key": "offerFormCheckbox1", "type": "checkbox", "mandatory": true }, { "key": "offerFormCheckbox2", "type": "checkbox", "mandatory": true }, { "key": "acceptOffer", "type": "button" } ] }</bpmn:documentation>
+      <bpmn:incoming>Flow_0sa2si5</bpmn:incoming>
+      <bpmn:outgoing>Flow_1f7o2sl</bpmn:outgoing>
+    </bpmn:userTask>
+    <bpmn:sequenceFlow id="Flow_1f7o2sl" sourceRef="OfferForm" targetRef="Event_0ye2nuy" />
     <bpmn:group id="Group_0x3j805" />
   </bpmn:process>
   <bpmndi:BPMNDiagram id="BPMNDiagram_1">
@@ -100,10 +144,7 @@
           <dc:Bounds x="168" y="172" width="25" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
-        <dc:Bounds x="1862" y="129" width="36" height="36" />
-      </bpmndi:BPMNShape>
-      <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="Activity_137r9lh">
+      <bpmndi:BPMNShape id="Activity_1deaa5b_di" bpmnElement="CodeBookService">
         <dc:Bounds x="680" y="107" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
@@ -128,7 +169,7 @@
       <bpmndi:BPMNShape id="Event_1drs32d_di" bpmnElement="Event_1drs32d">
         <dc:Bounds x="282" y="129" width="36" height="36" />
         <bpmndi:BPMNLabel>
-          <dc:Bounds x="273" y="172" width="59" height="14" />
+          <dc:Bounds x="270" y="105" width="59" height="14" />
         </bpmndi:BPMNLabel>
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="Gateway_1eugi2m_di" bpmnElement="Gateway_1eugi2m" isMarkerVisible="true">
@@ -147,13 +188,46 @@
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0boazr6" bpmnElement="ConditionalOfferForm">
-        <dc:Bounds x="1560" y="107" width="100" height="80" />
+        <dc:Bounds x="1660" y="107" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
       <bpmndi:BPMNShape id="BPMNShape_0lbk41w" bpmnElement="VideoIdentificationForm">
-        <dc:Bounds x="1710" y="107" width="100" height="80" />
+        <dc:Bounds x="1970" y="107" width="100" height="80" />
         <bpmndi:BPMNLabel />
       </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0aj9r8e" bpmnElement="RejectForm">
+        <dc:Bounds x="1540" y="250" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0sose68" bpmnElement="Gateway_14v8w3n" isMarkerVisible="true">
+        <dc:Bounds x="1565" y="122" width="50" height="50" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0v0yzoc" bpmnElement="Event_0o55zrt">
+        <dc:Bounds x="1712" y="272" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_0t9addh" bpmnElement="DataMatchForm">
+        <dc:Bounds x="1820" y="107" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_17blqjg" bpmnElement="InfoForm">
+        <dc:Bounds x="2110" y="107" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_059tqtw" bpmnElement="OfferService">
+        <dc:Bounds x="2270" y="107" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="Event_0ye2nuy_di" bpmnElement="Event_0ye2nuy">
+        <dc:Bounds x="2552" y="129" width="36" height="36" />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNShape id="BPMNShape_1izvasw" bpmnElement="OfferForm">
+        <dc:Bounds x="2420" y="107" width="100" height="80" />
+        <bpmndi:BPMNLabel />
+      </bpmndi:BPMNShape>
+      <bpmndi:BPMNEdge id="Flow_1f7o2sl_di" bpmnElement="Flow_1f7o2sl">
+        <di:waypoint x="2520" y="147" />
+        <di:waypoint x="2552" y="147" />
+      </bpmndi:BPMNEdge>
       <bpmndi:BPMNShape id="Group_0x3j805_di" bpmnElement="Group_0x3j805">
         <dc:Bounds x="660" y="80" width="280" height="130" />
       </bpmndi:BPMNShape>
@@ -203,17 +277,41 @@
         <di:waypoint x="1360" y="147" />
         <di:waypoint x="1410" y="147" />
       </bpmndi:BPMNEdge>
-      <bpmndi:BPMNEdge id="Flow_07i8h9f_di" bpmnElement="Flow_07i8h9f">
-        <di:waypoint x="1510" y="147" />
-        <di:waypoint x="1560" y="147" />
-      </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_1mejzav_di" bpmnElement="Flow_1mejzav">
-        <di:waypoint x="1660" y="147" />
-        <di:waypoint x="1710" y="147" />
+        <di:waypoint x="1760" y="147" />
+        <di:waypoint x="1820" y="147" />
       </bpmndi:BPMNEdge>
       <bpmndi:BPMNEdge id="Flow_0xrun8c_di" bpmnElement="Flow_0xrun8c">
-        <di:waypoint x="1810" y="147" />
-        <di:waypoint x="1862" y="147" />
+        <di:waypoint x="2070" y="147" />
+        <di:waypoint x="2110" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00eclvo_di" bpmnElement="Flow_00eclvo">
+        <di:waypoint x="1640" y="290" />
+        <di:waypoint x="1712" y="290" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_1kbob1y_di" bpmnElement="Flow_1kbob1y">
+        <di:waypoint x="1920" y="147" />
+        <di:waypoint x="1970" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_06vqbcy_di" bpmnElement="Flow_06vqbcy">
+        <di:waypoint x="2210" y="147" />
+        <di:waypoint x="2270" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_00baldg_di" bpmnElement="Flow_00baldg">
+        <di:waypoint x="1615" y="147" />
+        <di:waypoint x="1660" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0uda7el_di" bpmnElement="Flow_0uda7el">
+        <di:waypoint x="1510" y="147" />
+        <di:waypoint x="1565" y="147" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0wjnl2z_di" bpmnElement="Flow_0wjnl2z">
+        <di:waypoint x="1590" y="172" />
+        <di:waypoint x="1590" y="250" />
+      </bpmndi:BPMNEdge>
+      <bpmndi:BPMNEdge id="Flow_0sa2si5_di" bpmnElement="Flow_0sa2si5">
+        <di:waypoint x="2370" y="147" />
+        <di:waypoint x="2420" y="147" />
       </bpmndi:BPMNEdge>
     </bpmndi:BPMNPlane>
   </bpmndi:BPMNDiagram>

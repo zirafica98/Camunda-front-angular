@@ -1,34 +1,43 @@
-.wrapper{
+.wrapper {
 
-    display: flex;
-    align-items: center;
-    margin: 40px 0;
-    gap: 46px;
-    >span{
-        color:#656772;
-        cursor: pointer;
-        user-select: none;
-        >span{
-          margin-left: 10px;
-          color:#D7424B;
-        }
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 40px 0;
+  gap: 0;
+  width: 100%;
 
-        >a{
-          color:#00758F;
-          text-decoration: underline;
-          cursor: pointer;
-        }
-        
-        >a:visited{
-          color:#00758F;
-        }
+  >span {
+    display: block;
+    flex-grow: 1;
+    color: #656772;
+    cursor: pointer;
+    user-select: none;
+    margin-left: 46px;
 
-        >a:hover{
-          color:#00333f;
-        }
-
+    >a {
+      color: #00758F;
+      text-decoration: underline;
+      cursor: pointer;
     }
-.custom-checkbox {
+
+    >a:visited {
+      color: #00758F;
+    }
+
+    >a:hover {
+      color: #00333f;
+    }
+
+  }
+
+  .star {
+    display: block;
+    margin-left: 16px;
+    color: #D7424B;
+  }
+
+  .custom-checkbox {
     display: block;
     position: relative;
     cursor: pointer;
@@ -37,14 +46,14 @@
     height: 24px;
     width: 0;
   }
-  
+
   /* Checkbox stil */
   .custom-checkbox input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
   }
-  
+
   /* Custom stilizacija za kvadrat */
   .checkmark {
     position: absolute;
@@ -56,25 +65,25 @@
     border: solid 3px #f3f3f4;
     border-radius: 6px;
   }
-  
+
   /* Boja kada je čekirano */
-  .custom-checkbox input:checked ~ .checkmark {
+  .custom-checkbox input:checked~.checkmark {
     background-color: #008FA8;
     border: solid 3px #4b7d94;
   }
-  
+
   /* Stilizacija kada je čekirano */
   .checkmark:after {
     content: "";
     position: absolute;
     display: none;
   }
-  
+
   /* Prikaz checkmark simbola */
-  .custom-checkbox input:checked ~ .checkmark:after {
+  .custom-checkbox input:checked~.checkmark:after {
     display: block;
   }
-  
+
   /* Stilizacija checkmark simbola */
   .custom-checkbox .checkmark:after {
     left: 8px;
@@ -85,6 +94,5 @@
     border-width: 0 3px 3px 0;
     transform: rotate(45deg);
   }
-  
-}
 
+}

@@ -1,11 +1,11 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { selectResources } from '../../resources';
-import { AbstractControl, FormControl, FormGroup, ValidationErrors, ValidatorFn, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-custom-select',
   templateUrl: './custom-select.component.html',
-  styleUrl: '../style/component-style.css',
+  styleUrl: '../style/component-style.css'
 })
 export class CustomSelectComponent implements OnInit{
 

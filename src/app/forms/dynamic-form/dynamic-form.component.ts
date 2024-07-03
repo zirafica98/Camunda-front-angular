@@ -1,4 +1,4 @@
-import { ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
+import { AfterViewInit, ChangeDetectorRef, Component, ComponentFactoryResolver, ComponentRef, OnInit, Renderer2, ViewChild, ViewContainerRef } from '@angular/core';
 import { CamundaService } from '../../services/camundaConnect';
 import { GlobalService } from '../../global.service';
 import { ActivatedRoute, Router } from '@angular/router';
@@ -12,9 +12,10 @@ import { CustomSelectComponent } from '../../ui-components/custom-select/custom-
 import { PrefilledInputComponent } from '../../ui-components/prefilled-input/prefilled-input.component';
 import { DocumentComponent } from '../../ui-components/document/document.component';
 import { TextComponent } from '../../ui-components/text/text.component';
-import { ButtonComponent } from '../../ui-components/button/button.component';
+import { FormButtonComponent } from '../../ui-components/form-button/form-button.component';
+import { RadioInputComponent } from '../../ui-components/radio-input/radio-input.component';
 
-interface ComponentData {
+export interface ComponentData {
   type: string;
   key: string;
   link: string;
@@ -29,8 +30,9 @@ interface ComponentData {
   class:string;
 }
 
-interface MyJSON {
+export interface MyJSON {
   components: ComponentData[];
+  customClass:string;
 }
 
 @Component({
@@ -38,21 +40,22 @@ interface MyJSON {
   templateUrl: './dynamic-form.component.html',
   styleUrl: '../style/forms-style.css'
 })
-export class DynamicFormComponent {
+export class DynamicFormComponent implements OnInit, AfterViewInit{
 
   @ViewChild('inputContainer', { read: ViewContainerRef }) container!: ViewContainerRef;
   customInputComponentRefs: ComponentRef<CustomInputComponent>[] = [];
   customSelectComponentRefs: ComponentRef<CustomSelectComponent>[] = [];
+  customRadioComponentRefs: ComponentRef<RadioInputComponent>[] = [];
   customListBoxComponentRefs: ComponentRef<CustomListBoxComponent>[] = [];
   customCheckboxComponentRefs: ComponentRef<CheckboxInputComponent>[] = [];
   customPrefilledInputComponentRefs: ComponentRef<PrefilledInputComponent>[] = [];
   customActionComponentRefs: ComponentRef<ActionComponent>[] = [];
   customTextComponentRefs: ComponentRef<TextComponent>[] = [];
   customDocumentComponentRefs: ComponentRef<DocumentComponent>[] = [];
-  customFormButtonComponentRefs: ComponentRef<ButtonComponent>[] = [];
+  customFormButtonComponentRefs: ComponentRef<FormButtonComponent>[] = [];
 
   id: string = "";
-  myJSON: MyJSON = { components: [] };
+  myJSON: MyJSON = { components: [], customClass:""};
   text: string = "";
   title: string = "";
   formIsValid: boolean[] = [];
@@ -65,8 +68,10 @@ export class DynamicFormComponent {
   numMini: number = 0;
   buttonKey: string = "";
   buttonKeyBack: string = "";
+  customClass:string="";
 
   buttonResources = buttonResources;
+  textResources = textResources;
 
   constructor(private renderer: Renderer2, private cdr: ChangeDetectorRef, private resolver: ComponentFactoryResolver, private camundaService: CamundaService, private globalService: GlobalService, private router: Router, private route: ActivatedRoute, private frameComponet: FrameComponent) { }
 
@@ -93,6 +98,10 @@ export class DynamicFormComponent {
   loadCustomInputs() {
     let inputIndex = 0;
     let checkboxIndex = 0;
+
+    if(this.myJSON.customClass!=null&&this.myJSON.customClass!=undefined&&this.myJSON.customClass!="")
+      this.customClass=this.myJSON.customClass;
+
     for (let [index, component] of this.myJSON.components.entries()) {
 
       switch (component.type) {
@@ -104,6 +113,7 @@ export class DynamicFormComponent {
         case 'miniInput': this.loadInput(component, inputIndex); inputIndex++; break;
         case 'checkbox': this.loadCheckBox(component, checkboxIndex); checkboxIndex++; break;
         case 'select': this.loadSelect(component, inputIndex); inputIndex++; break;
+        case 'radio': this.loadRadio(component); break;
         case 'listBox': this.loadListBox(component, inputIndex); inputIndex++; break;
         case 'image': this.loadImage(component.name); break;
         case 'text': this.loadText(component.key,component.class); break;
@@ -129,7 +139,7 @@ export class DynamicFormComponent {
         .subscribe(
           response => {
             this.router.navigate(['/frame']).then(() => {
-              this.frameComponet.toggleComponent();
+              //this.frameComponet.toggleComponent();
             });
           }
         )
@@ -212,8 +222,16 @@ export class DynamicFormComponent {
     const factory = this.resolver.resolveComponentFactory(PrefilledInputComponent);
     const componentRef = this.container.createComponent(factory);
 
-    //dohvati pravi parametar
-    let val = ["Petar", "Petrovic", "0905000710310", "41234567"];
+    //begin mock -- dohvatiti pravi parametar
+
+    let val;
+    if(this.id=="DataMatchForm")
+      val = ["1339437177", "21.03.2025.", "Ruzveltova 1", "Beograd - Zvezdara"];
+    else
+      val = ["Petar", "Petrovic", "0905000710310", "41234567"];
+
+    //end mock
+
     componentRef.instance.key = component.key;
     componentRef.instance.value = val[this.tempVal];
     this.myPrefilledInputComponents.push(component);
@@ -259,6 +277,14 @@ export class DynamicFormComponent {
     this.myInputComponents.push(component);
   }
 
+  loadRadio(component: ComponentData) {
+    const factory = this.resolver.resolveComponentFactory(RadioInputComponent);
+    const componentRef = this.container.createComponent(factory);
+    componentRef.instance.key = component.key;
+    this.customRadioComponentRefs.push(componentRef);
+    this.myInputComponents.push(component);
+  }
+
   loadImage(src: string) {
     const img = this.renderer.createElement('img');
     this.renderer.setAttribute(img, 'src', 'assets/images/' + src);
@@ -288,7 +314,7 @@ export class DynamicFormComponent {
   }
 
   loadFormButton(key: string) {
-    const factory = this.resolver.resolveComponentFactory(ButtonComponent);
+    const factory = this.resolver.resolveComponentFactory(FormButtonComponent);
     const componentRef = this.container.createComponent(factory);
     componentRef.instance.text = buttonResources[key].text;
     this.customFormButtonComponentRefs.push(componentRef);

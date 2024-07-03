@@ -1,4 +1,4 @@
-<div class="container">
+<div [class.container]="customClass!='reject'" [class.reject]="customClass=='reject'">
     <div class="top">
         <div class="title">
             {{title}}
@@ -12,12 +12,21 @@
         <div class="custom-input" #inputContainer></div>
         <div class="errorContainer" *ngIf="!areMandatorySelected">
             <svg width="12" height="12" viewBox="0 0 12 12" fill="#D7424B" xmlns="http://www.w3.org/2000/svg">
-                <path fill-rule="evenodd" clip-rule="evenodd" d="M5.99935 11.8334C2.77769 11.8334 0.166016 9.22168 0.166016 6.00002C0.166016 2.77836 2.77769 0.166687 5.99935 0.166687C9.22101 0.166687 11.8327 2.77836 11.8327 6.00002C11.8327 9.22168 9.22101 11.8334 5.99935 11.8334ZM5.41602 3.08335V6.58335H6.58268V3.08335H5.41602ZM5.99935 8.91669C5.59664 8.91669 5.27018 8.59023 5.27018 8.18752C5.27018 7.78481 5.59664 7.45835 5.99935 7.45835C6.40206 7.45835 6.72852 7.78481 6.72852 8.18752C6.72852 8.59023 6.40206 8.91669 5.99935 8.91669Z" fill="#D7424B"/>
+                <path fill-rule="evenodd" clip-rule="evenodd"
+                    d="M5.99935 11.8334C2.77769 11.8334 0.166016 9.22168 0.166016 6.00002C0.166016 2.77836 2.77769 0.166687 5.99935 0.166687C9.22101 0.166687 11.8327 2.77836 11.8327 6.00002C11.8327 9.22168 9.22101 11.8334 5.99935 11.8334ZM5.41602 3.08335V6.58335H6.58268V3.08335H5.41602ZM5.99935 8.91669C5.59664 8.91669 5.27018 8.59023 5.27018 8.18752C5.27018 7.78481 5.59664 7.45835 5.99935 7.45835C6.40206 7.45835 6.72852 7.78481 6.72852 8.18752C6.72852 8.59023 6.40206 8.91669 5.99935 8.91669Z"
+                    fill="#D7424B" />
             </svg>
-            Molimo Vas da označite obavezna polja</div>
+            {{textResources["requiredFieldsError"].text}}
+        </div>
     </div>
-    <div class="bottom">
+    <div class="bottom" *ngIf="buttonKey!=''">
         <button class="next" (click)="submitForm()" *ngIf="buttonKey!=''">{{buttonResources[buttonKey].text}}</button>
-        <button class="back" onclick="alert('Nema back opcije jos')" *ngIf="buttonKeyBack!=''">{{buttonResources[buttonKeyBack].text}}</button>
+        <button class="back" onclick="alert('Nema back opcije jos')"
+            *ngIf="buttonKeyBack!=''">{{buttonResources[buttonKeyBack].text}}</button>
     </div>
+
+</div>
+
+<div *ngIf="customClass=='reject'">
+    <app-map></app-map>
 </div>

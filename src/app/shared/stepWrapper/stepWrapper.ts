@@ -1,4 +1,4 @@
-import { Component} from '@angular/core';
+import { ChangeDetectorRef, Component} from '@angular/core';
 import stepsData from './steps.json';
 import { GlobalService } from '../../global.service';
 
@@ -11,12 +11,13 @@ export class StepsWrapComponent{
     steps: any[] = [];
     subtitle:string="";
 
-    constructor(private globalService:GlobalService) { }
+    constructor(private globalService:GlobalService, private cdr: ChangeDetectorRef) { }
   
     ngOnInit(): void {
       this.steps = stepsData;
       this.globalService.subtitle$.subscribe(value=>{
         this.subtitle=value;
+        this.cdr.detectChanges();
       });
     }
   }

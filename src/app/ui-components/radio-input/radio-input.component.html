@@ -1,1 +1,21 @@
-<p>radio-input works!</p>
+<div class="container">
+    <div class="components">
+        <form [formGroup]="form">
+            <label *ngFor="let o of options;let i = index" [class.selectedRadio]="value==i">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="value==i">
+                    <rect x="0.5" y="0.500061" width="15" height="15" rx="7.5" stroke="#008FA8"/>
+                    <rect x="0.5" y="0.500061" width="15" height="15" rx="7.5" stroke="#008FA8"/>
+                    <rect x="4" y="4.00006" width="8" height="8" rx="4" fill="#008FA8"/>
+                </svg>   
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" *ngIf="value!=i">
+                    <rect y="6.10352e-05" width="16" height="16" rx="8" fill="white"/>
+                    <rect x="0.5" y="0.500061" width="15" height="15" rx="7.5" stroke="#8F9199" stroke-opacity="0.24"/>
+                    <rect y="6.10352e-05" width="16" height="16" rx="8" fill="white"/>
+                    <rect x="0.5" y="0.500061" width="15" height="15" rx="7.5" stroke="#8F9199" stroke-opacity="0.24"/>
+                </svg>                                     
+                <input type="radio" formControlName="input" ngDefaultControl [value]="i" (change)="onRadioChange($event)">
+                <span class="radio-label">{{radioResources[key].options[i]}}</span>
+            </label>
+        </form>
+    </div>
+</div>
