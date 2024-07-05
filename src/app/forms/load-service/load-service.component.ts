@@ -40,8 +40,10 @@ export class LoadServiceComponent {
       switch (this.id) {
         case 'CodeBookService':
           setTimeout(() => {
-            this.getCodeBook();
-          }, 0); //staviti na 100000 za uredjivanje loadComponente
+            this.servis2();
+            //privremeno zakomentarisano dok ne napravimo u Javi metodu
+            //this.getCodeBook();
+          }, 2000); //staviti na 100000 za uredjivanje loadComponente
           break;
         case 'PreConditionalService':
           setTimeout(() => {

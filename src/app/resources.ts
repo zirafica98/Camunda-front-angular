@@ -380,6 +380,10 @@ export const formResources:formResources={
         title:"Adresa stanovanja",
         text:"Molimo, unesite podatke o adresi stanovanja. Nakon unosa prvih nekoliko karaktera, odaberite svoju opštinu, mesto i ulicu iz liste.",
     },
+    AddressIDForm:{
+        title:"Adresa u ličnoj karti",
+        text:"Na prethodnom koraku označili ste da se adresa u ličnoj karti razlikuje od adrese stanovanja. Molimo unesite adresu kako je navedena u Vašoj ličnoj karti.",
+    },
     PhoneVerificationForm:{
         title:"Verifikacija broja telefona",
         text:"",
